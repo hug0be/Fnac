@@ -174,9 +174,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        // Package reliese //
-        Reliese\Coders\CodersServiceProvider::class
     ],
 
     /*
