@@ -32,6 +32,7 @@ class Commande extends Model
 {
 	protected $table = 't_e_commande_com';
 	public $timestamps = false;
+	protected $primaryKey = 'com_id';
 
 	protected $casts = [
 		'cli_id' => 'int',
@@ -52,35 +53,27 @@ class Commande extends Model
 		'com_date'
 	];
 
-	public function t_e_client_cli()
+	public function client()
 	{
-		return $this->belongsTo(Client::class, 'cli_id')
-					->where('t_e_client_cli.cli_id', '=', 't_e_commande_com.cli_id')
-					->where('t_e_client_cli.cli_id', '=', 't_e_commande_com.cli_id');
+		return $this->belongsTo(Client::class, 'cli_id');
 	}
 
-	public function t_e_relais_rel()
+	public function relais()
 	{
-		return $this->belongsTo(Relais::class, 'rel_id')
-					->where('t_e_relais_rel.rel_id', '=', 't_e_commande_com.rel_id')
-					->where('t_e_relais_rel.rel_id', '=', 't_e_commande_com.rel_id');
+		return $this->belongsTo(Relais::class, 'rel_id');
 	}
 
-	public function t_e_adresse_adr()
+	public function adresse()
 	{
-		return $this->belongsTo(Adresse::class, 'adr_id')
-					->where('t_e_adresse_adr.adr_id', '=', 't_e_commande_com.adr_id')
-					->where('t_e_adresse_adr.adr_id', '=', 't_e_commande_com.adr_id');
+		return $this->belongsTo(Adresse::class, 'adr_id');
 	}
 
-	public function t_r_magasin_mag()
+	public function magasin()
 	{
-		return $this->belongsTo(Magasin::class, 'mag_id')
-					->where('t_r_magasin_mag.mag_id', '=', 't_e_commande_com.mag_id')
-					->where('t_r_magasin_mag.mag_id', '=', 't_e_commande_com.mag_id');
+		return $this->belongsTo(Magasin::class, 'mag_id');
 	}
 
-	public function t_j_lignecommande_lecs()
+	public function lignecommande()
 	{
 		return $this->hasMany(LigneCommande::class, 'com_id');
 	}

@@ -33,6 +33,7 @@ use Illuminate\Database\Eloquent\Model;
 class Adresse extends Model
 {
 	protected $table = 't_e_adresse_adr';
+	protected $primaryKey = 'adr_id';
 	public $timestamps = false;
 
 	protected $casts = [
@@ -61,21 +62,18 @@ class Adresse extends Model
 		'adr_longitude'
 	];
 
-	public function t_e_client_cli()
+	public function client()
 	{
-		return $this->belongsTo(Client::class, 'cli_id')
-					->where('t_e_client_cli.cli_id', '=', 't_e_adresse_adr.cli_id')
-					->where('t_e_client_cli.cli_id', '=', 't_e_adresse_adr.cli_id');
+		return $this->belongsTo(Client::class, 'cli_id');
+		
 	}
 
-	public function t_r_pays_pay()
+	public function pays()
 	{
-		return $this->belongsTo(Pays::class, 'pay_id')
-					->where('t_r_pays_pay.pay_id', '=', 't_e_adresse_adr.pay_id')
-					->where('t_r_pays_pay.pay_id', '=', 't_e_adresse_adr.pay_id');
+		return $this->belongsTo(Pays::class, 'pay_id');
 	}
 
-	public function t_e_commande_coms()
+	public function commande()
 	{
 		return $this->hasMany(Commande::class, 'adr_id');
 	}

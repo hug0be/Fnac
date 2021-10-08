@@ -23,6 +23,7 @@ class Editeur extends Model
 {
 	protected $table = 't_r_editeur_edi';
 	public $timestamps = false;
+	protected $primaryKey = 'edi_id';
 
 	protected $casts = [
 		'edi_nom' => 'character varying'
@@ -32,7 +33,7 @@ class Editeur extends Model
 		'edi_nom'
 	];
 
-	public function t_e_jeuvideo_jeus()
+	public function jeuvideo()
 	{
 		return $this->hasMany(JeuVideo::class, 'edi_id');
 	}

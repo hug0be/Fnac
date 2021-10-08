@@ -23,6 +23,7 @@ class Genre extends Model
 {
 	protected $table = 't_r_genre_gen';
 	public $timestamps = false;
+	protected $primaryKey = 'gen_id';
 
 
 	// public function t_j_genrejeu_gejs()

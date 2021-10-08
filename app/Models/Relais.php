@@ -31,6 +31,7 @@ class Relais extends Model
 {
 	protected $table = 't_e_relais_rel';
 	public $timestamps = false;
+	protected $primaryKey = 'rel_id';
 
 	protected $casts = [
 		'rel_nom' => 'character varying',
@@ -52,20 +53,27 @@ class Relais extends Model
 		'rel_longitude'
 	];
 
-	public function t_r_pays_pay()
+	public function pays()
 	{
-		return $this->belongsTo(Pays::class, 'pay_id')
-					->where('t_r_pays_pay.pay_id', '=', 't_e_relais_rel.pay_id')
-					->where('t_r_pays_pay.pay_id', '=', 't_e_relais_rel.pay_id');
+		return $this->belongsTo(Pays::class, 'pay_id');
 	}
 
-	public function t_e_commande_coms()
+	public function commande()
 	{
 		return $this->hasMany(Commande::class, 'rel_id');
 	}
 
-	public function t_j_relaisclient_recs()
+	public function relaisclient()
 	{
 		return $this->hasMany(RelaisClient::class, 'rel_id');
+	}
+
+	public function relaisClientTAB()
+	{
+		return $this->belongsToMany(
+			Genre::class,
+			't_j_relaisclient_rec',
+			'rel_id',
+			'cli_id');
 	}
 }

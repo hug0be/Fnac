@@ -25,6 +25,7 @@ class LigneCommande extends Model
 	protected $table = 't_j_lignecommande_lec';
 	public $incrementing = false;
 	public $timestamps = false;
+	protected $primaryKey = 'com_id';
 
 	protected $casts = [
 		'com_id' => 'int',
@@ -36,17 +37,13 @@ class LigneCommande extends Model
 		'lec_quantite'
 	];
 
-	public function t_e_commande_com()
+	public function commande()
 	{
-		return $this->belongsTo(Commande::class, 'com_id')
-					->where('t_e_commande_com.com_id', '=', 't_j_lignecommande_lec.com_id')
-					->where('t_e_commande_com.com_id', '=', 't_j_lignecommande_lec.com_id');
+		return $this->belongsTo(Commande::class, 'com_id');
 	}
 
-	public function t_e_jeuvideo_jeu()
+	public function jeuvideo()
 	{
-		return $this->belongsTo(JeuVideo::class, 'jeu_id')
-					->where('t_e_jeuvideo_jeu.jeu_id', '=', 't_j_lignecommande_lec.jeu_id')
-					->where('t_e_jeuvideo_jeu.jeu_id', '=', 't_j_lignecommande_lec.jeu_id');
+		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}
 }

@@ -23,6 +23,7 @@ class Console extends Model
 {
 	protected $table = 't_r_console_con';
 	public $timestamps = false;
+	protected $primaryKey = 'con_id';
 
 	protected $casts = [
 		'con_nom' => 'character varying'
@@ -32,7 +33,7 @@ class Console extends Model
 		'con_nom'
 	];
 
-	public function t_e_jeuvideo_jeus()
+	public function jeuvideo()
 	{
 		return $this->hasMany(JeuVideo::class, 'con_id');
 	}

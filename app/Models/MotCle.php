@@ -23,6 +23,7 @@ class MotCle extends Model
 {
 	protected $table = 't_e_motcle_mot';
 	public $timestamps = false;
+	protected $primaryKey = 'mot_id';
 
 	protected $casts = [
 		'jeu_id' => 'int',
@@ -34,10 +35,8 @@ class MotCle extends Model
 		'mot_mot'
 	];
 
-	public function t_e_jeuvideo_jeu()
+	public function jeuvideo()
 	{
-		return $this->belongsTo(JeuVideo::class, 'jeu_id')
-					->where('t_e_jeuvideo_jeu.jeu_id', '=', 't_e_motcle_mot.jeu_id')
-					->where('t_e_jeuvideo_jeu.jeu_id', '=', 't_e_motcle_mot.jeu_id');
+		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}
 }

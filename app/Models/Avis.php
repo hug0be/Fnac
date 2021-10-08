@@ -33,6 +33,7 @@ class Avis extends Model
 {
 	protected $table = 't_e_avis_avi';
 	public $timestamps = false;
+	protected $primaryKey = 'avi_id';
 
 	protected $casts = [
 		'cli_id' => 'int',
@@ -59,22 +60,27 @@ class Avis extends Model
 		'avi_nbutilenon'
 	];
 
-	public function t_e_client_cli()
+	public function client()
 	{
-		return $this->belongsTo(Client::class, 'cli_id')
-					->where('t_e_client_cli.cli_id', '=', 't_e_avis_avi.cli_id')
-					->where('t_e_client_cli.cli_id', '=', 't_e_avis_avi.cli_id');
+		return $this->belongsTo(Client::class, 'cli_id');
 	}
 
-	public function t_e_jeuvideo_jeu()
+	public function jeuvideo()
 	{
-		return $this->belongsTo(JeuVideo::class, 'jeu_id')
-					->where('t_e_jeuvideo_jeu.jeu_id', '=', 't_e_avis_avi.jeu_id')
-					->where('t_e_jeuvideo_jeu.jeu_id', '=', 't_e_avis_avi.jeu_id');
+		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}
 
-	public function t_j_avisabusif_avas()
+	public function avisabusif()
 	{
 		return $this->hasMany(AvisAbusif::class, 'avi_id');
+	}
+
+	public function abusifTAB()
+	{
+		return $this->belongsToMany(
+			Genre::class,
+			't_j_avisabusif_ava',
+			'avi_id',
+			'cli_id');
 	}
 }

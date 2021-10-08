@@ -24,6 +24,7 @@ class Pays extends Model
 {
 	protected $table = 't_r_pays_pay';
 	public $timestamps = false;
+	protected $primaryKey = 'pay_id';
 
 	protected $casts = [
 		'pay_nom' => 'character varying'
@@ -33,12 +34,12 @@ class Pays extends Model
 		'pay_nom'
 	];
 
-	public function t_e_relais_rels()
+	public function relais()
 	{
 		return $this->hasMany(Relais::class, 'pay_id');
 	}
 
-	public function t_e_adresse_adrs()
+	public function adresse()
 	{
 		return $this->hasMany(Adresse::class, 'pay_id');
 	}

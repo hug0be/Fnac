@@ -23,6 +23,7 @@ class Video extends Model
 {
 	protected $table = 't_e_video_vid';
 	public $timestamps = false;
+	protected $primaryKey = 'vid_id';
 
 	protected $casts = [
 		'jeu_id' => 'int',
@@ -34,10 +35,8 @@ class Video extends Model
 		'vid_url'
 	];
 
-	public function t_e_jeuvideo_jeu()
+	public function jeuvideo()
 	{
-		return $this->belongsTo(JeuVideo::class, 'jeu_id')
-					->where('t_e_jeuvideo_jeu.jeu_id', '=', 't_e_video_vid.jeu_id')
-					->where('t_e_jeuvideo_jeu.jeu_id', '=', 't_e_video_vid.jeu_id');
+		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}
 }

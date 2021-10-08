@@ -25,6 +25,7 @@ class Magasin extends Model
 {
 	protected $table = 't_r_magasin_mag';
 	public $timestamps = false;
+	protected $primaryKey = 'mag_id';
 
 	protected $casts = [
 		'mag_nom' => 'character varying',
@@ -36,12 +37,12 @@ class Magasin extends Model
 		'mag_ville'
 	];
 
-	public function t_e_commande_coms()
+	public function commande()
 	{
 		return $this->hasMany(Commande::class, 'mag_id');
 	}
 
-	public function t_e_client_clis()
+	public function client()
 	{
 		return $this->hasMany(Client::class, 'mag_id');
 	}

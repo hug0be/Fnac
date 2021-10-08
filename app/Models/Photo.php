@@ -23,6 +23,7 @@ class Photo extends Model
 {
 	protected $table = 't_e_photo_pho';
 	public $timestamps = false;
+	protected $primaryKey = 'pho_id';
 
 	protected $casts = [
 		'jeu_id' => 'int',
@@ -34,10 +35,8 @@ class Photo extends Model
 		'pho_url'
 	];
 
-	public function t_e_jeuvideo_jeu()
+	public function jeuvideo()
 	{
-		return $this->belongsTo(JeuVideo::class, 'jeu_id')
-					->where('t_e_jeuvideo_jeu.jeu_id', '=', 't_e_photo_pho.jeu_id')
-					->where('t_e_jeuvideo_jeu.jeu_id', '=', 't_e_photo_pho.jeu_id');
+		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}
 }
