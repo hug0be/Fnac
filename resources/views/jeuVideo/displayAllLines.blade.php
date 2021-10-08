@@ -3,11 +3,16 @@
 @section('content')
 <h1>🐣</h1>
 
-@foreach ($videoGames as $videoGame)
-    {{$videoGame->jeu_nom}}
-    @foreach ($videoGame->rayons as $rayon)
-        <p>{{ $rayon->ray_nom }}</p>
+<div>
+    @foreach ($videoGames as $videoGame)
+    <div>
+    <p>{{$videoGame->jeu_nom}} </p>
+    @foreach ($videoGame->photo as $photo)
+        <img src="{{asset("Photos/".$photo->pho_url)}}" alt="">
     @endforeach
+    </div>
+       
+    @endforeach
+</div>
 
-@endforeach
 @endsection
