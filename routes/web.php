@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $jeu = App\Models\Jeuvideo::all();
-    return view('welcome', [
-        'jeux'=>$jeu
-    ]);
+    return view ("welcome", ['videoGames'=>App\Models\JeuVideo::all(), "genres"=> Genre::all() ]);
 });

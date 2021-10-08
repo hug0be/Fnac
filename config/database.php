@@ -65,7 +65,8 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '51.83.36.122'),
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'fnac'),
             'username' => env('DB_USERNAME', 'fnac2_1'),
