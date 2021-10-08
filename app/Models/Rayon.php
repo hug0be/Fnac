@@ -34,6 +34,20 @@ class Rayon extends Model
 			'jeu_id');
 	}
 
+	// public function __get($key)
+	// {
+		
+	// 	if(property_exists(get_class($this), $key))
+	// 	{
+	// 		return $this->$key;
+			
+	// 	}
+	// 	else {
+	// 		$key = "ray_".$key;
+	// 		return $this->$key;
+	// 	}
+	// }
+
 	// protected $casts = [
 	// 	'ray_nom' => 'character varying'
 	// ];
