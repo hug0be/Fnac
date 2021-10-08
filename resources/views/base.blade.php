@@ -16,14 +16,8 @@
         </style>
     </head>
     <body class="antialiased">
-    <h1>🐣</h1>
 
-    @foreach ($videoGames as $videoGame)
-        @foreach ($videoGame->rayons as $rayon)
-            <p>{{ $rayon->ray_nom }}</p>
-        @endforeach
-    
-    @endforeach
+    @yield('content')
 
     </body>
 </html>

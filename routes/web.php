@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view ("welcome", ['videoGames'=>App\Models\JeuVideo::all(), "genres"=> Genre::all() ]);
+    return view ("jeuVideo.displayAllLines", ['videoGames'=>App\Models\JeuVideo::all() ]);
 });

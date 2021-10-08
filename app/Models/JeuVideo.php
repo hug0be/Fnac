@@ -97,7 +97,7 @@ class JeuVideo extends Model
 	// 	return $this->hasMany(GenreJeu::class, 'jeu_id');
 		
 	// }
-	public function genre()
+	public function genres()
 	{
 		return $this->belongsToMany(
 			Genre::class,
