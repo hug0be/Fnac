@@ -64,7 +64,7 @@ class JeuVideo extends Model
 
 	public function avis()
 	{
-		return $this->hasMany(Avis::class, 'jeu_id');
+		return $this->hasMany(Avis::class, 'jeu_id')->orderBy('avi_date', 'desc');
 	}
 
 	public function motcle()

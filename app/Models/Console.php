@@ -25,9 +25,9 @@ class Console extends Model
 	public $timestamps = false;
 	protected $primaryKey = 'con_id';
 
-	protected $casts = [
-		'con_nom' => 'character varying'
-	];
+	// protected $casts = [
+	// 	'con_nom' => 'character varying'
+	// ];
 
 	protected $fillable = [
 		'con_nom'

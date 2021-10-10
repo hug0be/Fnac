@@ -25,9 +25,9 @@ class Editeur extends Model
 	public $timestamps = false;
 	protected $primaryKey = 'edi_id';
 
-	protected $casts = [
-		'edi_nom' => 'character varying'
-	];
+	// protected $casts = [
+	// 	'edi_nom' => 'character varying'
+	// ];
 
 	protected $fillable = [
 		'edi_nom'

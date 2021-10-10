@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\jeuVideoController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view ("jeuVideo.displayAllLines", ['videoGames'=>App\Models\JeuVideo::all() ]);
-});
+Route::get('/', [jeuVideoController::class, 'home'])->name('home');
+
+Route::get('/rayon{idRayon}', [jeuVideoController::class, 'searchByRayon'])->name('searchByRayon');
+
+Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole'])->name('searchByConsole');
+
+Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
+

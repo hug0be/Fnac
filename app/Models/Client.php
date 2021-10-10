@@ -41,14 +41,14 @@ class Client extends Model
 	protected $primaryKey = 'cli_id';
 
 	protected $casts = [
-		'cli_mel' => 'character varying',
-		'cli_motpasse' => 'character varying',
-		'cli_pseudo' => 'character varying',
-		'cli_civilite' => 'character varying',
-		'cli_nom' => 'character varying',
-		'cli_prenom' => 'character varying',
-		'cli_telfixe' => 'character varying',
-		'cli_telportable' => 'character varying',
+		'cli_mel' => 'string',
+		'cli_motpasse' => 'string',
+		'cli_pseudo' => 'string',
+		'cli_civilite' => 'string',
+		'cli_nom' => 'string',
+		'cli_prenom' => 'string',
+		'cli_telfixe' => 'string',
+		'cli_telportable' => 'string',
 		'mag_id' => 'int'
 	];
 

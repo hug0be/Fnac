@@ -1,0 +1,170 @@
+
+    /* --------------------------------------------------------- MENU NAV SIDEBAR ---------------------------------------------------------*/
+
+    .menu_nav_sidebar {
+
+        width: 20%;
+        transition: 0.6s;
+    
+        min-height: 100vh;
+    
+        border-right: 1px solid #bdc3c7;
+    
+        background-color: #ffffff;
+    }
+    
+    .menu_nav_sidebar_title {
+        width: 100%;
+        padding: 10px 0;
+        padding-left: 20px;
+    
+        font-size: 13px;
+    
+        background-color: #000000;
+    }
+    .menu_nav_sidebar_title a {
+        text-decoration: none;
+        color: #ffffff;
+    
+    }
+    
+    .link_menu_nav_sidebar {
+        display: block;
+    
+    
+    
+        width: 100%;
+    
+        padding: 13px 0;
+        padding-left: 35px;
+    
+        font-size: 15px;
+        text-decoration: none;
+        color: #000000;
+    
+        position: relative;
+    
+    
+        /* background-color: #ffffff; */
+    }
+    
+    .menu_nav_sidebar_container_link {
+        background-color: #ffffff;
+        position: relative;
+    
+        border-bottom: 1px solid #bdc3c7;
+    }
+    
+    .menu_nav_sidebar_container_link:hover:before  {
+       content: '';
+       width: 5px;
+       height: 100%;
+    
+       position: absolute;
+       top: 0;
+       left: 0;
+    
+       background-color: #000000;
+    }
+    
+    .menu_nav_sidebar_container_link:hover {
+        background-color: #edf1f3;
+    }
+    
+    .link_menu_nav_sidebar:last-child {
+        border-bottom: none;
+    }
+    
+    
+        /* --------------------------------------------------------- FIN MENU NAV SIDEBAR ---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 968px) {
+    .menu_nav_sidebar_title {
+        padding-left: 7px;
+
+    }
+    
+    .link_menu_nav_sidebar {
+        padding-left: 15px;
+
+    }
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    .menu_nav_sidebar {
+
+        height: calc(100vh - 61px);
+        width: 100vw;
+    
+        position: fixed;
+        top: 65px;
+        left: 0;
+    
+        
+        transition: 0.6s;
+    
+        transform: translateX(-105vw);
+    
+        background-color: #ffffff;
+    }
+
+
+    .menu_nav_sidebar_title {
+        padding-left: 20px;
+
+    }
+    
+    .link_menu_nav_sidebar {
+        padding-left: 35px;
+
+    }
+
+}
+
+
+
+
+
+@media screen and (min-width: 1800px) {
+    .menu_nav_sidebar {
+        max-width: 450px;
+    }
+
+}
+
+
+
+
+/* --------------------------------------------------------- ANIM ---------------------------------------------------------*/
+
+
+.visibility_visible {
+    visibility: visible;
+}
+
+
+.menu_nav_sidebar_active {
+    transform: translateX(0);
+}
+
+.overflow_hidden {
+    overflow: hidden;
+}
+/* --------------------------------------------------------- FIN ANIM ---------------------------------------------------------*/

@@ -1,0 +1,929 @@
+
+
+
+body {
+    background-color: #f2f2f2;
+
+    height: 200vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------- DETAIL GAME CONTAINER ---------------------------------------------------------*/
+
+.container_detail_game {
+    /* display: flex; */
+
+    font-family: 'Roboto';
+
+    /* background-color: #f5b027; */
+}
+
+
+
+    /* --------------------------------------------------------- CONTAINER TITLE INFO ---------------------------------------------------------*/
+
+.container_detail_game_content_title_info {
+
+    /* background-color: red; */
+}
+
+
+.container_first_second_section {
+    padding-top: 80px;
+    background-color: #ffffff;
+}
+
+
+.container_detail_game_content_title_h1 {
+    margin-bottom: 11px;
+   
+    font-size: 27px;
+    font-weight: 400;
+
+    color: #232323;
+}
+
+
+.detail_game_content_info_container {
+    display: flex;
+}
+
+.detail_game_content_info_container_txt {
+    font-size: 13px;
+    font-weight: 400;
+    color: #333333;
+}
+.detail_game_content_info_container_txt span {
+    margin-right: 9px;
+    margin-left: 7px;
+}
+
+
+
+    /* --------------------------------------------------------- FIN CONTAINER TITLE INFO ---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* --------------------------------------------------------- CONTAINER IMGS PRICE ---------------------------------------------------------*/
+
+.container_detail_game_content_imgs_price {
+    width: 100%;
+    min-height: 28vw;
+
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #bdc3c7;
+
+
+    /* background-color: salmon; */
+}
+
+
+        /* --------------------------------------------------------- CONTAINER IMGS ---------------------------------------------------------*/
+
+.container_detail_game_content_imgs {
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-right: 5vw;
+
+    /* background-color: seagreen; */
+}
+
+
+            /* --------------------------------------------------------- CONTAINER COLUMN IMGS ---------------------------------------------------------*/
+
+.container_column_small_imgs {
+
+    width: 8%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: tomato; */
+}
+
+.container_small_img {
+    width: 100%;
+
+    cursor: pointer;
+
+    margin-bottom: 10px;
+}
+
+
+.container_small_img:hover {
+    border: 0.5px solid #333333;
+}
+
+.game_detail_small_img {
+    width: 100%;
+    display: block;
+}
+
+
+
+            /* --------------------------------------------------------- FIN CONTAINER COLUMN IMGS ---------------------------------------------------------*/
+
+
+
+            /* --------------------------------------------------------- CONTAINER ACTIVE IMG ---------------------------------------------------------*/
+
+.container_active_img {
+    width: 75%;
+
+    height: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    /* background-color: darkgray; */
+}
+
+.game_detail_active_img {
+    width: 60%;
+    max-height: 100%;
+
+    cursor: pointer;
+}
+
+.active_img_open {
+    width: 40px;
+    height: 40px;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    visibility: hidden;
+}
+
+.icon_active_img_open {
+    width: 80%;
+}
+
+
+            /* --------------------------------------------------------- FIN CONTAINER ACTIVE IMG ---------------------------------------------------------*/
+
+
+
+        /* --------------------------------------------------------- FIN CONTAINER IMGS ---------------------------------------------------------*/
+
+
+
+
+
+
+
+        /* --------------------------------------------------------- CONTAINER PRICE ---------------------------------------------------------*/
+
+.container_detail_game_content_price {
+    width: 50%;
+    max-width: 800px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    border: 1px solid #bdc3c7;
+    border-bottom: none;
+
+    /* background-color: tan; */
+}
+
+
+            /* --------------------------------------------------------- CONTAINER PRICE PRICE ---------------------------------------------------------*/
+
+
+.detail_game_price {
+
+    display: flex ;
+    justify-content: flex-end;
+
+    width: 80%;
+
+    font-weight: bold;
+    color: #dd1e35;
+
+    /* background-color: orange; */
+
+    margin-bottom: 8px;
+
+    margin-bottom: 4vw;
+
+    /* background-color: cadetblue; */
+}
+
+.detail_game_pricee_first_value {
+    font-size: 35px;
+}
+.detail_game_price_second_value {
+    font-size: 23px;
+}
+
+            /* --------------------------------------------------------- FIN CONTAINER PRICE PRICE ---------------------------------------------------------*/
+
+
+
+            /* --------------------------------------------------------- CONTAINER PRICE STOCK ---------------------------------------------------------*/
+.detail_game_stock {
+    width: 80%;
+}
+
+.detail_game_stock p {
+    font-size: 20px;
+}
+
+            /* --------------------------------------------------------- FIN CONTAINER PRICE STOCK ---------------------------------------------------------*/
+
+
+
+
+            /* --------------------------------------------------------- CONTAINER PRICE CART ---------------------------------------------------------*/
+
+.detail_game_cart {
+    background-color: #f5b027;
+
+    margin-top: 15px;
+
+    font-size: 15px;
+
+    width: 80%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1vw 0;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+
+.detail_game_cart:hover {
+    background-color: #f8c153;
+}
+
+
+.detail_game_cart_link {
+    text-decoration: none;
+    color: #ffffff;
+
+    background-color: transparent;
+}
+
+
+            /* --------------------------------------------------------- FIN CONTAINER PRICE CART ---------------------------------------------------------*/
+
+
+        
+        /* --------------------------------------------------------- FIN CONTAINER PRICE ---------------------------------------------------------*/
+
+
+
+
+    /* --------------------------------------------------------- FIN CONTAINER IMGS PRICE ---------------------------------------------------------*/
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    .container_first_second_section {
+        padding-top: 30px;
+        padding-bottom: 15px;
+    }
+
+
+    .container_detail_game_content_imgs_price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    
+    .container_detail_game_content_imgs {
+        width: 100%;
+        
+        margin-top: 10px;
+
+        min-height: 52vw;
+    }
+
+    .container_column_small_imgs {
+
+        width: 12%;
+
+    }
+    
+
+        
+    .container_detail_game_content_price {
+        width: 80%;
+
+        margin-top: 35px;
+
+        border: none;
+    }
+
+
+    .detail_game_price {
+        margin-bottom: 5px;
+    }
+
+    .detail_game_pricee_first_value {
+        font-size: 25px;
+    }
+    .detail_game_price_second_value {
+        font-size: 14px;
+    }
+
+    .detail_game_stock p {
+        font-size: 14px;
+    }
+
+    .detail_game_cart {
+        background-color: #f5b027;
+    
+        margin-top: 5px;
+    
+        font-size: 15px;
+    
+        padding: 10px 0;
+
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* --------------------------------------------------------- CONTAINER SPEC DESCR ---------------------------------------------------------*/
+
+.container_detail_game_content_spec_descr {
+    width: 100%;
+
+    margin-top: 50px;
+
+    padding-bottom: 15px;
+
+    display: flex;
+    justify-content: space-between;
+
+    /* background-color: red; */
+}
+
+
+
+        /* --------------------------------------------------------- CONTAINER SPEC ---------------------------------------------------------*/
+
+.container_detail_game_content_spec {
+    width: 47%;
+
+    /* background-color: royalblue; */
+}
+
+.container_detail_game_content_spec_tab {
+    width: 100%;
+
+    /* background-color: tan; */
+}
+
+.detail_game_spec {
+    width: 100%;
+
+    padding: 10px 20px 8px;
+
+    border-bottom: 1px solid #bdc3c7;
+
+    /* background-color: teal; */
+}
+
+.detail_game_spec_title {
+    font-size: 15px;
+
+    font-weight: 700;
+    columns: #232323;
+}
+
+
+.detail_game_spec_line_infos:nth-child(2n + 1) {
+    background-color: #d3d8dc;
+}
+
+.detail_game_spec_line_infos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    padding: 7px 10px;
+
+}
+
+.spec_line_info_type {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.spec_line_info_link, .spec_line_info_txt {
+    font-size: 13px;
+    font-weight: 400;
+    color: #232323;
+
+    text-decoration: none;
+}
+
+.spec_line_info_link:hover {
+    text-decoration: underline;
+}
+
+
+
+        /* --------------------------------------------------------- FIN CONTAINER SPEC ---------------------------------------------------------*/
+
+
+
+
+        /* --------------------------------------------------------- CONTAINER DESCR ---------------------------------------------------------*/
+
+.container_detail_game_content_descr {
+    width: 47%;
+
+
+    /* background-color: seagreen; */
+}
+
+
+.detail_game_descr_title {
+    font-size: 25px;
+    font-weight: 700;
+
+    position: relative;
+
+    color: #232323;
+}
+.detail_game_descr_title::before {
+    content: '';
+    width: 55px;
+    height: 5px;
+
+    position: absolute;
+    top: 35px;
+    left: 0;
+
+    background-color: #232323;
+}
+
+
+
+.detail_game_descr_txt {
+    padding: 0 3vw;
+
+    margin-top: 40px;
+}
+
+
+        /* --------------------------------------------------------- FIN CONTAINER DESCR ---------------------------------------------------------*/
+
+
+
+
+    /* --------------------------------------------------------- CONTAINER SPEC DESCR ---------------------------------------------------------*/
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .container_detail_game_content_spec_descr {
+        width: 100%;
+    
+        margin-top: 50px;
+    
+        padding-bottom: 15px;
+    
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+  
+    }
+
+    .container_detail_game_content_spec, .container_detail_game_content_descr {
+        width: 100%;
+    }
+
+    .container_detail_game_content_descr {
+        margin-top: 35px;
+    }
+    .detail_game_descr_txt {
+        margin-top: 25px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* --------------------------------------------------------- CONTAINER NOTICE---------------------------------------------------------*/
+
+.container_detail_game_content_notice {
+    margin: 80px 30px;
+    padding-bottom: 60px;
+
+    -webkit-box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1); 
+    box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1);
+
+
+    background-color: #ffffff;
+}
+
+.container_detail_game_content_notice_title {
+    font-size: 25px;
+    font-weight: 700;
+
+    position: relative;
+
+    padding: 10px 20px;
+
+    color: #232323;
+}
+
+
+
+
+
+.container_detail_game_content_all_notice_card {
+    width: 80%;
+    max-width: 80%;
+
+    display: flex;
+    
+
+    overflow: scroll;
+
+    margin: 50px auto;
+
+}
+
+.container_detail_game_content_notice_card {
+    width: 25%;
+    min-width: 350px;
+
+    padding: 0 10px;
+
+    border-right: 1px solid #bdc3c7;
+
+}
+
+.container_detail_game_content_notice_card:last-child {
+    border-right: none;
+}
+
+
+.notice_card_name {
+    font-size: 19px;
+    font-weight: 700;
+
+    color: #232323;
+
+    margin-bottom: 12px;
+}
+
+.notice_card_date {
+    font-size: 13px;
+    font-weight: 400;
+
+    color: #9d9a8c;
+
+    margin-bottom: 16px;
+}
+
+.notice_card_title {
+    font-size: 16px;
+    font-weight: 700;
+
+    color: #595959;
+
+    margin-bottom: 8px;
+}
+
+.notice_card_descr {
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #595959;
+
+    margin-bottom: 5px;
+}
+
+
+    /* --------------------------------------------------------- FIN CONTAINER NOTICE---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 935px) {
+    .container_detail_game_content_notice_card {
+        width: 25%;
+        min-width: unset;
+    }
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    
+    .container_detail_game_content_all_notice_card {
+        flex-direction: column;
+    }
+
+    .container_detail_game_content_notice_card {
+        width: 100%;
+        border-bottom: 1px solid #bdc3c7;
+
+        border-right: none;
+    }
+    .container_detail_game_content_notice_card:last-child {
+        border: none;
+    }
+
+    .notice_card_name {
+        margin-top: 10px;
+    }
+
+
+
+        
+    .notice_card_descr {
+        font-size: 14px;
+        font-weight: 400;
+
+        color: #595959;
+
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* --------------------------------------------------------- LIGHTBOX CONTAINER ---------------------------------------------------------*/
+
+
+.container_lightbox_detail_game {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+
+    visibility: hidden;
+
+    z-index: 1100;
+}
+
+
+.lightbox_detail_game_content {
+    width: 75%;
+    height: 75%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 9px;
+
+    position: relative;
+
+    background-color: #ffffff;
+}
+
+
+.lightbox_detail_game_img {
+    height: 85%;
+}
+
+
+
+
+.lightbox_detail_game_close {
+    width: 25px;
+    height: 25px;
+
+    position: absolute;
+    right: 7px;
+    top: -33px;
+
+    cursor: pointer;
+
+    /* background-color: red; */
+}
+
+.lightbox_detail_game_close_sub_container {
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+
+    /* background-color: blue; */
+}
+
+.lightbox_detail_game_close_sub_container::before, .lightbox_detail_game_close_sub_container::after {
+    content: '';
+    width: 4px;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 11.5px;
+
+    border-radius: 5px;
+
+    background-color: #ffffff;
+}
+
+
+.lightbox_detail_game_close_sub_container::before {
+    transform: rotate(45deg);
+}
+.lightbox_detail_game_close_sub_container::after {
+    transform: rotate(-45deg);
+}
+
+.lightbox_detail_game_close_sub_container:hover::before, .lightbox_detail_game_close_sub_container:hover::after {
+    background-color: #a8b4bf;
+}
+
+
+    /* --------------------------------------------------------- FIN LIGHTBOX CONTAINER ---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------- FIN DETAIL GAME CONTAINER ---------------------------------------------------------*/
+
+
+
+
+
+
+@media screen and (max-width: 1200px) {
+    
+    .lightbox_detail_game_img {
+        height: unset;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    .lightbox_detail_game_content {
+        width: 75%;
+        height: 50%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    
+    .lightbox_detail_game_content {
+        width: 75%;
+        height: 350px;
+    }
+}

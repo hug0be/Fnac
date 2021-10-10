@@ -25,10 +25,7 @@ class Photo extends Model
 	public $timestamps = false;
 	protected $primaryKey = 'pho_id';
 
-	// protected $casts = [
-	// 	'jeu_id' => 'int',
-	// 	'pho_url' => 'character varying'
-	// ];
+	//  	
 
 	protected $fillable = [
 		'jeu_id',

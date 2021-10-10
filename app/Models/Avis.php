@@ -38,8 +38,8 @@ class Avis extends Model
 	protected $casts = [
 		'cli_id' => 'int',
 		'jeu_id' => 'int',
-		'avi_titre' => 'character varying',
-		'avi_detail' => 'character varying',
+		'avi_titre' => 'string',
+		'avi_detail' => 'string',
 		'avi_note' => 'int',
 		'avi_nbutileoui' => 'int',
 		'avi_nbutilenon' => 'int'
