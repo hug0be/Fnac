@@ -32,7 +32,9 @@
         @include('layout.header-home')
     @show
 
-
+    {{-- @section('menu') 
+        @include('layout.menu')
+    @show --}}
 
     @yield('content')
 
