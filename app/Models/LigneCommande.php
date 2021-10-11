@@ -46,4 +46,17 @@ class LigneCommande extends Model
 	{
 		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}
+
+	public function id_commande()
+	{
+		return $this->com_id;
+	}
+	public function id_jeu()
+	{
+		return $this->jeu_id;
+	}
+	public function quantité()
+	{
+		return $this->lec_quantite;
+	}
 }

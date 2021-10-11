@@ -39,4 +39,17 @@ class Video extends Model
 	{
 		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}
+	
+	public function id_video()
+	{
+		return $this->vid_id;
+	}
+	public function id_jeu()
+	{
+		return $this->jeu_id;
+	}
+	public function url()
+	{
+		return $this->vid_url;
+	}
 }

@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
     
 
-
+    let body = document.querySelector('body');
 
 
     let container_aisle = document.querySelector('.container_aisle');
@@ -65,8 +65,19 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
 
 
+
+
     header_container_toggle_aisle_videoGame_detail.addEventListener('click', ()=> {
-        menu_nav_sidebar.classList.toggle('menu_nav_sidebar_active');
+
+        if (window.innerWidth < 769) {
+            menu_nav_sidebar.classList.toggle('menu_nav_sidebar_active');
+            body.classList.toggle('overflow_hidden');
+        }
+        else {
+            menu_nav_sidebar.classList.toggle('menu_nav_sidebar_active');
+        }
+        // menu_nav_sidebar.classList.toggle('menu_nav_sidebar_active');
+       
     })
 
 

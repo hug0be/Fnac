@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     let container_lightbox_detail_game = document.querySelector('.container_lightbox_detail_game');
     let lightbox_detail_game_img = document.querySelector('.lightbox_detail_game_img');
+    let lightbox_detail_game_content = document.querySelector('.lightbox_detail_game_content');
     let lightbox_detail_game_close = document.querySelector('.lightbox_detail_game_close');
 
     let active_img_open = document.querySelector('.active_img_open');
@@ -61,6 +62,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
     lightbox_detail_game_close.addEventListener('click', ()=> {
         container_lightbox_detail_game.style.visibility = "hidden";
         body.classList.remove('overflow_hidden');
+    })
+
+    container_lightbox_detail_game.addEventListener('click', (e)=> {
+        if (e.target != lightbox_detail_game_content && e.target != lightbox_detail_game_img) {
+            container_lightbox_detail_game.style.visibility = "hidden";
+            body.classList.remove('overflow_hidden');
+        }
     })
 
     

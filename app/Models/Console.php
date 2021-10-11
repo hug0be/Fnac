@@ -37,4 +37,13 @@ class Console extends Model
 	{
 		return $this->hasMany(JeuVideo::class, 'con_id');
 	}
+
+	public function id_console()
+	{
+		return $this->con_id;
+	}
+	public function nom()
+	{
+		return $this->con_nom;
+	}
 }

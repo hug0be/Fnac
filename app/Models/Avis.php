@@ -75,7 +75,44 @@ class Avis extends Model
 		return $this->hasMany(AvisAbusif::class, 'avi_id');
 	}
 
-	public function abusifTAB()
+	public function id_avis()
+	{
+		return $this->avi_id;
+	}
+	public function id_client()
+	{
+		return $this->cli_id;
+	}
+	public function id_jeu()
+	{
+		return $this->jeu_id;
+	}
+	public function date()
+	{
+		return $this->avi_date;
+	}
+	public function titre()
+	{
+		return $this->avi_titre;
+	}
+	public function detail()
+	{
+		return $this->avi_detail;
+	}
+	public function note()
+	{
+		return $this->avi_note;
+	}
+	public function nbUtiles()
+	{
+		return $this->avi_nbutileoui;
+	}
+	public function nbPasUtile()
+	{
+		return $this->avi_nbutilenon;
+	}
+	
+	public function avisAbusifs()
 	{
 		return $this->belongsToMany(
 			Genre::class,

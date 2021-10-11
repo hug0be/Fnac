@@ -49,4 +49,13 @@ class Genre extends Model
 	// protected $fillable = [
 	// 	'gen_libelle'
 	// ];
+
+	public function id_genre()
+	{
+		return $this->gen_id;
+	}
+	public function libelle()
+	{
+		return $this->gen_libelle;
+	}
 }

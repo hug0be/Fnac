@@ -77,4 +77,49 @@ class Adresse extends Model
 	{
 		return $this->hasMany(Commande::class, 'adr_id');
 	}
+
+	public function id_adresse()
+	{
+		return $this->adr_id;
+	}
+	public function id_client()
+	{
+		return $this->cli_id;
+	}
+	public function nom()
+	{
+		return $this->adr_nom;
+	}
+	public function type()
+	{
+		return $this->adr_type;
+	}
+	public function rue()
+	{
+		return $this->adr_rue;
+	}
+	public function complementrue()
+	{
+		return $this->adr_complementrue;
+	}
+	public function cp()
+	{
+		return $this->adr_cp;
+	}
+	public function ville()
+	{
+		return $this->adr_ville;
+	}
+	public function id_pay()
+	{
+		return $this->pay_id;
+	}
+	public function latitude()
+	{
+		return $this->adr_latitude;
+	}
+	public function longitude()
+	{
+		return $this->adr_longitude;
+	}
 }

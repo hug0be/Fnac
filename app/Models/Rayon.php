@@ -55,4 +55,13 @@ class Rayon extends Model
 	// protected $fillable = [
 	// 	'ray_nom'
 	// ];
+	
+	public function id_rayon()
+	{
+		return $this->ray_id;
+	}
+	public function nom()
+	{
+		return $this->ray_nom;
+	}
 }

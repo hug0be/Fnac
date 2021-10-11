@@ -76,4 +76,38 @@ class Relais extends Model
 			'rel_id',
 			'cli_id');
 	}
+
+	
+	public function id_relais()
+	{
+		return $this->rel_id;
+	}
+	public function nom()
+	{
+		return $this->rel_nom;
+	}
+	public function rue()
+	{
+		return $this->rel_rue;
+	}
+	public function codePostal()
+	{
+		return $this->rel_cp;
+	}
+	public function ville()
+	{
+		return $this->rel_ville;
+	}
+	public function id_pays()
+	{
+		return $this->pay_id;
+	}
+	public function latitude()
+	{
+		return $this->rel_latitude;
+	}
+	public function longitude()
+	{
+		return $this->rel_longitude;
+	}
 }

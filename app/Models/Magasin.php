@@ -46,4 +46,17 @@ class Magasin extends Model
 	{
 		return $this->hasMany(Client::class, 'mag_id');
 	}
+	
+	public function id_magasin()
+	{
+		return $this->mag_id;
+	}
+	public function nom()
+	{
+		return $this->mag_nom;
+	}
+	public function ville()
+	{
+		return $this->mag_ville;
+	}
 }

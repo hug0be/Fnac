@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JeuVideo;
 use App\Models\Rayon;
+use App\Models\Console;
 use Illuminate\Http\Request;
 
 class jeuVideoController extends Controller
@@ -17,7 +18,7 @@ class jeuVideoController extends Controller
      */
     public function home()
     {
-        return view ("jeuVideo.displayAllLines", ['videoGames'=>JeuVideo::all(), 'rayons' => Rayon::all() ]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=>JeuVideo::all(), 'rayons' => Rayon::all(), 'consoles'=>Console::all() ]);
     }
 
 
@@ -41,7 +42,7 @@ class jeuVideoController extends Controller
             }
         }
 
-        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames , 'rayons' => Rayon::all(), 'currentRay' => $currentRay ]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames , 'rayons' => Rayon::all(), 'currentRay' => $currentRay, 'consoles'=>Console::all() ]);
     }
 
     /**
@@ -60,7 +61,7 @@ class jeuVideoController extends Controller
                 $videoGames[] = $videoGame;
         }
 
-        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames , 'rayons' => Rayon::all()]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames , 'rayons' => Rayon::all(), 'consoles'=>Console::all()]);
     }
 
     
@@ -76,7 +77,8 @@ class jeuVideoController extends Controller
         $videoGameSelected = JeuVideo::find($idGame);
         return view ("jeuVideo.displayDetail", [
             'videoGame'=> $videoGameSelected, 
-            'rayons' => Rayon::all()
+            'rayons' => Rayon::all(),
+            'consoles'=>Console::all()
         ]);
     }
 

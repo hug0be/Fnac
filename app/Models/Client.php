@@ -104,7 +104,7 @@ class Client extends Model
 		return $this->hasMany(Adresse::class, 'cli_id');
 	}
 
-	public function jeuFavoriTAB()
+	public function jeuFavoris()
 	{
 		return $this->belongsToMany(
 			Genre::class,
@@ -113,12 +113,50 @@ class Client extends Model
 			'jeu_id');
 	}
 
-	public function jeuAlerteTAB()
+	public function jeuAlertes()
 	{
 		return $this->belongsToMany(
 			Genre::class,
 			't_j_alerte_ale',
 			'cli_id',
 			'jeu_id');
+	}
+
+
+	public function id_client()
+	{
+		return $this->cli_id;
+	}
+	public function mail()
+	{
+		return $this->cli_mel;
+	}
+	public function motDePasse()
+	{
+		return $this->cli_motpasse;
+	}
+	public function pseudo()
+	{
+		return $this->cli_pseudo;
+	}
+	public function civilité()
+	{
+		return $this->cli_civilite;
+	}
+	public function nom()
+	{
+		return $this->cli_nom;
+	}
+	public function prenom()
+	{
+		return $this->cli_prenom;
+	}
+	public function telFixe()
+	{
+		return $this->cli_telfixe;
+	}
+	public function telPortable()
+	{
+		return $this->cli_telportable;
 	}
 }

@@ -36,4 +36,17 @@ class Photo extends Model
 	{
 		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}
+	
+	public function id_photo()
+	{
+		return $this->pho_id;
+	}
+	public function id_jeu()
+	{
+		return $this->jeu_id;
+	}
+	public function url()
+	{
+		return $this->pho_url;
+	}
 }

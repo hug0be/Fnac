@@ -144,4 +144,49 @@ class JeuVideo extends Model
 	// 	'jeu_publiclegal',
 	// 	'jeu_stock'
 	// ];
+
+
+
+
+	public function id_jeu()
+	{
+		return $this->jeu_id;
+	}
+	public function id_editeur()
+	{
+		return $this->edi_id;
+	}
+	public function id_console()
+	{
+		return $this->con_id;
+	}
+	public function nom()
+	{
+		return $this->jeu_nom;
+	}
+	public function description()
+	{
+		return $this->jeu_description;
+	}
+	public function dateParution()
+	{
+		return $this->jeu_dateparution;
+	}
+	public function prixTTC()
+	{
+		return $this->jeu_prixttc;
+	}
+	public function codeBarre()
+	{
+		return $this->jeu_codebarre;
+	}
+	public function publicLegal()
+	{
+		return $this->jeu_publiclegal;
+	}
+	public function stock()
+	{
+		return $this->jeu_stock;
+	}
+
 }

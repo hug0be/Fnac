@@ -77,4 +77,31 @@ class Commande extends Model
 	{
 		return $this->hasMany(LigneCommande::class, 'com_id');
 	}
+
+	
+	public function id_commentaire()
+	{
+		return $this->com_id;
+	}
+	public function id_client()
+	{
+		return $this->cli_id;
+	}
+	public function id_relais()
+	{
+		return $this->rel_id;
+	}
+	public function id_adresse()
+	{
+		return $this->adr_id;
+	}
+	public function id_magasin()
+	{
+		return $this->mag_id;
+	}
+	public function date()
+	{
+		return $this->com_date;
+	}
+
 }

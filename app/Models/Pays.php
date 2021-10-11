@@ -43,4 +43,13 @@ class Pays extends Model
 	{
 		return $this->hasMany(Adresse::class, 'pay_id');
 	}
+	
+	public function id_pays()
+	{
+		return $this->pay_id;
+	}
+	public function nom()
+	{
+		return $this->pay_nom;
+	}
 }

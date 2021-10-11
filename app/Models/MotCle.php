@@ -39,4 +39,17 @@ class MotCle extends Model
 	{
 		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}
+	
+	public function id_motcle()
+	{
+		return $this->mot_id;
+	}
+	public function id_jeu()
+	{
+		return $this->jeu_id;
+	}
+	public function mot()
+	{
+		return $this->mot_mot;
+	}
 }

@@ -37,4 +37,13 @@ class Editeur extends Model
 	{
 		return $this->hasMany(JeuVideo::class, 'edi_id');
 	}
+
+	public function id_editeur()
+	{
+		return $this->edi_id;
+	}
+	public function nom()
+	{
+		return $this->edi_nom;
+	}
 }
