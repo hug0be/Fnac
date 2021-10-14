@@ -22,3 +22,6 @@ Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole']
 
 Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
 
+Route::get('/service-comm/avisAbusifs', [jeuVideoController::class, 'avisAbusifs'])->name('avisAbusifs');
+
+Route::post('/service-comm/delete_avis', [jeuVideoController::class, 'delete_avis'])->name('delete_avis');

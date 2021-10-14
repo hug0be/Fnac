@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 <div class="container_game_line">
 
     <div class="container_game_line_content">
