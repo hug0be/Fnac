@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\imageController;
 use App\Http\Controllers\jeuVideoController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,6 @@ Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole']
 
 Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
 
+Route::get('/videoGameDetail/imageUpload', [ imageController::class, 'imageUpload' ])->name('image.upload');
+
+Route::post('image-upload', [ imageController::class, 'imageUploadPost' ])->name('image.upload.post');

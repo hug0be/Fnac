@@ -236,7 +236,7 @@
         </div>
 
 
-
+        @include('jeuVideo/form_Photos')
 
 
         <div class="container_lightbox_detail_game">
