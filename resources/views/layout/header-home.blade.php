@@ -61,7 +61,6 @@
             <a href="{{route("register")}}">
                 Créer un compte
             </a>
-    
         @endguest
     </div>
 </header>
