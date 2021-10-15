@@ -6,9 +6,12 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-
 /**
  * Class Client
  * 
@@ -34,12 +37,18 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Client extends Model
+class Client extends Authenticatable
 {
+    use HasApiTokens, HasFactory, Notifiable;
 	protected $table = 't_e_client_cli';
 	public $timestamps = false;
 	protected $primaryKey = 'cli_id';
 
+	protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+	
 	protected $casts = [
 		'cli_mel' => 'string',
 		'cli_motpasse' => 'string',
@@ -49,7 +58,9 @@ class Client extends Model
 		'cli_prenom' => 'string',
 		'cli_telfixe' => 'string',
 		'cli_telportable' => 'string',
-		'mag_id' => 'int'
+		'mag_id' => 'int',
+		'email_verified_at',
+		'remember_token'
 	];
 
 	protected $fillable = [
@@ -63,7 +74,9 @@ class Client extends Model
 		'cli_telportable',
 		'mag_id'
 	];
-
+	public function getAuthPassword() {
+		return $this->cli_motpasse;
+	}
 	public function magasin()
 	{
 		return $this->belongsTo(Magasin::class, 'mag_id');
@@ -139,7 +152,7 @@ class Client extends Model
 	{
 		return $this->cli_pseudo;
 	}
-	public function civilité()
+	public function civilite()
 	{
 		return $this->cli_civilite;
 	}

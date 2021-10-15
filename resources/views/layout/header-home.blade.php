@@ -46,6 +46,24 @@
             </div>
         </div>
     </div>
+
+    <!-- Login and register buttons -->
+    <div>
+        @auth
+            <a href="{{route("logout")}}">
+                Se déconnecter
+            </a>
+        @endauth
+        @guest
+            <a href="{{route("login")}}">
+                Se connecter
+            </a>
+            <a href="{{route("register")}}">
+                Créer un compte
+            </a>
+    
+        @endguest
+    </div>
 </header>
 
 

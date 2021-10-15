@@ -12,17 +12,17 @@
 @endsection
 
 @section('content')
-{{-- <h1>🐣</h1> --}}
-<div class="container_all_game_line margin_top_content" >
 
-    @include('layout.menu')
-
-    <div class="container_all_game_line_content">
-        @foreach ($videoGames as $videoGame)
-            @include('jeuVideo.displayLine')
-        @endforeach
-    </div>
-
+<div class="margin_top_content">
+    {{ $errors }}
+    <form method="post" actions="login">
+        @csrf
+        <label for="cli_mel">Email</label>
+        <input type="text" name="cli_mel" value="{{old('cli_mel')}}"/>
+        <label for="cli_mel">Mot de passe</label>
+        <input type="password" name="cli_motpasse"/> 
+        <input type="submit" value="login"/>
+    </form>
 </div>
 
 @endsection
