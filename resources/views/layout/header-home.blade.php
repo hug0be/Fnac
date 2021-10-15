@@ -1,8 +1,4 @@
-
-
-
 <header class="header">
-
     <div class="header_container_toggle_aisle">
         <div class="toggle_btn">
             <span></span>
@@ -11,17 +7,11 @@
         <p class="toggle_txt" >Rayons </p>
     </div>
 
-
-
-    
-
     <a href="{{ route('home') }}" class="link_container_logo_header">
         <div class="header_container_logo header_border_right">
             <img src="{{ asset('/img/logo/logo-fnac.svg')}}" alt="" class="logo_img">
         </div>
     </a>
-
-
 
     <div class="header_container_aisle_search header_border_right">
 
@@ -64,5 +54,3 @@
         @endguest
     </div>
 </header>
-
-

@@ -27,8 +27,6 @@
 
 @endsection
 
-
-
 @section('js')
     <script src="{{ asset("js/sideBar-toggle/sideBar-home.js") }}"></script>
 @endsection
