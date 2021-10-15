@@ -38,7 +38,7 @@
     
                             @include('jeuVideo.avis.displayOne', ['aNotice' => $avisAbusif->avis])
                         
-                            <form action="{{ route("delete_avis")}}" method="POST">
+                            <form action="{{ route("delete_avis")}}" method="POST" onsubmit="return confirm('Voulez vraiment supprimer cet avis ?');">
                                 @csrf
                                 <input type="hidden" name='id_avis' value="{{$avisAbusif->avi_id}}">
                                 <button type="submit" class="avisAbusif_btn_del">Supprimer</button>
