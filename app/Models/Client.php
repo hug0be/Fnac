@@ -159,4 +159,15 @@ class Client extends Model
 	{
 		return $this->cli_telportable;
 	}
+
+
+	public function surnameFirstLetter()
+	{
+		return strtoupper( substr( $this->nom(), 0, 1) );
+	}
+
+	public function firstnameUcFirst()
+	{
+		return ucfirst( $this->prenom() ) ;
+	}
 }
