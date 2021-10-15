@@ -67,6 +67,20 @@
     
                             @endforeach 
     
+                            @foreach ($videoGame->video as $video)
+    
+                            <div class="container_small_img">
+                                <video controls width="250"class="game_detail_small_img">
+                    
+                                    <source src="{{asset('Videos/'.$video->vid_url)}}"
+                                            type="video/mp4">
+                                
+                                    Sorry, your browser doesn't support embedded videos.
+                                </video>
+                            </div>
+                        
+    
+                            @endforeach 
       
     
                         </div>
@@ -237,7 +251,7 @@
 
 
         @include('jeuVideo/form_Photos')
-
+        @include('jeuVideo/form_Video')
 
         <div class="container_lightbox_detail_game">
             

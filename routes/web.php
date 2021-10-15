@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\imageController;
 use App\Http\Controllers\jeuVideoController;
+use App\Http\Controllers\videoController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
 /*
@@ -26,3 +27,7 @@ Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideo
 Route::get('/videoGameDetail/imageUpload', [ imageController::class, 'imageUpload' ])->name('image.upload');
 
 Route::post('image-upload', [ imageController::class, 'imageUploadPost' ])->name('image.upload.post');
+
+Route::get('/videoGameDetail/videoUpload', [ videoController::class, 'videoUpload' ])->name('video.upload');
+
+Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name('video.upload.post');
