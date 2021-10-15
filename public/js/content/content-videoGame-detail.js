@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
     let lightbox_detail_game_content = document.querySelector('.lightbox_detail_game_content');
     let lightbox_detail_game_close = document.querySelector('.lightbox_detail_game_close');
 
+
+    let container_active_img = document.querySelector('.container_active_img');
     let active_img_open = document.querySelector('.active_img_open');
 
 
@@ -37,11 +39,70 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     all_game_detail_small_img.forEach(a_small_img => {
 
+        // console.log((a_small_img.tagName).toLowerCase());
+        let typeOfSmallImg = (a_small_img.tagName).toLowerCase(); 
+        
         a_small_img.addEventListener('mouseenter', ()=> {
-            console.log(a_small_img.src);
+            // console.log((a_small_img.tagName).toLowerCase());
 
-            game_detail_active_img.src = a_small_img.src ;
-            lightbox_detail_game_img.src = a_small_img.src;
+            // game_detail_active_img.src = a_small_img.src ;
+            // lightbox_detail_game_img.src = a_small_img.src;
+
+
+
+            // SI IMG SMALL IS IMG
+            if (typeOfSmallImg == 'img') {
+                
+                
+                // SI ACTIVE IS VIDEO ----> CHANGE TO IMG
+                
+                
+                
+                // console.log("img : " + a_small_img.src);
+
+                // console.log((game_detail_active_img.tagName).toLowerCase());
+
+                
+                // if ( (game_detail_active_img.tagName).toLowerCase() == "video" ) {
+                //     let game_detail_active_img = document.createElement('img');
+
+                //     game_detail_active_video.parentNode.replaceChild(game_detail_active_img, game_detail_active_video);
+
+
+                //     console.log('ACTIVE IS VIDEOOOOOOOOOOO');
+                // }
+
+                game_detail_active_img.src = a_small_img.src ;
+
+                
+
+            }
+            // SI IMG SMALL IS VIDEO
+            else if (typeOfSmallImg == 'video') {
+                
+
+                // SI ACTIVE IS IMG ----> CHANGE TO VIDEO
+
+
+
+                // console.log("video : " + a_small_img.currentSrc);
+                // if ( (game_detail_active_img.tagName).toLowerCase() == "img" ) {
+
+                //     let game_detail_active_video = document.createElement('video');
+
+                //     game_detail_active_video.classList.add('game_detail_active_img')
+
+                //     game_detail_active_img.parentNode.replaceChild(game_detail_active_video, game_detail_active_img);
+
+
+                //     console.log('ACTIVE IS VIDEOOOOOOOOOOO');
+                // }
+
+                
+
+            }
+                
+
             
         })
     })
@@ -73,7 +134,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     
 
-    console.log(all_game_detail_small_img);
+    // console.log(all_game_detail_small_img);
 
 
 
