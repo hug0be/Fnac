@@ -105,6 +105,9 @@ class jeuVideoController extends Controller
         }
         return view ("serviceComm.avisAbusifs", [
             'avisAbusifs' => $avisAbusifList,
+            'rayons' => Rayon::all(),
+            'consoles'=>Console::all()
+
         ]);
     }
 

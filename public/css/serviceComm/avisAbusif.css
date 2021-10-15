@@ -1,0 +1,224 @@
+
+
+
+
+
+
+/* --------------------------------------------------------- CONTAINER ALL AVIS ABUSIF ---------------------------------------------------------*/
+
+
+.container_all_avis_abusif {
+
+
+
+
+    /* background-color: salmon; */
+}
+
+
+.avis_abusif_title_serv_comm {
+    font-size: 35px;
+    font-weight: 700;
+
+    padding: 10px 20px;
+
+    color: #232323;
+
+    margin-top: 80px;
+}
+
+
+    /* --------------------------------------------------------- CONTAINER ALL AVIS CONTENT ---------------------------------------------------------*/
+
+.container_all_avis_abusif_content {
+    width: 95%;
+
+    margin: auto;
+    margin-top: 30px;
+
+    background-color: #ffffff;
+
+    -webkit-box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1); 
+    box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1);
+
+ 
+}
+
+
+
+
+.avis_abusif_title {
+    font-size: 35px;
+    font-weight: 700;
+
+    padding: 20px 40px;
+
+    color: #232323;
+}
+
+
+
+        /* --------------------------------------------------------- CONTAINER ALL AVIS FORM ---------------------------------------------------------*/
+
+
+.container_all_avis_abusif_content_form {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+
+    flex-direction: row;
+
+    flex-wrap: wrap;
+
+    padding-bottom: 20px;
+
+
+    width: 90%;
+    margin: 0 auto;
+
+
+}
+
+
+
+            /* --------------------------------------------------------- CONTAINER AVIS FORM ---------------------------------------------------------*/
+
+.container_avisAbusif_avis_form {
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: flex-end;
+
+    margin-top: 40px;
+
+    padding-right: 15px;
+
+    /* background-color: orchid; */
+}
+
+
+
+.avisAbusif_btn_del {
+    margin-top: 40px ;
+    margin-right: 15px;
+
+
+    color: #ffffff;
+    background-color: #f5b027;
+
+    padding: 10px 50px;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+
+            /* --------------------------------------------------------- FIN CONTAINER AVIS FORM ---------------------------------------------------------*/
+
+
+        /* --------------------------------------------------------- FIN CONTAINER ALL AVIS FORM ---------------------------------------------------------*/
+
+
+
+
+        /* --------------------------------------------------------- ALL ONE AVIS CONTENT ---------------------------------------------------------*/
+
+
+
+.container_detail_game_content_notice_card {
+    width: 100%;
+    min-width: 350px;
+
+
+    padding: 0 10px;
+
+    border-right: 1px solid #bdc3c7;
+
+    /* background-color: orange; */
+
+}
+
+.container_detail_game_content_notice_card:last-child {
+    border-right: none;
+}
+
+
+.notice_card_name {
+    font-size: 19px;
+    font-weight: 700;
+
+    color: #232323;
+
+    margin-bottom: 12px;
+}
+
+.notice_card_date {
+    font-size: 13px;
+    font-weight: 400;
+
+    color: #9d9a8c;
+
+    margin-bottom: 16px;
+}
+
+.notice_card_title {
+    font-size: 16px;
+    font-weight: 700;
+
+    color: #595959;
+
+    margin-bottom: 8px;
+}
+
+.notice_card_descr {
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #595959;
+
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+        /* --------------------------------------------------------- FIN ALL ONE AVIS CONTENT ---------------------------------------------------------*/
+
+
+
+    /* --------------------------------------------------------- FIN CONTAINER ALL AVIS CONTENT ---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------- FIN CONTAINER ALL AVIS ABUSIF ---------------------------------------------------------*/
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .container_avisAbusif_avis_form {
+        width: 100%;
+
+        margin-top: 75px;
+    }
+
+    .container_detail_game_content_notice_card {
+        min-width: unset;
+
+    
+    }
+}
