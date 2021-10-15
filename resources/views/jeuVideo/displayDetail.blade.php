@@ -199,39 +199,7 @@
                 </div>
             </div>
 
-
-
-
-            <div class="container_detail_game_content_notice ">
-
-                <h4 class="container_detail_game_content_notice_title">
-                    Avis Client
-                </h4>
-
-                <div class="container_detail_game_content_all_notice_card">
-
-                    @foreach ($videoGame->avis as $aNotice)
-                        @php
-                            $surnameFirstLetter = substr( $aNotice->client->cli_nom, 0, 1)
-                        @endphp
-
-                        <div class="container_detail_game_content_notice_card">
-                            <p class="notice_card_name">  {{ $aNotice->client->cli_prenom }} {{ $surnameFirstLetter }}. </p>
-                            <p class="notice_card_date">Avis posté le {{ $aNotice->avi_date->translatedFormat('l jS F Y à H\hi') }}</p>
-                            <p class="notice_card_title"> {{ $aNotice->avi_titre }} </p>
-                            <p class="notice_card_descr"> {{ $aNotice->avi_detail }} </p>
-                        </div>
-                    @endforeach
-
-  
-                    
-  
-
-                    
-                </div>
-                
-               
-            </div>
+            @include('jeuVideo.avis.displayAll')
           
         </div>
 
@@ -266,19 +234,9 @@
             @endforeach
         </div> --}}
 
-
-
     </div>
 
-
-
-
-
-    
-
-
 @endsection
-
 
 
 @section('js')

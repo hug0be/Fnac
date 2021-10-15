@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     all_game_detail_small_img.forEach(a_small_img => {
 
         a_small_img.addEventListener('mouseenter', ()=> {
-            console.log(a_small_img.src);
+            // console.log(a_small_img.src);
 
             game_detail_active_img.src = a_small_img.src ;
             lightbox_detail_game_img.src = a_small_img.src;
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     
 
-    console.log(all_game_detail_small_img);
+    // console.log(all_game_detail_small_img);
 
 
 

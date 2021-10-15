@@ -16,7 +16,7 @@
                 @endforeach
         </div>
 
-        {{-- <div class="menu_nav_sidebar_container_console">
+        <div class="menu_nav_sidebar_container_console">
             <h4 class="menu_nav_sidebar_title">
                 <a href="{{ route('home') }}">
                     TOUTES LES CONSOLES
@@ -29,6 +29,6 @@
                         <a href="{{route("searchByConsole", ['idConsole' => $console->con_id]);}}" class="link_menu_nav_sidebar" >{{ $console->con_nom}}</a>
                     </div>
                 @endforeach
-        </div> --}}
+        </div>
     </div>
 </div>
