@@ -1,0 +1,29 @@
+
+
+
+input[type="file"] {
+    display: none;
+}
+
+
+
+
+.form_add_img {
+    width: 100%;
+}
+
+
+
+.hid_container_btns {
+    width: 100%;
+}
+
+
+.btn_add_image {
+    width: 100%;
+}
+
+.lab_add_img {
+    background-color: red;
+    width: 100%;
+}

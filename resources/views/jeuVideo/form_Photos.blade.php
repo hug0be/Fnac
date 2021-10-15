@@ -36,29 +36,26 @@
 
     
 
-        <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data" class="form_add_img">
 
             @csrf
             <input  type="hidden" value="{{$videoGame->jeu_id}}" name="jeu_id">
-            <div class="row">
-                
-                <div class="col-md-6">
 
-                    <input type="file" name="image" class="form-control">
+
+                <div class="btn_add_image">
+
+                    <input type="file" name="image" class="btn_choose_file ">
+                    <label for="image" class="lab_add_img"> Ajoute mon pote !</label>
 
                 </div>
+                    
 
-     
 
-                <div class="col-md-6">
 
                     <button type="submit" class="btn btn-success">Ajouter photos </button>
 
-                </div>
 
-     
-
-            </div>
+    
 
         </form>
 
