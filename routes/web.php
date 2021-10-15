@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AvisController;
 use App\Http\Controllers\jeuVideoController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,9 @@ Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole']
 
 Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
 
-Route::get('/service-comm/avisAbusifs', [jeuVideoController::class, 'avisAbusifs'])->name('avisAbusifs');
+Route::get('/service-comm/avisAbusifs', [AvisController::class, 'avisAbusifs'])->name('avisAbusifs');
 
-Route::post('/service-comm/delete_avis', [jeuVideoController::class, 'delete_avis'])->name('delete_avis');
+Route::post('/service-comm/delete_avis', [AvisController::class, 'delete_avis'])->name('delete_avis');
+
+Route::post('/avis/add', [AvisController::class, 'addAvis'])->name('add_avis');
+
