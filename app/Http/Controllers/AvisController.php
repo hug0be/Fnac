@@ -56,6 +56,21 @@ class AvisController extends Controller
      */
     public function addAvis(Request $request)
     {
+        $request->validate([
+            'avi_note' => 'required|min:1|max:5',
+            'avi_titre' => 'required',
+            'avi_detail' => 'required',
+          ],
+        [
+            'avi_note.required' => 'Il fait que vous précisez une note.',
+            'avi_note.min' => 'La note doit être au minimum à 1',
+            'avi_note.maximum' => 'La note doit être au maximum à 5',
+            'avi_detail.required' => 'Il fait que vous entrez un avis.',
+            'avi_titre.required' => 'Il fait que vous doniez un titre a votre avis.',
+            
+            
+        ]);
+
         $avis = new Avis();
         $avis->cli_id = 1;
         $avis->jeu_id = $request->jeu_id;
