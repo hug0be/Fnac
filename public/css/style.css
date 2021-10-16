@@ -405,8 +405,32 @@ body {
 
 
 
+    /* --------------------------------------------------------- HEADER CONTAINER ACCOUNT ---------------------------------------------------------*/
 
 
+.container_header_account {
+    /* background-color: skyblue; */
+    display: flex;
+    justify-content: flex-end;
+
+    width: 35%;
+}
+
+
+.header_link_login {
+    padding: 10px 50px;
+    background-color: #f5b027;
+
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.header_link_login:hover {
+    background-color: #f8c153;
+}
+
+    /* --------------------------------------------------------- FIN HEADER CONTAINER ACCOUNT ---------------------------------------------------------*/
 
 
 /* --------------------------------------------------------- FIN HEADER ---------------------------------------------------------*/
@@ -432,12 +456,46 @@ body {
     .logo_img {
         margin: 0 25px;
     }
+
+
+
+
+
+    .header {
+        display: flex;
+    }
+
+
+
+    .container_header_account {
+        width: unset;
+
+        position: absolute;
+        right: 15px;
+    }
 }
 
 
 
 
 
+@media screen and (max-width: 468px) {
+    .logo_img {
+        margin: 0 5px;
+
+    }
+    .container_header_account {
+        right: 7px;
+    }
+    
+    .header_link_login {
+        padding: 8px 30px;
+    
+        font-size: 15px;
+    }
+
+    
+}
 
 
 

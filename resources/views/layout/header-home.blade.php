@@ -38,19 +38,19 @@
     </div>
 
     <!-- Login and register buttons -->
-    <div>
+    <div class="container_header_account" >
         @auth
             <a href="{{route("logout")}}">
                 Se déconnecter
             </a>
         @endauth
         @guest
-            <a href="{{route("login")}}">
+            <a href="{{route("login")}}" class="header_link_login">
                 Se connecter
             </a>
-            <a href="{{route("register")}}">
+            {{-- <a href="{{route("register")}}">
                 Créer un compte
-            </a>
+            </a> --}}
         @endguest
     </div>
 </header>
