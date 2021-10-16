@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\jeuVideoController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
 /*
@@ -28,3 +29,6 @@ Route::post('/login', [AuthController::class, 'authentificate'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'createAccount'])->name('register');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::get('/account', [ClientController::class, 'detailAccount'])->name('detailAccount');
