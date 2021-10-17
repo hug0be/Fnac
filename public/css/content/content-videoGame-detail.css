@@ -652,14 +652,13 @@ body {
     display: flex;
     
 
-    /* overflow: scroll; */
+    overflow: scroll;
     overflow-x: scroll;
 
     margin: 50px auto;
 
     padding-bottom: 15px;
 
-    /* background-color: red; */
 
 }
 
@@ -676,8 +675,6 @@ body {
     padding: 0 10px;
 
     border-right: 1px solid #bdc3c7;
-
-    /* background-color: orange; */
 
 }
 

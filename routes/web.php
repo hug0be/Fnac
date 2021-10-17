@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\imageController;
 use App\Http\Controllers\jeuVideoController;
+
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
+
+use App\Http\Controllers\videoController;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
 /*
@@ -36,3 +40,9 @@ Route::get('/account', [ClientController::class, 'detailAccount'])->name('detail
 Route::get('/service-comm/avisAbusifs', [jeuVideoController::class, 'avisAbusifs'])->name('avisAbusifs');
 Route::post('/service-comm/delete_avis', [jeuVideoController::class, 'delete_avis'])->name('delete_avis');
 
+// Upload Photo
+Route::get('/videoGameDetail/imageUpload', [ imageController::class, 'imageUpload' ])->name('image.upload');
+Route::post('image-upload', [ imageController::class, 'imageUploadPost' ])->name('image.upload.post');
+//upload video
+Route::get('/videoGameDetail/videoUpload', [ videoController::class, 'videoUpload' ])->name('video.upload');
+Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name('video.upload.post');

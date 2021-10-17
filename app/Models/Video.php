@@ -24,12 +24,12 @@ class Video extends Model
 	protected $table = 't_e_video_vid';
 	public $timestamps = false;
 	protected $primaryKey = 'vid_id';
-
+/*
 	protected $casts = [
 		'jeu_id' => 'int',
 		'vid_url' => 'character varying'
 	];
-
+*/
 	protected $fillable = [
 		'jeu_id',
 		'vid_url'
