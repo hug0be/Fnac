@@ -1,0 +1,210 @@
+
+
+/* --------------------------------------------------------- CONTAINER LOGIN ---------------------------------------------------------*/
+
+.container_main_login {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    background-color: #f2f2f2;
+}
+
+
+
+
+    /* --------------------------------------------------------- CONTAINER LOGIN FORM ---------------------------------------------------------*/
+
+.container_login_form {
+    width: 60%;
+    max-width: 500px;
+    
+
+    padding: 40px;
+
+    box-sizing: border-box;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+    
+    background-color: #ffffff;
+
+}
+
+.title_login {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #000000;
+    text-align: center;
+
+    
+    margin-bottom: 75px;
+
+    font-size: 30px;
+}
+
+        /* --------------------------------------------------------- FORM LOGIN ---------------------------------------------------------*/
+
+
+.form_login {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    /* background-color: darkseagreen; */
+}
+
+
+            /* --------------------------------------------------------- INPUT BOX ---------------------------------------------------------*/
+
+
+.input_box{
+
+    margin-top: 5px;
+
+    position: relative;
+    /* background-color: darkviolet; */
+}
+
+.input_box input {
+    width: 100%;
+
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 30px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    border-bottom: 2px solid #000000;
+}
+
+
+
+
+.input_box label{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    padding: 10px 0;
+    font-size: 16px;
+    pointer-events: none ;
+
+    transition: 0.5s;
+    
+}
+
+
+
+.input_box input:focus ~ label, .input_box input:valid ~ label {
+    top: -25px;
+    left: 0;
+    font-size: 15px;
+}
+
+
+
+            /* --------------------------------------------------------- FIN INPUT BOX ---------------------------------------------------------*/
+
+
+
+
+
+
+            /* --------------------------------------------------------- CONTAINER CREATE ACCOUNT ---------------------------------------------------------*/
+
+
+.container_create_account {
+    display: flex;
+    justify-content: flex-end;
+
+
+
+   /* background-color: red; */
+}
+
+.link_create_account {
+    text-decoration: none;
+    font-size: 13px;
+    color: #000000;
+}
+
+.link_create_account:hover {
+    text-decoration: underline;
+}
+
+
+
+            /* --------------------------------------------------------- FIN CONTAINER CREATE ACCOUNT ---------------------------------------------------------*/
+
+
+
+
+
+
+
+            /* --------------------------------------------------------- BTN SUBMIT ---------------------------------------------------------*/
+
+
+
+.btn_submit {
+    padding: 10px 0;
+
+    border: none;
+    cursor: pointer;
+
+    align-self: center;
+    width: 80%;
+
+    margin-top: 50px;
+
+    font-weight: bold;
+    font-size: 16px;
+    color: #ffffff;
+
+
+    background-color: #f5b027;
+}
+
+.btn_submit:hover {
+    background-color: #f8c153;
+}
+
+
+
+
+
+
+            /* --------------------------------------------------------- FIN BTN SUBMIT ---------------------------------------------------------*/
+
+
+
+        /* --------------------------------------------------------- FIN FORM LOGIN ---------------------------------------------------------*/
+
+
+
+    /* --------------------------------------------------------- FIN CONTAINER LOGIN FORM ---------------------------------------------------------*/
+
+
+
+/* --------------------------------------------------------- FIN CONTAINER LOGIN ---------------------------------------------------------*/
+
+
+
+
+
+
+ 
+@media screen and (max-width: 768px ) {
+    .container_login_form {
+        width: 75%;
+ 
+    }
+}

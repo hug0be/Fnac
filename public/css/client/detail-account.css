@@ -1,0 +1,126 @@
+
+body {
+    background-color: #f4f5f0;
+}
+
+
+/* --------------------------------------------------------- CONTAINER ACCOUNT INFO ---------------------------------------------------------*/
+
+.container_account_info {
+
+    width: 92%;
+
+    margin: 100px auto;
+
+
+    padding: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    background-color: #fdfdfd;
+}
+
+
+
+    /* --------------------------------------------------------- CONTAINER ACCOUNT INFO CONTENT ---------------------------------------------------------*/
+
+.container_all_account_info_content {
+    
+    width: 52%;
+
+    /* background-color: salmon; */
+}
+
+
+
+        /* --------------------------------------------------------- INFO BOX ---------------------------------------------------------*/
+
+.info_box {
+    margin: 10px 0;
+
+    padding: 10px 0;
+
+    display: flex;
+}
+
+.type_info {
+
+    width: 45%;
+
+    display: flex;
+    justify-content: flex-end;
+
+    /* background-color: slateblue; */
+}
+
+.content_info {
+    margin-left: 25px;
+}
+
+
+
+        /* --------------------------------------------------------- FIN INFO BOX ---------------------------------------------------------*/
+
+
+    /* --------------------------------------------------------- FIN CONTAINER ACCOUNT INFO CONTENT ---------------------------------------------------------*/
+
+
+
+
+
+    /* --------------------------------------------------------- FORM EDIT ACCOUNT ---------------------------------------------------------*/
+
+.btn_edit_account {
+
+    max-width: 400px;
+
+    padding: 10px 30px;
+
+    margin: 25px auto;
+
+    margin-right: 0;
+
+    cursor: pointer;
+
+    border: none;
+
+    color: #ffffff;
+    font-size: 16px;
+
+    background-color: #f5b027;
+}
+
+.btn_edit_account:hover {
+    background-color: #f8c153;
+}
+
+
+
+    /* --------------------------------------------------------- FIN FORM EDIT ACCOUNT ---------------------------------------------------------*/
+
+
+
+
+/* --------------------------------------------------------- FIN CONTAINER ACCOUNT INFO ---------------------------------------------------------*/
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .container_all_account_info_content {
+        width: 100%;
+    
+    }
+
+    .type_info {
+
+        width: 35%;
+
+    }
+    
+}

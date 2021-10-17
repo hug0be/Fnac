@@ -6,14 +6,12 @@
                 <a href="{{ route('home') }}">
                     TOUS LES RAYONS
                 </a>
-            </h4>
-    
-            
-                @foreach ($rayons as $rayon)
-                    <div class="menu_nav_sidebar_container_link">
-                        <a href="{{route("searchByRayon", ['idRayon' => $rayon->ray_id]);}}" class="link_menu_nav_sidebar" >{{ $rayon->ray_nom}}</a>
-                    </div>
-                @endforeach
+            </h4>        
+            @foreach ($rayons as $rayon)
+                <div class="menu_nav_sidebar_container_link">
+                    <a href="{{route("searchByRayon", ['idRayon' => $rayon->ray_id]);}}" class="link_menu_nav_sidebar" >{{ $rayon->ray_nom}}</a>
+                </div>
+            @endforeach
         </div>
 
         <div class="menu_nav_sidebar_container_console">

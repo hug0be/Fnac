@@ -405,8 +405,54 @@ body {
 
 
 
+    /* --------------------------------------------------------- HEADER CONTAINER ACCOUNT ---------------------------------------------------------*/
 
 
+.container_header_account {
+    /* background-color: skyblue; */
+    display: flex;
+    justify-content: flex-end;
+
+    width: 35%;
+}
+
+
+.header_link {
+    padding: 10px 35px;
+    background-color: #f5b027;
+
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.header_link:hover {
+    background-color: #f8c153;
+}
+
+
+
+.log_icon {
+    display: none;
+}
+
+
+
+
+.header_link_account {
+
+    display: flex;
+    align-items: center;
+
+    font-size: 28px;
+    color: #000000;
+
+    margin-right: 15px;
+}
+
+
+
+    /* --------------------------------------------------------- FIN HEADER CONTAINER ACCOUNT ---------------------------------------------------------*/
 
 
 /* --------------------------------------------------------- FIN HEADER ---------------------------------------------------------*/
@@ -432,12 +478,55 @@ body {
     .logo_img {
         margin: 0 25px;
     }
+
+
+
+
+
+    .header {
+        display: flex;
+    }
+
+
+
+    .container_header_account {
+        width: unset;
+
+        position: absolute;
+        right: 15px;
+    }
 }
 
 
 
 
 
+@media screen and (max-width: 468px) {
+    .logo_img {
+        margin: 0 5px;
+
+    }
+    .container_header_account {
+        right: 7px;
+    }
+    
+    .header_link {
+        padding: 8px 20px;
+    
+        font-size: 15px;
+    }
+
+
+
+    .log_icon {
+        display: unset;
+    }
+    .log_txt {
+        display: none;
+    }
+
+    
+}
 
 
 
