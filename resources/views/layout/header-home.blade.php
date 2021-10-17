@@ -43,14 +43,14 @@
             <a href="{{route("logout")}}">
                 Se déconnecter
             </a>
+            <a href="{{route("profile")}}">
+                Mon compte
+            </a>
         @endauth
         @guest
             <a href="{{route("login")}}" class="header_link_login">
                 Se connecter
             </a>
-            {{-- <a href="{{route("register")}}">
-                Créer un compte
-            </a> --}}
         @endguest
     </div>
 </header>
