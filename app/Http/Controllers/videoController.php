@@ -23,13 +23,12 @@ class videoController extends Controller
 
     public function videoUploadPost(Request $request)
     {
-        /*
+        
         $request->validate([
 
-            'video' => 'required|video|mimes:mp4|max:2048',
+            'video' => 'required|mimes:mp4|max:2048',
 
         ]);
-        */
     
 
         $videoName = time().'.'.$request->video->extension();
