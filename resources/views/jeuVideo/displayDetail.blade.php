@@ -59,25 +59,26 @@
     
     
                             @foreach ($videoGame->photo as $photo)
-    
+
+                            @if (is_file(public_path("Photos/".$photo->pho_url)))
                             <div class="container_small_img">
                                 <img src="{{asset("Photos/".$photo->pho_url)}}" alt="" class="game_detail_small_img">
                             </div>
-                        
-    
+                            @endif
+
                             @endforeach 
     
                             @foreach ($videoGame->video as $video)
-    
+                            @if (is_file(public_path("Videos/".$video->vid_url)))
                             <div class="container_small_img">
-                                <video controls width="250"class="game_detail_small_img">
+                                <video class="game_detail_small_img" preload="auto">
                     
-                                    <source src="{{asset('Videos/'.$video->vid_url)}}"
-                                            type="video/mp4">
+                                    <source src="{{asset('Videos/'.$video->vid_url)}}" type="video/mp4">
                                 
-                                    Sorry, your browser doesn't support embedded videos.
+                                    Votre navigateur ne supporte pas les lecteurs de vidéos.
                                 </video>
                             </div>
+                            @endif
                         
     
                             @endforeach 
@@ -96,8 +97,7 @@
                             @foreach ($videoGame->photo as $photo)
     
                                 @if (!$displayFirstImage)
-                        
-                                
+                                    
                                     <img src="{{asset("Photos/".$photo->pho_url)}}" alt="" class="game_detail_active_img">
      
                         
