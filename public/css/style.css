@@ -417,8 +417,8 @@ body {
 }
 
 
-.header_link_login {
-    padding: 10px 50px;
+.header_link {
+    padding: 10px 35px;
     background-color: #f5b027;
 
     text-decoration: none;
@@ -426,9 +426,31 @@ body {
     font-weight: bold;
 }
 
-.header_link_login:hover {
+.header_link:hover {
     background-color: #f8c153;
 }
+
+
+
+.log_icon {
+    display: none;
+}
+
+
+
+
+.header_link_account {
+
+    display: flex;
+    align-items: center;
+
+    font-size: 28px;
+    color: #000000;
+
+    margin-right: 15px;
+}
+
+
 
     /* --------------------------------------------------------- FIN HEADER CONTAINER ACCOUNT ---------------------------------------------------------*/
 
@@ -488,10 +510,19 @@ body {
         right: 7px;
     }
     
-    .header_link_login {
-        padding: 8px 30px;
+    .header_link {
+        padding: 8px 20px;
     
         font-size: 15px;
+    }
+
+
+
+    .log_icon {
+        display: unset;
+    }
+    .log_txt {
+        display: none;
     }
 
     

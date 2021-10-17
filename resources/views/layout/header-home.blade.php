@@ -40,13 +40,18 @@
     <!-- Login and register buttons -->
     <div class="container_header_account" >
         @auth
-            <a href="{{route("logout")}}">
-                Se déconnecter
+            <a href="{{ route("detailAccount") }}" class="header_link_account">
+                <i class="fas fa-user"></i>
+            </a>
+            <a href="{{route("logout")}}" class="header_link_logout header_link">
+                <span class="logout_txt log_txt">Se déconnecter</span> 
+                <span class="logout_icon log_icon"> <i class="fas fa-sign-out-alt"></i> </span>
             </a>
         @endauth
         @guest
-            <a href="{{route("login")}}" class="header_link_login">
-                Se connecter
+            <a href="{{route("login")}}" class="header_link_login header_link">
+                <span class="login_txt log_txt">Se connecter</span> 
+                <span class="login_icon log_icon"> <i class="fas fa-sign-in-alt"></i> </span> 
             </a>
             {{-- <a href="{{route("register")}}">
                 Créer un compte

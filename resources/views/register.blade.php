@@ -32,7 +32,8 @@
         <div class="container_form_create_account">
 
             <div class="container_errors">
-                {{-- {{ $errors }} --}}
+                {{ $errors }}
+                
             </div>
             
             <form method="post" action="register" class="form_create_account">
@@ -75,7 +76,7 @@
                 </div>
                 
                 <div class="input_box">
-                    <label for="cli_prenom" class="label_field" >Prenom *</label>
+                    <label for="cli_prenom" class="label_field" >Prénom *</label>
                     <input type="text" name="cli_prenom" value="{{ old('cli_prenom') }}" class="input_field input_real_field"/>
                 
                 </div>
