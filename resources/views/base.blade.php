@@ -27,7 +27,6 @@
 
 <body class="antialiased">
     
-
     @section('header') 
         @include('layout.header-home')
     @show

@@ -1,0 +1,310 @@
+
+
+
+body {
+    background-color: #f4f5f0;
+}
+
+
+
+
+
+/* --------------------------------------------------------- CONTAINER TITLE ---------------------------------------------------------*/
+
+
+.container_title_create_account {
+
+    padding: 40px 20px;
+
+    font-family: 'Roboto';
+
+    font-size: 18px;
+    font-weight: 300;
+
+
+    background-color: #ffffff;
+
+}
+
+
+.title_create_account {
+    padding-left: 20px;
+}
+
+
+
+
+
+/* --------------------------------------------------------- FIN CONTAINER TITLE ---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------- CONTAINER SUBTITLE FORM ---------------------------------------------------------*/
+
+
+.container_main_subTitle_form {
+    width: 92%;
+
+    margin: 50px auto;
+
+    padding: 30px;
+
+    background-color: #ffffff;
+}
+
+
+
+    /* --------------------------------------------------------- CONTAINER SUBTITLE ---------------------------------------------------------*/
+
+.container_subTitle {
+    width: 100%;
+
+    margin-bottom: 30px;
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid #e6e6e4;
+
+    /* background-color: salmon; */
+}
+
+.subTitle_contact_info {
+    font-size: 20px;
+}
+
+
+    /* --------------------------------------------------------- FIN CONTAINER SUBTITLE ---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+    /* --------------------------------------------------------- CONTAINER FORM ---------------------------------------------------------*/
+
+.container_form_create_account {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    flex-direction: column;
+
+    /* background-color: skyblue; */
+}
+
+
+    /* --------------------------------------------------------- CONTAINER ERRORS ---------------------------------------------------------*/
+
+.container_errors {
+    margin-bottom: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+
+    /* --------------------------------------------------------- FIN CONTAINER ERRORS ---------------------------------------------------------*/
+
+
+
+
+
+        /* --------------------------------------------------------- FORM ---------------------------------------------------------*/
+
+
+.form_create_account {
+
+    width: 55%;
+
+    margin-left: 14vw;
+
+    display: flex;
+    flex-direction: column;
+
+
+
+    /* background-color: springgreen; */
+}
+
+
+            /* --------------------------------------------------------- INPUT BOX ---------------------------------------------------------*/
+.input_box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 15px;
+
+    /* background-color: orange */
+}
+
+
+.label_field {
+    margin-right: 30px;
+
+    font-size: 14px;
+}
+
+.input_field {
+    width: 75%;
+
+    /* background-color: darkseagreen; */
+}
+
+
+.input_real_field {
+    border: 1px solid #e6e6e4;
+
+    outline: none;
+
+    padding: 12px;
+}
+
+
+.input_real_field:focus {
+    border-color: #f5b027;
+
+    -webkit-box-shadow: 0px 0px 15px 5px #F5B027; 
+    box-shadow: 0px 0px 15px 5px #F5B027;
+}
+
+
+
+
+
+.btn_submit {
+    width: 50%;
+    max-width: 400px;
+
+    padding: 10px 0;
+
+    margin: 25px auto;
+
+    margin-right: 0;
+
+    cursor: pointer;
+
+    border: none;
+
+    color: #ffffff;
+    font-size: 16px;
+
+    background-color: #f5b027;
+}
+
+.btn_submit:hover {
+    background-color: #f8c153;
+}
+
+
+            /* --------------------------------------------------------- FIN INPUT BOX ---------------------------------------------------------*/
+
+
+        /* --------------------------------------------------------- FIN FORM ---------------------------------------------------------*/
+
+
+    /* --------------------------------------------------------- FIN CONTAINER FORM ---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------- FIN CONTAINER SUBTITLE FORM ---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .form_create_account {
+        width: 85%;
+
+        margin-left: 0;
+        margin: auto;
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 1080px) {
+    .container_title_create_account {
+        padding: 20px 0;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .container_title_create_account {
+        font-size: 13px;
+    }
+
+
+
+
+
+    .form_create_account {
+        width: 85%;
+
+        margin-left: 0;
+        margin: auto;
+    }
+
+    .input_box {
+       flex-direction: column;
+    }
+
+
+    .label_field, .input_field {
+        width: 100%;
+    }
+
+    .label_field {
+        margin-right: 0;
+        margin-bottom: 5px;
+
+        font-size: 16px;
+    }
+
+    .input_field {
+        padding: 7px;
+    }
+
+
+
+    .btn_submit {
+        width: 100%;
+        max-width: unset;
+
+    }
+    
+}
