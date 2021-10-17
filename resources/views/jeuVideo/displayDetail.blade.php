@@ -6,6 +6,8 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset("css/sideBar/sideBar-videoGame-detail.css") }}">
     <link rel="stylesheet" href="{{ asset("css/content/content-videoGame-detail.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/form/form-videoGame-detail.css") }}">
+
 @endsection
 
 
@@ -82,6 +84,11 @@
                         
     
                             @endforeach 
+
+
+                                                
+                            @include('jeuVideo/form_Photos')
+                            @include('jeuVideo/form_Video')
       
     
                         </div>
@@ -111,6 +118,7 @@
                             </div>
     
                         </div>
+                        
                     </div>
     
                     <div class="container_detail_game_content_price">
@@ -250,8 +258,6 @@
         </div>
 
 
-        @include('jeuVideo/form_Photos')
-        @include('jeuVideo/form_Video')
 
         <div class="container_lightbox_detail_game">
             
