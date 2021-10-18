@@ -61,11 +61,15 @@
 
         </div>
 
-        <form action="" class="form_edit_account">
+        {{-- <form action="" class="form_edit_account">
 
             <input type="submit" value="Modifier" class="btn_edit_account">
 
-        </form>
+        </form> --}}
+
+        <a href="{{route("profile")}}" class="btn_edit_account">
+            Modifier
+        </a>
 
     </div>
 

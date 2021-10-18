@@ -53,9 +53,6 @@
                 <span class="login_txt log_txt">Se connecter</span> 
                 <span class="login_icon log_icon"> <i class="fas fa-sign-in-alt"></i> </span> 
             </a>
-            {{-- <a href="{{route("register")}}">
-                Créer un compte
-            </a> --}}
         @endguest
     </div>
 </header>
