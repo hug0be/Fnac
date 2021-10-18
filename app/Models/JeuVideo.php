@@ -188,5 +188,6 @@ class JeuVideo extends Model
 	{
 		return $this->jeu_stock;
 	}
+	
 
 }

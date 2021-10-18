@@ -1,0 +1,120 @@
+
+
+
+/* --------------------------------------------------------- CONTAINER FORM ADD IMG ---------------------------------------------------------*/
+
+.container_form_add_img, .container_form_add_vid {
+    width: 100%;
+
+    /* background-color: royalblue; */
+}
+
+.container_form_add_vid {
+    margin-top: 15px;
+}
+
+
+.btn_add_image {
+    width: 100%;
+
+    /* background-color: salmon; */
+}
+
+
+
+.btn_choose_file {
+    display: none;
+}
+
+.lab_choose_file {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    background-color: #f5b027;
+}
+
+.lab_choose_file:hover {
+    background-color: #f8c153;
+}
+
+.icon_choose_file {
+    width: 50%;
+}
+
+
+
+
+
+.btn_confirm_file {
+    width: 100%;
+
+    margin-top: 6.3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    outline: none;
+
+    padding: 5px 0;
+
+    background-color: #f5b027;
+
+    cursor: pointer;
+}
+.icon_confirm_file {
+    width: 25%;
+}
+
+
+/* --------------------------------------------------------- FIN CONTAINER FORM ADD IMG ---------------------------------------------------------*/
+
+
+
+
+
+
+/* 
+
+.btn_choose_file {
+    display: none;
+}
+
+
+
+
+.form_add_img {
+    width: 100%;
+}
+
+
+
+.btn_add_image {
+    width: 100px;
+}
+
+
+
+
+.lab_add_img {
+    background-color: red;
+    width: 150px;
+}
+
+.icon-add-img {
+    width: 15px;
+}
+ */
+
+
+.test {
+    width: 100%;
+
+    background-color: rebeccapurple;
+}
