@@ -46,5 +46,8 @@ Route::post('image-upload', [ imageController::class, 'imageUploadPost' ])->name
 //upload video
 Route::get('/videoGameDetail/videoUpload', [ videoController::class, 'videoUpload' ])->name('video.upload');
 Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name('video.upload.post');
-Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
-Route::post('/profile', [AuthController::class, 'editAccount'])->name('profile');
+
+Route::get('/profile', [ClientController::class, 'profile'])->name('profile');
+Route::post('/profile', [ClientController::class, 'editAccount'])->name('profile');
+Route::get('/password', [ClientController::class, 'password'])->name('password');
+Route::post('/password', [ClientController::class, 'changePassword'])->name('password');
