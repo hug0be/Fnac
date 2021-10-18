@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\jeuVideoController;
 use App\Http\Controllers\AuthController;
-use App\Models\Genre;
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +29,7 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'createAccount'])->name('register');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
-Route::post('/profile', [AuthController::class, 'editAccount'])->name('profile');
+Route::get('/profile', [ClientController::class, 'profile'])->name('profile');
+Route::post('/profile', [ClientController::class, 'editAccount'])->name('profile');
+Route::get('/password', [ClientController::class, 'password'])->name('password');
+Route::post('/password', [ClientController::class, 'changePassword'])->name('password');
