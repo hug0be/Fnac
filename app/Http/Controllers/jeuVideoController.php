@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Avis;
 use App\Models\AvisAbusif;
 use App\Models\JeuVideo;
 use App\Models\Rayon;
-use App\Models\Console;
 use Illuminate\Http\Request;
 
 class jeuVideoController extends Controller
@@ -20,7 +18,7 @@ class jeuVideoController extends Controller
      */
     public function home()
     {
-        return view ("jeuVideo.displayAllLines", ['videoGames'=>JeuVideo::all(), 'consoles'=>Console::all() ]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=>JeuVideo::all()]);
     }
 
 
@@ -44,7 +42,7 @@ class jeuVideoController extends Controller
             }
         }
 
-        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames, 'currentRay' => $currentRay, 'consoles'=>Console::all() ]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames, 'currentRay' => $currentRay]);
     }
 
     /**
@@ -63,7 +61,7 @@ class jeuVideoController extends Controller
                 $videoGames[] = $videoGame;
         }
 
-        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames, 'consoles'=>Console::all()]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames]);
     }
 
     
@@ -78,8 +76,7 @@ class jeuVideoController extends Controller
     {
         $videoGameSelected = JeuVideo::find($idGame);
         return view ("jeuVideo.displayDetail", [
-            'videoGame'=> $videoGameSelected, 
-            'consoles'=>Console::all()
+            'videoGame'=> $videoGameSelected,
         ]);
     }
 
@@ -104,7 +101,6 @@ class jeuVideoController extends Controller
         }
         return view ("serviceComm.avisAbusifs", [
             'avisAbusifs' => $avisAbusifList,
-            'consoles'=>Console::all()
 
         ]);
     }
@@ -114,18 +110,17 @@ class jeuVideoController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function delete_avis(Request $request)
-    {
+    public function delete_avis(Request $request) {
         $avisAbusifList = AvisAbusif::where('avi_id', $request->id_avis)->get();
         $avis = $avisAbusifList[0]->avis;
-        foreach($avisAbusifList as $avisAbusif)
-        {
+        foreach($avisAbusifList as $avisAbusif) {
             $avisAbusif->delete();
         }
         $avis->delete();
         return redirect()->route('avisAbusifs');
-        
     }
 
-    
+    public function comparateur() {
+        return view("jeuVideo.comparateur");
+    }
 }

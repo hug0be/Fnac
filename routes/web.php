@@ -54,3 +54,6 @@ Route::post('image-upload', [ imageController::class, 'imageUploadPost' ])->name
 //Upload video
 Route::get('/videoGameDetail/videoUpload', [ videoController::class, 'videoUpload' ])->name('video.upload');
 Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name('video.upload.post');
+
+//Comparateur
+Route::get('/comparateur', [ jeuVideoController::class, 'comparateur'])->name('comparateur');
