@@ -12,7 +12,6 @@
 @endsection
 
 @section('content')
-{{-- <h1>🐣</h1> --}}
 <div class="container_all_game_line margin_top_content" >
 
     @include('layout.menu')
