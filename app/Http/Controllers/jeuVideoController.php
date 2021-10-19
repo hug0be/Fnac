@@ -124,18 +124,26 @@ class jeuVideoController extends Controller
         $request->session()->forget('comparateur');
         $request->session()->push('comparateur', 1);
         $request->session()->push('comparateur', 2);
-    // SIMPLE : nom, dateparution, prixttc, codeBarre, stock, publicLegal 
-    // COMPLEXES:
-    // NbAchatsTotaux : sum(fk:ligneCommande * fk:ligneCommande.qtn)
-    // NoteMoyenne : sum(fk:Avis.note) / count(fk:avis)
-    // NbFavoris : count(fk:Favori)
-        //Verify if each game exists
+        //$request->session()->all()
         foreach(session('comparateur') as $idJeu) {
             $jeu = JeuVideo::find($idJeu);
             if($jeu) $jeux[]=$jeu;
             else return redirect()->route('home');
         }
-        //$request->session()->all()
-        return view("jeuVideo.comparateur", ['session'=> session('comparateur'), 'jeux'=>$jeux]);
+        //Calculates stats for each game
+        foreach($jeux as $jeu) {
+            $statsJeux[$jeu->id_jeu()] = array(
+                "Nom" => $jeu->nom(),
+                "PrixTTC" => $jeu->prixTTC(),
+                "Stock" => $jeu->stock(),
+                "Age légal" => $jeu->publicLegal(),
+                "Date de parution" => $jeu->dateParution(),
+                "Note moyenne" => $jeu->avis()->avg('avi_note'),
+                "Nombre de ventes" => $jeu->ligneCommande()->sum('lec_quantite'),
+                "Nombre de favoris" => $jeu->favori()->count()
+            );
+        }
+        $statsList = array("Nom", "PrixTTC", "Stock", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris");
+        return view("jeuVideo.comparateur", ['session'=> session('comparateur'), 'statsJeux'=>$statsJeux, 'statsList'=>$statsList]);
     }
 }
