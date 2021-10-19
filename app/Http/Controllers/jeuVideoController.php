@@ -120,7 +120,22 @@ class jeuVideoController extends Controller
         return redirect()->route('avisAbusifs');
     }
 
-    public function comparateur() {
-        return view("jeuVideo.comparateur");
+    public function comparateur(Request $request) {
+        $request->session()->forget('comparateur');
+        $request->session()->push('comparateur', 1);
+        $request->session()->push('comparateur', 2);
+    // SIMPLE : nom, dateparution, prixttc, codeBarre, stock, publicLegal 
+    // COMPLEXES:
+    // NbAchatsTotaux : sum(fk:ligneCommande * fk:ligneCommande.qtn)
+    // NoteMoyenne : sum(fk:Avis.note) / count(fk:avis)
+    // NbFavoris : count(fk:Favori)
+        //Verify if each game exists
+        foreach(session('comparateur') as $idJeu) {
+            $jeu = JeuVideo::find($idJeu);
+            if($jeu) $jeux[]=$jeu;
+            else return redirect()->route('home');
+        }
+        //$request->session()->all()
+        return view("jeuVideo.comparateur", ['session'=> session('comparateur'), 'jeux'=>$jeux]);
     }
 }
