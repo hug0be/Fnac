@@ -14,11 +14,11 @@ class ClientController extends Controller
 {
 
     public function detailAccount() {
-        return view("client.detailAccount", [ 'detailsAccount'=> Auth::user(), 'rayons'=>Rayon::all()] );
+        return view("client.detailAccount", [ 'detailsAccount'=> Auth::user() ]);
     }
 
     public function profile() {
-        return view("client.profile", ['rayons'=>Rayon::all(),'compte'=>Auth::user()]);
+        return view("client.profile", ['compte'=>Auth::user()]);
     }
 
     public function editAccount(Request $request) {
@@ -45,7 +45,7 @@ class ClientController extends Controller
     }
 
     public function password() {
-        return view("client.password", ['rayons'=>Rayon::all()]);
+        return view("client.password");
     }
     public function changePassword(Request $request) {
         $validated = $request->validate([

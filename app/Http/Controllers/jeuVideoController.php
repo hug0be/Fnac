@@ -20,7 +20,7 @@ class jeuVideoController extends Controller
      */
     public function home()
     {
-        return view ("jeuVideo.displayAllLines", ['videoGames'=>JeuVideo::all(), 'rayons' => Rayon::all(), 'consoles'=>Console::all() ]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=>JeuVideo::all(), 'consoles'=>Console::all() ]);
     }
 
 
@@ -44,7 +44,7 @@ class jeuVideoController extends Controller
             }
         }
 
-        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames , 'rayons' => Rayon::all(), 'currentRay' => $currentRay, 'consoles'=>Console::all() ]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames, 'currentRay' => $currentRay, 'consoles'=>Console::all() ]);
     }
 
     /**
@@ -63,7 +63,7 @@ class jeuVideoController extends Controller
                 $videoGames[] = $videoGame;
         }
 
-        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames , 'rayons' => Rayon::all(), 'consoles'=>Console::all()]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames, 'consoles'=>Console::all()]);
     }
 
     
@@ -79,7 +79,6 @@ class jeuVideoController extends Controller
         $videoGameSelected = JeuVideo::find($idGame);
         return view ("jeuVideo.displayDetail", [
             'videoGame'=> $videoGameSelected, 
-            'rayons' => Rayon::all(),
             'consoles'=>Console::all()
         ]);
     }
@@ -105,7 +104,6 @@ class jeuVideoController extends Controller
         }
         return view ("serviceComm.avisAbusifs", [
             'avisAbusifs' => $avisAbusifList,
-            'rayons' => Rayon::all(),
             'consoles'=>Console::all()
 
         ]);

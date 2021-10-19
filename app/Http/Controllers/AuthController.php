@@ -11,14 +11,14 @@ use Illuminate\Validation\Rule;
 
 class AuthController extends Controller {
     public function login() {
-        return view("client.login", ['rayons'=>Rayon::all()]);
+        return view("client.login");
     }
     public function logout() {
         Auth::logout();
         return redirect()->route("home");
     }
     public function register() {
-        return view("client.register", ['rayons'=>Rayon::all()]);
+        return view("client.register");
     }
     public function createAccount(Request $request) {
         $validated = $request->validate([

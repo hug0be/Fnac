@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Rayon;
 use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
- 
+use Illuminate\Support\Facades\View;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -25,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Carbon::setLocale('fr');
+        View::share('rayons', Rayon::all());
     }
 }
