@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Avis;
 use App\Models\AvisAbusif;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -69,7 +70,7 @@ class AvisController extends Controller
             'avi_detail.required' => 'Il fait que vous entrez un avis.',
             'avi_titre.required' => 'Il fait que vous doniez un titre a votre avis.',
         ]);
-        $client = Auth::user();
+        $client = Client::find(Auth::user()->cli_id);
         
         $avis = new Avis();
         $avis->cli_id = $client->id();
@@ -84,6 +85,41 @@ class AvisController extends Controller
         $avis->save();
 
         return redirect()->route('detailVideoGame', ['idGame'=> $request->jeu_id]);
+        
+    }
+
+
+    /**
+     * Increment nb avisUtile
+     *
+     * @return \Illuminate\View\View
+     */
+    public function add_avisUtile(Request $request)
+    {
+        $avis = Avis::find($request->avisId);
+
+        $avis->avi_nbutileoui++;
+
+        $avis->save();
+
+        return redirect()->route('detailVideoGame', ['idGame'=> $avis->jeuvideo->id()]);
+        
+    }
+
+    /**
+     * Increment nb avisInutile
+     *
+     * @return \Illuminate\View\View
+     */
+    public function add_avisInutile(Request $request)
+    {
+        $avis = Avis::find($request->avisId);
+
+        $avis->avi_nbutilenon++;
+
+        $avis->save();
+
+        return redirect()->route('detailVideoGame', ['idGame'=> $avis->jeuvideo->id()]);
         
     }
 }

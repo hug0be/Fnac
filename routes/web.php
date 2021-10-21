@@ -61,3 +61,6 @@ Route::get('/service-comm/avisAbusifs', [AvisController::class, 'avisAbusifs'])-
 Route::post('/service-comm/delete_avis', [AvisController::class, 'delete_avis'])->name('delete_avis');
 Route::post('/avis/add', [AvisController::class, 'addAvis'])->name('add_avis');
 
+Route::post('/add_avisUtile', [AvisController::class, 'add_avisUtile'])->name('add_avisUtile');
+Route::post('/add_avisInutile', [AvisController::class, 'add_avisInutile'])->name('add_avisInutile');
+

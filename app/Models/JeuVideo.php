@@ -148,7 +148,7 @@ class JeuVideo extends Model
 
 
 
-	public function id_jeu()
+	public function id()
 	{
 		return $this->jeu_id;
 	}
