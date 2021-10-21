@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     let container_detail_game_content_all_notice_card = document.querySelector('.container_detail_game_content_all_notice_card');
 
+    let notice_card_note = document.querySelectorAll('.notice_card_note') ;
+
+
+
 
     // ----------------------- Display img open
     game_detail_active_img.addEventListener('mouseenter', ()=> {
@@ -157,6 +161,24 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
 
+
+
+
+    // ------------------------ Note notice card
+
+
+    notice_card_note.forEach(aNoticeNote => {
+
+        valueNote = parseInt( aNoticeNote.querySelector('.notice_value_note').textContent )
+    
+        allIconStars = aNoticeNote.querySelectorAll('.notice_icon_note');
+
+        for (let i = 0; i < valueNote; i++) {
+            allIconStars[i].style.color = "#f1c40f";
+         
+        }
+
+    })
 
 
 
