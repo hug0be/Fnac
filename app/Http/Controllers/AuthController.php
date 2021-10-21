@@ -40,7 +40,7 @@ class AuthController extends Controller {
             'cli_telportable' => $request->portable,
             'cli_telfixe'=>$request->fixe
         ]);
-        return redirect()->route('login');
+        return redirect()->route('login')->withInput(['validation'=>'Votre compte à été créé. Veuillez vous identifier']);
     }
     
     public function authentificate(Request $request) {
@@ -52,7 +52,7 @@ class AuthController extends Controller {
         $credentials['cli_mel'] = $request->mail;
         if(Auth::attempt($credentials, $request->remember_me)) {
             $request->session()->regenerate();
-            return redirect()->route("home");
+            return redirect()->route("home")->withInput(["validation"=>"Vous êtes authentifié !"]);
         }
         return back()->withErrors([
             'password'=>'Le mot de passe est incorrect.',

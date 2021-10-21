@@ -119,12 +119,7 @@ class jeuVideoController extends Controller
         $avis->delete();
         return redirect()->route('avisAbusifs');
     }
-
     public function comparateur(Request $request) {
-        $request->session()->forget('comparateur');
-        $request->session()->push('comparateur', 1);
-        $request->session()->push('comparateur', 2);
-        //$request->session()->all()
         foreach(session('comparateur') as $idJeu) {
             $jeu = JeuVideo::find($idJeu);
             if($jeu) $jeux[]=$jeu;

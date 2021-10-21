@@ -40,7 +40,7 @@ class ClientController extends Controller
         $client->cli_telportable = $request->portable;
         $client->cli_telfixe = $request->fixe;
         $client->save();
-        return back();
+        return back()->withInput(['validation'=>'Votre compte a bien été modifié !']);
     }
 
     public function password() {
