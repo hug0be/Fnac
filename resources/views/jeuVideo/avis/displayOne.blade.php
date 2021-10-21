@@ -15,7 +15,7 @@
             </form>
 
             <form action="">
-                <input type="submit" value="Oui" class="notice_useful_answer notice_useful_answer_no">
+                <input type="submit" value="Non" class="notice_useful_answer notice_useful_answer_no">
             </form>
         </div>
     </p>
