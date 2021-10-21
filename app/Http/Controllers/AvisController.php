@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Avis;
 use App\Models\AvisAbusif;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AvisController extends Controller
 {
@@ -68,9 +69,10 @@ class AvisController extends Controller
             'avi_detail.required' => 'Il fait que vous entrez un avis.',
             'avi_titre.required' => 'Il fait que vous doniez un titre a votre avis.',
         ]);
-
+        $client = Auth::user();
+        
         $avis = new Avis();
-        $avis->cli_id = 1;
+        $avis->cli_id = $client->id();
         $avis->jeu_id = $request->jeu_id;
         $avis->avi_date = date("Y-m-d");
         $avis->avi_titre = $request->avi_titre;

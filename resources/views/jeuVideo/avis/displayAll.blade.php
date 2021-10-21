@@ -12,8 +12,10 @@
 
     </div> 
     
-    {{-- @auth --}}
-    @include('jeuVideo.avis.from')
-    {{-- @endauth --}}
+    @auth
+        @if($boughtThisGame)
+            @include('jeuVideo.avis.from')
+        @endif
+    @endauth
    
 </div>

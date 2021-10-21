@@ -73,7 +73,7 @@ class Commande extends Model
 		return $this->belongsTo(Magasin::class, 'mag_id');
 	}
 
-	public function lignecommande()
+	public function ligneCommandeList()
 	{
 		return $this->hasMany(LigneCommande::class, 'com_id');
 	}

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\JeuVideo;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class jeuVideoController extends Controller
 {
@@ -72,8 +74,18 @@ class jeuVideoController extends Controller
     public function detailVideoGame($idGame)
     {
         $videoGameSelected = JeuVideo::find($idGame);
+        $client = Auth::user();
+        $client = Client::find($client->cli_id);
+        $boughtThisGame = false;
+        if($client)
+        {
+            $boughtThisGame = $client->boughtThisGame($idGame);
+        }
+
         return view ("jeuVideo.displayDetail", [
             'videoGame'=> $videoGameSelected,
+            'client' => Auth::user(),
+            'boughtThisGame' => $boughtThisGame
         ]);
     }
 }
