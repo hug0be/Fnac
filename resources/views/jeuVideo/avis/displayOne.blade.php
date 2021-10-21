@@ -29,13 +29,13 @@
             <form action="{{ route("add_avisUtile")}}" method="POST">
                 @csrf
                 <input type="hidden" name='avisId' value="{{$aNotice->id()}}">
-                <input type="submit" value="Oui{{$aNotice->nbUtiles()}}" class="notice_useful_answer notice_useful_answer_yes">
+                <input type="submit" value="Oui ({{$aNotice->nbUtiles()}})" class="notice_useful_answer notice_useful_answer_yes">
             </form>
             
             <form action="{{ route("add_avisInutile")}}" method="POST">
                 @csrf
                 <input type="hidden" name='avisId' value="{{$aNotice->id()}}">
-                <input type="submit" value="Non{{$aNotice->nbPasUtile()}}" class="notice_useful_answer notice_useful_answer_no">
+                <input type="submit" value="Non ({{$aNotice->nbPasUtile()}})" class="notice_useful_answer notice_useful_answer_no">
             </form>
         </div>
 
