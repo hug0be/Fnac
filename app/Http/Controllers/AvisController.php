@@ -67,8 +67,6 @@ class AvisController extends Controller
             'avi_note.maximum' => 'La note doit être au maximum à 5',
             'avi_detail.required' => 'Il fait que vous entrez un avis.',
             'avi_titre.required' => 'Il fait que vous doniez un titre a votre avis.',
-            
-            
         ]);
 
         $avis = new Avis();
@@ -83,7 +81,7 @@ class AvisController extends Controller
 
         $avis->save();
 
-        return redirect()->route('detailVideoGame', ['idGame'=> 1]);
+        return redirect()->route('detailVideoGame', ['idGame'=> $request->jeu_id]);
         
     }
 }
