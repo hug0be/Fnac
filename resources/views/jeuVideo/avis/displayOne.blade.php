@@ -10,12 +10,16 @@
         <p class="notice_useful_txt">Cet avis vous a été utile ?</p>
 
         <div class="container_notice_useful_answer">
-            <form action="">
-                <input type="submit" value="Oui" class="notice_useful_answer notice_useful_answer_yes">
+            <form action="{{ route("add_avisUtile")}}" method="POST">
+                @csrf
+                <input type="hidden" name='avisId' value="{{$aNotice->id()}}">
+                <input type="submit" value="Oui{{$aNotice->nbUtiles()}}" class="notice_useful_answer notice_useful_answer_yes">
             </form>
-
-            <form action="">
-                <input type="submit" value="Non" class="notice_useful_answer notice_useful_answer_no">
+            
+            <form action="{{ route("add_avisInutile")}}" method="POST">
+                @csrf
+                <input type="hidden" name='avisId' value="{{$aNotice->id()}}">
+                <input type="submit" value="Non{{$aNotice->nbPasUtile()}}" class="notice_useful_answer notice_useful_answer_no">
             </form>
         </div>
     </p>

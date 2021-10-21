@@ -74,7 +74,7 @@ class jeuVideoController extends Controller
     public function detailVideoGame($idGame)
     {
         $videoGameSelected = JeuVideo::find($idGame);
-        $client = Auth::user();
+        $client = Client::find(Auth::user()->cli_id);
         $boughtThisGame = false;
         if($client)
         {
