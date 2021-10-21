@@ -11,6 +11,7 @@
     <div class="container_title_create_account margin_top_content">
         <h1 class="title_create_account">Votre compte</h1>
     </div>
+    <x-validation-message/>
     <div class="container_subTitle">
         <h2 class="subTitle_contact_info">Vos coordonnées</h2>
     </div>
