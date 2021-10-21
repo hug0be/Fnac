@@ -5,7 +5,7 @@ use App\Http\Controllers\jeuVideoController;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
-
+use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\videoController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -57,3 +57,8 @@ Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name
 
 //Comparateur
 Route::get('/comparateur', [ jeuVideoController::class, 'comparateur'])->name('comparateur');
+
+
+
+//Commande Veille
+Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
