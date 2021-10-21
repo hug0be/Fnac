@@ -10,6 +10,10 @@
             @include('jeuVideo.avis.displayOne')
         @endforeach
 
-    </div>                
+    </div> 
+    
+    {{-- @auth --}}
+    @include('jeuVideo.avis.from')
+    {{-- @endauth --}}
    
 </div>
