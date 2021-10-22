@@ -106,19 +106,18 @@ class Commande extends Model
 
 
 	public function typeDelivery() {
-		$typeDelivery = " ";
-
-		if ( $this->rel_id != null ) {
+		
+		if ( $this->isDeliveryRelay()) {
 			$typeDelivery = "Relais" ;
 		}
-		elseif ($this->adr_id != null ) {
+		elseif ($this->isDeliveryHouse()) {
 			$typeDelivery = "Domicile" ;
 		}
-		elseif ($this->mag_id != null ) {
+		elseif ($this->isDeliveryStore()) {
 			$typeDelivery = "Magasin" ;
 		}
 
-		return $typeDelivery ;
+		return $typeDelivery;
 	}
 
 
