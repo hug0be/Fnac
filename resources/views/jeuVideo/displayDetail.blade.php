@@ -146,9 +146,7 @@
     
                         </div>
     
-                        <div class="detail_game_cart">
-                            <a href="#" class="detail_game_cart_link"> <i class="fas fa-shopping-bag"></i> Ajouter au panier </a>
-                        </div>
+                        @include('jeuVideo.form_Panier')
     
                     </div>
     

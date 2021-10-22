@@ -356,6 +356,8 @@
 .game_line_add_cart {
     text-decoration: none;
     color: #ffffff;
+    background : transparent; 
+    border : none;
 }
 
 

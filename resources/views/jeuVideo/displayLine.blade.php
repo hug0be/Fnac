@@ -84,9 +84,7 @@
 
 
 
-        <div class="game_line_container_add_cart">
-            <a href="#" class="game_line_add_cart"> <i class="fas fa-shopping-bag"></i> Ajouter au panier </a>
-        </div>
+        @include('jeuVideo.form_Panier')
 
     </div>
   
