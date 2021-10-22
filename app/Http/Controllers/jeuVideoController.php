@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\JeuVideo;
+use App\Models\MotCle;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -93,5 +94,22 @@ class jeuVideoController extends Controller
             'client' => Auth::user(),
             'boughtThisGame' => $boughtThisGame
         ]);
+    }
+
+    
+    public function rechercheJeu(Request $request)
+    {
+        if($request->barreRecherche != ""){
+            if(MotCle::findMot($request->barreRecherche)){
+                $jeux = JeuVideo::jeuxMotCle($request->barreRecherche);
+            }
+            else{
+                $jeux = JeuVideo::chercheJeu($request->barreRecherche);
+            }
+            return view("jeuVideo.displayAllLines", ['videoGames'=>$jeux]);
+        }
+        else{
+            return redirect()->route("home");
+        }
     }
 }

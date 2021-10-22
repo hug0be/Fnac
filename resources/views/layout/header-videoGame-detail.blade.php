@@ -39,12 +39,7 @@
 
         </div>
 
-        <div class="container_search">
-            <input type="text" name="" id="" placeholder="Rechercher un produit" class="header_search_input">
-            <div class="btn_search">
-                <img src="{{ asset('/img/icon/icon-search.svg')}}" alt="" class="header_search_img">
-            </div>
-        </div>
+        @include('layout.rechercheForm')
     </div>
 
     <div class="container_header_account" >
