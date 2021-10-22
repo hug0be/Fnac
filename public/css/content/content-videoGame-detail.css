@@ -277,27 +277,19 @@ body {
 
 
 
-            /* --------------------------------------------------------- CONTAINER PRICE CART ---------------------------------------------------------*/
+            /* --------------------------------------------------------- CONTAINER PRICE CART AND COMPARATOR ---------------------------------------------------------*/
 
 .detail_game_cart {
     background-color: #f5b027;
-
     margin-top: 15px;
-
     font-size: 15px;
-
     width: 80%;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 1vw 0;
-
     border-radius: 5px;
-
     cursor: pointer;
-
     transition: 0.5s;
 }
 
@@ -309,11 +301,32 @@ body {
 .detail_game_cart_link {
     text-decoration: none;
     color: #ffffff;
-
     background-color: transparent;
 }
 
+.detail_game_comparator_container {
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    display: flex;
+    cursor: pointer;
+    width: 80%;
+    margin-top: 15px;
+    font-size: 15px;
+}
 
+.detail_game_comparator_container > * {
+    background-color: #f5b027;
+    padding: 1vw 1vw;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.detail_game_comparator_container > a {
+    width: 85%;
+    text-decoration: none;
+    color: white;
+}
             /* --------------------------------------------------------- FIN CONTAINER PRICE CART ---------------------------------------------------------*/
 
 

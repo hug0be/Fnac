@@ -8,6 +8,7 @@ function addToSession() {
         data: new URLSearchParams("key="+key+"&value="+value)
     }).then(function (response) {
         console.log(response.data)
+        let 
     })
 }
 

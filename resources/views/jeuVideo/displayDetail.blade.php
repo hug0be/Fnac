@@ -152,13 +152,18 @@
                         <div class="detail_game_cart">
                             <a href="#" class="detail_game_cart_link"> <i class="fas fa-shopping-bag"></i> Ajouter au panier </a>
                         </div>
-                        <div class="detail_game_cart" onclick="addToSession()">
-                            <input type="hidden" name="key" value="comparateur" id="session_key">
-                            <input type="hidden" name="value" id="session_value" value="{{$videoGame->id_jeu()}}">
-                            <i class="fas fa-plus"></i>
-                        </div>
-                        <div class="detail_game_cart">
-                            <a href="{{route("comparateur")}}" class="detail_game_cart_link">Accéder au comparateur</a>
+
+                        <div class="detail_game_comparator_container">
+                            <div onclick="addToSession()" class="comparator_add">
+                                <input type="hidden" name="key" value="comparateur" id="session_key">
+                                <input type="hidden" name="value" id="session_value" value="{{$videoGame->id_jeu()}}">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <a href="{{route("comparateur")}}">
+                                <div class="comparator_link">
+                                    Accéder au comparateur
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AvisAbusif;
+use App\Models\Editeur;
 use App\Models\JeuVideo;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
@@ -138,11 +139,13 @@ class jeuVideoController extends Controller
                     "Date de parution" => $jeu->dateParution(),
                     "Note moyenne" => $jeu->avis()->avg('avi_note'),
                     "Nombre de ventes" => $jeu->ligneCommande()->sum('lec_quantite'),
-                    "Nombre de favoris" => $jeu->favori()->count()
+                    "Nombre de favoris" => $jeu->favori()->count(),
+                    "Editeur" => Editeur::find($jeu->edi_id)->nom(),
                 );
             }
+            
         }
-        $statsList = array("Nom", "PrixTTC", "Stock", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris");
+        $statsList = array("Nom", "PrixTTC", "Stock", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris", "Editeur");
         return view("jeuVideo.comparateur", ['statsJeux'=>$statsJeux, 'statsList'=>$statsList]);
     }
 }
