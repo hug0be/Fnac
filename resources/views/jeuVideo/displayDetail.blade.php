@@ -125,20 +125,14 @@
     
                         <div class="detail_game_price">
                             <div class="detail_game_pricee_first_value">
-                                @php
-                                    $game_line_price_first_value = substr($videoGame->jeu_prixttc, 0, 2);
-                                @endphp
                 
-                                {{ $game_line_price_first_value }}
+                                {{ $videoGame->prixTTCeuro() }}
                             </div>
                 
                 
                             <div class="detail_game_price_second_value">
-                                @php
-                                    $game_line_price_second_value = substr($videoGame->jeu_prixttc, 3);
-                                @endphp
                 
-                                €{{ $game_line_price_second_value }}
+                                €{{ $videoGame->prixTTCcentime() }}
                             </div>
                         </div>
     

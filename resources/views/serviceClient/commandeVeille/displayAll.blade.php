@@ -21,7 +21,7 @@
 
     <div class="container_all_commande margin_top_content">
 
-
+      
 
 
         <h1 class="commande_title_serv_client">Service Client</h1>
@@ -178,20 +178,12 @@
 
                                         <div class="contentComm_line_price">
                                             <div class="contentComm_line_price_first_value">
-                                                @php
-                                                    $game_line_price_first_value = substr($aLigneCommande->jeuvideo->jeu_prixttc, 0, 2);
-                                                @endphp
-                                
-                                                {{ $game_line_price_first_value }}
+                                                {{ $aLigneCommande->jeuvideo->prixTTCeuro() }}
                                             </div>
                                 
                                 
                                             <div class="contentComm_line_price_second_value">
-                                                @php
-                                                    $game_line_price_second_value = substr($aLigneCommande->jeuvideo->jeu_prixttc, 3);
-                                                @endphp
-                                
-                                                €{{ $game_line_price_second_value }}
+                                                €{{ $aLigneCommande->jeuvideo->prixTTCcentime() }}
                                                 
                                             </div>
                                         </div>
@@ -209,7 +201,7 @@
 
 
                             <div class="contentComm_total">
-                                <p> {{ $aCommande->totalOrder() }} </p>
+                                <p>{{ $aCommande->totalOrderEuro() }}€{{ $aCommande->totalOrderCentime() }} </p>
                             </div>
 
                         </div>
