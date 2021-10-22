@@ -1,0 +1,196 @@
+
+
+
+
+/* --------------------------------------------------------- CONTAINER NOTICE FORM ADD & TITLE ---------------------------------------------------------*/
+
+.container_detail_game_content_notice_add {
+    margin: 80px 30px;
+    padding-bottom: 60px;
+
+    -webkit-box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1); 
+    box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1);
+
+    background-color: #ffffff;
+
+    /* color: cadetblue; */
+}
+
+
+
+    /* --------------------------------------------------------- CONTAINER NOTICE TITLE ---------------------------------------------------------*/
+
+
+/* The class is defined in detailVideoGame.css for view all notice */
+
+
+    /* --------------------------------------------------------- FIN CONTAINER NOTICE TITLE ---------------------------------------------------------*/
+
+
+
+
+    /* --------------------------------------------------------- CONTAINER NOTICE FORM ---------------------------------------------------------*/
+
+
+
+.container_form_notice {
+
+    width: 40%;
+
+    margin: 15px auto;
+
+    max-width: 700px;
+
+    /* background-color: red; */
+}
+
+
+.form_notice_input_box {
+    margin-bottom: 25px;
+
+}
+
+.form_notice_input_box label {
+    color: #777777;
+}
+
+
+
+
+
+
+
+
+.form_notice_input_box_note {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* background-color: orange; */
+}
+
+.form_notice_input_note_hidden {
+    display: none;
+}
+
+.notice_icon_form_note {
+    cursor: pointer;
+
+    color: #bdc3c7;
+    font-size: 23px;
+
+    margin-left: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form_notice_input_box_normal {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_notice_input_box_normal label {
+    margin-bottom: 5px;
+}
+
+.form_notice_input_box_normal input, textarea {
+    padding: 10px 8px;
+
+    outline: none;
+    border: 1px solid #bdc3c7;
+}
+
+.form_notice_input_box_normal textarea {
+    resize: none;
+    min-height: 100px;
+}
+
+.form_notice_input_box_normal input:focus, .form_notice_input_box_normal textarea:focus {
+    border: 2px solid #000;
+}
+
+
+.form_notice_submit {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1vw 0;
+
+    border-radius: 5px;
+
+    background-color: #f5b027;
+
+    margin-top: 50px;
+
+    border: none;
+
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+
+.form_notice_submit:hover {
+    background-color: #f8c153;
+}
+
+
+
+
+
+    /* --------------------------------------------------------- CONTAINER NOTICE FORM ---------------------------------------------------------*/
+
+
+
+/* --------------------------------------------------------- FIN CONTAINER NOTICE FORM ADD & TITLE ---------------------------------------------------------*/
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .container_form_notice {
+        width: 80%;
+    }
+
+    .form_notice_submit {
+        padding: 10px 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .notice_icon_form_note {
+        flex-wrap: wrap;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .form_notice_input_box_note {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .form_notice_note_stars {
+        align-self: flex-end;
+    }
+}
