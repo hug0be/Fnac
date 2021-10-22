@@ -68,6 +68,7 @@ Route::post('/avis/add', [AvisController::class, 'addAvis'])->name('add_avis');
 
 Route::post('/add_avisUtile', [AvisController::class, 'add_avisUtile'])->name('add_avisUtile');
 Route::post('/add_avisInutile', [AvisController::class, 'add_avisInutile'])->name('add_avisInutile');
+Route::post('/add_avisAbusif', [AvisController::class, 'add_avisAbusif'])->name('add_avisAbusif');
 
 
  

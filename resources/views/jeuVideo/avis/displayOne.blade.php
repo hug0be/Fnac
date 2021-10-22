@@ -20,32 +20,34 @@
     <p class="notice_card_descr"> {{ $aNotice->avi_detail }} </p>
 
 
+    @auth
+        <div class="container_notice_useful">
 
-    <div class="container_notice_useful">
+            <p class="notice_useful_txt">Cet avis vous a été utile ?</p>
 
-        <p class="notice_useful_txt">Cet avis vous a été utile ?</p>
-
-        <div class="container_notice_useful_answer">
-            <form action="{{ route("add_avisUtile")}}" method="POST">
-                @csrf
-                <input type="hidden" name='avisId' value="{{$aNotice->id()}}">
-                <input type="submit" value="Oui ({{$aNotice->nbUtiles()}})" class="notice_useful_answer notice_useful_answer_yes">
-            </form>
-            
-            <form action="{{ route("add_avisInutile")}}" method="POST">
-                @csrf
-                <input type="hidden" name='avisId' value="{{$aNotice->id()}}">
-                <input type="submit" value="Non ({{$aNotice->nbPasUtile()}})" class="notice_useful_answer notice_useful_answer_no">
-            </form>
+            <div class="container_notice_useful_answer">
+                <form action="{{ route("add_avisUtile")}}" method="POST">
+                    @csrf
+                    <input type="hidden" name='avisId' value="{{$aNotice->id()}}">
+                    <input type="submit" value="Oui ({{$aNotice->nbUtiles()}})" class="notice_useful_answer notice_useful_answer_yes">
+                </form>
+                
+                <form action="{{ route("add_avisInutile")}}" method="POST">
+                    @csrf
+                    <input type="hidden" name='avisId' value="{{$aNotice->id()}}">
+                    <input type="submit" value="Non ({{$aNotice->nbPasUtile()}})" class="notice_useful_answer notice_useful_answer_no">
+                </form>
+            </div>
         </div>
 
-
-    </div>
-
-    <div class="notice_card_signal">
-        <form action="">
-            <input type="submit" value="Signaler" class="notice_card_signal_submit">
-        </form>
-    </div>
+        <div class="notice_card_signal">
+            <form action="{{ route("add_avisAbusif")}}" method="POST">
+                @csrf
+                <input type="hidden" name='avisId' value="{{$aNotice->id()}}">
+                <input type="submit" value="Signaler" class="notice_card_signal_submit">
+            </form>
+        </div>
+    @endauth
+    
 
 </div>

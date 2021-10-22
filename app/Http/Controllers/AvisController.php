@@ -122,4 +122,22 @@ class AvisController extends Controller
         return redirect()->route('detailVideoGame', ['idGame'=> $avis->jeuvideo->id()]);
         
     }
+
+    /**
+     * Increment nb avisInutile
+     *
+     * @return \Illuminate\View\View
+     */
+    public function add_avisAbusif(Request $request)
+    {
+        $avis = Avis::find($request->avisId);
+        $avisAbusif = new AvisAbusif();
+        $avisAbusif->cli_id = Auth::user()->cli_id;
+        $avisAbusif->avi_id = $avis->id();
+
+        $avisAbusif->save();
+
+        return redirect()->route('detailVideoGame', ['idGame'=> $avis->jeuvideo->id()]);
+        
+    }
 }
