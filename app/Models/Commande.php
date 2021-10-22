@@ -73,7 +73,7 @@ class Commande extends Model
 		return $this->belongsTo(Magasin::class, 'mag_id');
 	}
 
-	public function lignecommande()
+	public function ligneCommandeList()
 	{
 		return $this->hasMany(LigneCommande::class, 'com_id');
 	}
@@ -102,6 +102,57 @@ class Commande extends Model
 	public function date()
 	{
 		return $this->com_date;
+	}
+
+
+	public function typeDelivery() {
+		$typeDelivery = " ";
+
+		if ( $this->rel_id != null ) {
+			$typeDelivery = "Relais" ;
+		}
+		elseif ($this->adr_id != null ) {
+			$typeDelivery = "Domicile" ;
+		}
+		elseif ($this->mag_id != null ) {
+			$typeDelivery = "Magasin" ;
+		}
+
+		return $typeDelivery ;
+	}
+
+
+	public function isDeliveryRelay() {
+		if ( $this->rel_id != null ) {
+			return true ;
+		}
+	}
+
+	public function isDeliveryHouse() {
+		if ($this->adr_id != null ) {
+			return true ;
+		}
+	}
+
+	public function isDeliveryStore() {
+		if ($this->mag_id != null ) {
+			return true ;
+		}
+	}
+
+
+
+	public function totalOrder() {
+
+		$priceTotal = 0;
+
+		foreach( $this->ligneCommandeList as $aLigneCommande ) {
+			$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
+		}
+
+		return $priceTotal;
+
+		
 	}
 
 }

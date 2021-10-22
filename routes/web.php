@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\imageController;
+use App\Http\Controllers\AvisController;
 use App\Http\Controllers\jeuVideoController;
 
 use App\Http\Controllers\AuthController;
@@ -43,9 +44,6 @@ Route::post('/login', [AuthController::class, 'authentificate'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'createAccount'])->name('register');
 
-//Avis Abusifs
-Route::get('/service-comm/avisAbusifs', [jeuVideoController::class, 'avisAbusifs'])->name('avisAbusifs');
-Route::post('/service-comm/delete_avis', [jeuVideoController::class, 'delete_avis'])->name('delete_avis');
 
 //Upload Photo
 Route::get('/videoGameDetail/imageUpload', [ imageController::class, 'imageUpload' ])->name('image.upload');
@@ -62,3 +60,14 @@ Route::get('/comparateur', [ jeuVideoController::class, 'comparateur'])->name('c
 
 //Commande Veille
 Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
+ 
+// Avis
+Route::get('/service-comm/avisAbusifs', [AvisController::class, 'avisAbusifs'])->name('avisAbusifs');
+Route::post('/service-comm/delete_avis', [AvisController::class, 'delete_avis'])->name('delete_avis');
+Route::post('/avis/add', [AvisController::class, 'addAvis'])->name('add_avis');
+
+Route::post('/add_avisUtile', [AvisController::class, 'add_avisUtile'])->name('add_avisUtile');
+Route::post('/add_avisInutile', [AvisController::class, 'add_avisInutile'])->name('add_avisInutile');
+
+
+ 

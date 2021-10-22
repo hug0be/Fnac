@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AvisAbusif;
+use App\Models\Client;
 use App\Models\JeuVideo;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class jeuVideoController extends Controller
 {
@@ -64,8 +65,6 @@ class jeuVideoController extends Controller
         return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames]);
     }
 
-    
-
     /**
      * Show the profile for a given user.
      *
@@ -75,52 +74,17 @@ class jeuVideoController extends Controller
     public function detailVideoGame($idGame)
     {
         $videoGameSelected = JeuVideo::find($idGame);
+        $client = Auth::user();
+        $boughtThisGame = false;
+        if($client)
+        {
+            $boughtThisGame = $client->boughtThisGame($idGame);
+        }
+
         return view ("jeuVideo.displayDetail", [
             'videoGame'=> $videoGameSelected,
+            'client' => Auth::user(),
+            'boughtThisGame' => $boughtThisGame
         ]);
-    }
-
-
-    /**
-     * Show the avis maked as abusifs
-     *
-     *
-     * @return \Illuminate\View\View
-     */
-    public function avisAbusifs()
-    {
-        $avisAbusifList = AvisAbusif::all();
-
-        $idAvisList = [];
-        foreach($avisAbusifList as $key=>$avisAbusif)
-        {
-            if(in_array($avisAbusif->avi_id, $idAvisList))
-                unset($avisAbusifList[$key]);
-            else
-                $idAvisList[] = $avisAbusif->avi_id;
-        }
-        return view ("serviceComm.avisAbusifs", [
-            'avisAbusifs' => $avisAbusifList,
-
-        ]);
-    }
-
-    /**
-     * Delete an abusifAvis
-     *
-     * @return \Illuminate\View\View
-     */
-    public function delete_avis(Request $request) {
-        $avisAbusifList = AvisAbusif::where('avi_id', $request->id_avis)->get();
-        $avis = $avisAbusifList[0]->avis;
-        foreach($avisAbusifList as $avisAbusif) {
-            $avisAbusif->delete();
-        }
-        $avis->delete();
-        return redirect()->route('avisAbusifs');
-    }
-
-    public function comparateur() {
-        return view("jeuVideo.comparateur");
     }
 }

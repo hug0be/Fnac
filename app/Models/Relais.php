@@ -33,15 +33,15 @@ class Relais extends Model
 	public $timestamps = false;
 	protected $primaryKey = 'rel_id';
 
-	protected $casts = [
-		'rel_nom' => 'character varying',
-		'rel_rue' => 'character varying',
-		'rel_cp' => 'character varying',
-		'rel_ville' => 'character varying',
-		'pay_id' => 'int',
-		'rel_latitude' => 'float',
-		'rel_longitude' => 'float'
-	];
+	// protected $casts = [
+	// 	'rel_nom' => 'character varying',
+	// 	'rel_rue' => 'character varying',
+	// 	'rel_cp' => 'character varying',
+	// 	'rel_ville' => 'character varying',
+	// 	'pay_id' => 'int',
+	// 	'rel_latitude' => 'float',
+	// 	'rel_longitude' => 'float'
+	// ];
 
 	protected $fillable = [
 		'rel_nom',
