@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset("css/sideBar/sideBar-videoGame-detail.css") }}">
     <link rel="stylesheet" href="{{ asset("css/content/content-videoGame-detail.css") }}">
     <link rel="stylesheet" href="{{ asset("css/form/form-videoGame-detail.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/form/form-videoGame-avis.css") }}">
 
 @endsection
 
