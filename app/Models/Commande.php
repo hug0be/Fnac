@@ -142,15 +142,26 @@ class Commande extends Model
 
 
 
-	public function totalOrder() {
+	public function totalOrderEuro() {
 
-		$priceTotal = 0;
+		$priceTotal = 0.00;
+
+		foreach( $this->ligneCommandeList as $aLigneCommande ) {
+			$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
+		}
+		return floatval((explode(".",strval($priceTotal))[0]));
+
+		
+	}
+	public function totalOrderCentime() {
+
+		$priceTotal = 0.00;
 
 		foreach( $this->ligneCommandeList as $aLigneCommande ) {
 			$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
 		}
 
-		return $priceTotal;
+		return floatval( strlen(explode(".",strval($priceTotal))[1])==1 ? (explode(".",strval($priceTotal))[1]) . "0" : (explode(".",strval($priceTotal))[1]));
 
 		
 	}

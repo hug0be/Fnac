@@ -189,5 +189,13 @@ class JeuVideo extends Model
 		return $this->jeu_stock;
 	}
 	
+	public function prixTTCcentime()
+	{
+		return floatval((explode(".",strval($this->jeu_prixttc))[1]));
+	}
+	public function prixTTCeuro()
+	{
+		return floatval((explode(".",strval($this->jeu_prixttc))[0]));
+	}
 
 }
