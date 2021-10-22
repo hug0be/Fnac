@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [jeuVideoController::class, 'home'])->name('home');
 
 Route::get('/rayon{idRayon}', [jeuVideoController::class, 'searchByRayon'])->name('searchByRayon');
+Route::post('/', [jeuVideoController::class, 'rechercheJeu'])->name('rechercheJeu');
 Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole'])->name('searchByConsole');
 Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
 

@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use App\Models\MotCle as ModelsMotCle;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,12 +25,12 @@ class MotCle extends Model
 	protected $table = 't_e_motcle_mot';
 	public $timestamps = false;
 	protected $primaryKey = 'mot_id';
-
+/*
 	protected $casts = [
 		'jeu_id' => 'int',
 		'mot_mot' => 'character varying'
 	];
-
+*/
 	protected $fillable = [
 		'jeu_id',
 		'mot_mot'
@@ -51,5 +52,22 @@ class MotCle extends Model
 	public function mot()
 	{
 		return $this->mot_mot;
+	}
+
+	public static function listMotsUpper()
+	{
+		$listMots = [];
+		$mots = MotCle::all();
+		foreach($mots as $mot){
+			$listMots[] = strtoupper($mot->mot());
+		}
+		return $listMots;
+	}
+
+	public static function findMot($mot){
+		if(in_array(strtoupper($mot), MotCle::listMotsUpper())){
+			return true;
+			}
+		return false;
 	}
 }
