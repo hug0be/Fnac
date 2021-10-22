@@ -119,26 +119,30 @@ class jeuVideoController extends Controller
         $avis->delete();
         return redirect()->route('avisAbusifs');
     }
-    public function comparateur(Request $request) {
-        foreach(session('comparateur') as $idJeu) {
-            $jeu = JeuVideo::find($idJeu);
-            if($jeu) $jeux[]=$jeu;
-            else return redirect()->route('home');
-        }
-        //Calculates stats for each game
-        foreach($jeux as $jeu) {
-            $statsJeux[$jeu->id_jeu()] = array(
-                "Nom" => $jeu->nom(),
-                "PrixTTC" => $jeu->prixTTC(),
-                "Stock" => $jeu->stock(),
-                "Age légal" => $jeu->publicLegal(),
-                "Date de parution" => $jeu->dateParution(),
-                "Note moyenne" => $jeu->avis()->avg('avi_note'),
-                "Nombre de ventes" => $jeu->ligneCommande()->sum('lec_quantite'),
-                "Nombre de favoris" => $jeu->favori()->count()
-            );
+    public function comparateur() {
+        $statsJeux = array();
+        //Populate statsJeux if items in comparator
+        if(session()->has('comparateur')) {
+            foreach(session('comparateur') as $idJeu) {
+                $jeu = JeuVideo::find($idJeu);
+                if($jeu) $jeux[]=$jeu;
+                else return redirect()->route('home');
+            }
+            //Calculates stats for each game
+            foreach($jeux as $jeu) {
+                $statsJeux[$jeu->id_jeu()] = array(
+                    "Nom" => $jeu->nom(),
+                    "PrixTTC" => $jeu->prixTTC(),
+                    "Stock" => $jeu->stock(),
+                    "Age légal" => $jeu->publicLegal(),
+                    "Date de parution" => $jeu->dateParution(),
+                    "Note moyenne" => $jeu->avis()->avg('avi_note'),
+                    "Nombre de ventes" => $jeu->ligneCommande()->sum('lec_quantite'),
+                    "Nombre de favoris" => $jeu->favori()->count()
+                );
+            }
         }
         $statsList = array("Nom", "PrixTTC", "Stock", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris");
-        return view("jeuVideo.comparateur", ['session'=> session('comparateur'), 'statsJeux'=>$statsJeux, 'statsList'=>$statsList]);
+        return view("jeuVideo.comparateur", ['statsJeux'=>$statsJeux, 'statsList'=>$statsList]);
     }
 }

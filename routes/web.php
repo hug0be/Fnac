@@ -57,7 +57,6 @@ Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name
 
 //Comparateur
 Route::get('/comparateur', [ jeuVideoController::class, 'comparateur'])->name('comparateur');
-// Route::post('/addSession', [ SessionController::class, 'addToSession']);
-Route::post('/addSession', function() {
-    dd('test');
-});
+
+Route::post('/addToSession', [ SessionController::class, 'addToSession']);
+Route::post('/deleteFromSession', [ SessionController::class, 'deleteFromSession']);

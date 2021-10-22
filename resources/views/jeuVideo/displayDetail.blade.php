@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ asset("css/sideBar/sideBar-videoGame-detail.css") }}">
     <link rel="stylesheet" href="{{ asset("css/content/content-videoGame-detail.css") }}">
     <link rel="stylesheet" href="{{ asset("css/form/form-videoGame-detail.css") }}">
-
 @endsection
 
 
@@ -153,17 +152,14 @@
                         <div class="detail_game_cart">
                             <a href="#" class="detail_game_cart_link"> <i class="fas fa-shopping-bag"></i> Ajouter au panier </a>
                         </div>
-                        @if(session()->has('comparateur'))
-                            @foreach(session('comparateur') as $id)
-                                {{$id}}
-                            @endforeach
-                        @endif
-                        <form action="/addSession" method="post">
-                            @csrf
-                            <input type="hidden" name="key" value="comparateur">
-                            <input type="hidden" name="value" value="{{$videoGame->id_jeu()}}">
-                            <input type="submit" value="Comparer">
-                        </form>
+                        <div class="detail_game_cart" onclick="addToSession()">
+                            <input type="hidden" name="key" value="comparateur" id="session_key">
+                            <input type="hidden" name="value" id="session_value" value="{{$videoGame->id_jeu()}}">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="detail_game_cart">
+                            <a href="{{route("comparateur")}}" class="detail_game_cart_link">Accéder au comparateur</a>
+                        </div>
                     </div>
                 </div>
     
@@ -229,4 +225,6 @@
 @section('js')
     <script src="{{ asset("js/sideBar-toggle/sideBar-videoGame-detail.js") }}"></script>
     <script src="{{ asset("js/content/content-videoGame-detail.js") }}"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{ asset("js/session.js") }}"></script>
 @endsection
