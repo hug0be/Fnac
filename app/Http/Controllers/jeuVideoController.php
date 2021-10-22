@@ -7,6 +7,7 @@ use App\Models\JeuVideo;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Throwable;
 
 class jeuVideoController extends Controller
 {
@@ -73,7 +74,13 @@ class jeuVideoController extends Controller
      */
     public function detailVideoGame($idGame)
     {
-        $videoGameSelected = JeuVideo::find($idGame);
+        try {
+            $videoGameSelected = JeuVideo::findOrFail($idGame);
+        }
+        catch (Throwable $e) {
+            abort(404, "$e");
+        }
+        
         $client = Auth::user();
         $boughtThisGame = false;
         if($client)
