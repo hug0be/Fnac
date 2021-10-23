@@ -73,7 +73,7 @@ class jeuVideoController extends Controller
     }
 
     /**
-     * Show the profile for a given user.
+     * Display the detail of a video game selected
      *
      *
      * @return \Illuminate\View\View
@@ -101,6 +101,11 @@ class jeuVideoController extends Controller
         ]);
     }
 
+    /**
+     * Methode to add a video game to the cart
+     * 
+     * @return redirect to the cart page
+     */
     public function addPanier(Request $request){
         //session()->forget('panier');
         $panier = session("panier");
@@ -117,6 +122,11 @@ class jeuVideoController extends Controller
 
     }
 
+    /**
+     * Method to display the content of the cart
+     * 
+     * @return \Illuminate\View\View
+     */
     public function panier(){
         //session()->forget('panier');
         $panier = session("panier") ?? [];
@@ -130,7 +140,12 @@ class jeuVideoController extends Controller
 
     }
 
-    public function remove_qte_panier(Request $request){
+    /**
+     * Method decrement the quantity of a video game in the cart
+     * 
+     * @return redirect to the cart page
+     */
+    public function decrement_qte_panier(Request $request){
         //session()->forget('panier');
         $panier = session("panier");
         if(isset($panier[$request->idJeu]))
@@ -148,7 +163,11 @@ class jeuVideoController extends Controller
     }
 
 
-    
+    /**
+     * Method to display the result of a research
+     * 
+     * @return \Illuminate\View\View or redirect to home
+     */
     public function rechercheJeu(Request $request)
     {
         if($request->barreRecherche != ""){
@@ -165,7 +184,11 @@ class jeuVideoController extends Controller
         }
     }
 
-
+     /**
+     * Method to display the comparator
+     * 
+     * @return \Illuminate\View\View
+     */
     public function comparateur() {
         $statsJeux = array();
         //Populate statsJeux if items in comparator

@@ -41,7 +41,7 @@
 
                 <h1>QTE :
                     
-                    <form action="{{ route("remove_qte_panier")}}" method="POST">
+                    <form action="{{ route("decrement_qte_panier")}}" method="POST">
                         @csrf
                         <input type="hidden" name='idJeu' value="{{$aLignePanier['jeu']->id()}}">
                         <input type="submit" value="-" class="">
