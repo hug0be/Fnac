@@ -6,11 +6,8 @@ use App\Http\Controllers\jeuVideoController;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
-<<<<<<< HEAD
 use App\Http\Controllers\SessionController;
-=======
 use App\Http\Controllers\CommandeController;
->>>>>>> 2311a2a84acc52200e227752fa316eb5c923bce9
 use App\Http\Controllers\videoController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -61,10 +58,8 @@ Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name
 //Comparateur
 Route::get('/comparateur', [ jeuVideoController::class, 'comparateur'])->name('comparateur');
 
-<<<<<<< HEAD
 Route::post('/addToSession', [ SessionController::class, 'addToSession']);
 Route::post('/deleteFromSession', [ SessionController::class, 'deleteFromSession']);
-=======
 
 
 //Commande Veille
@@ -81,4 +76,3 @@ Route::post('/add_avisAbusif', [AvisController::class, 'add_avisAbusif'])->name(
 
 
  
->>>>>>> 2311a2a84acc52200e227752fa316eb5c923bce9
