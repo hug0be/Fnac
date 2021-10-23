@@ -116,6 +116,7 @@ class jeuVideoController extends Controller
         $statsJeux = array();
         //Populate statsJeux if items in comparator
         if(session()->has('comparateur')) {
+            //Test if all games in session exists
             foreach(session('comparateur') as $idJeu) {
                 $jeu = JeuVideo::find($idJeu);
                 if($jeu) $jeux[]=$jeu;

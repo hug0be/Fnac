@@ -102,7 +102,7 @@ class AvisController extends Controller
 
         $avis->save();
 
-        return redirect()->route('detailVideoGame', ['idGame'=> $avis->jeuvideo->id()]);
+        return redirect()->route('detailVideoGame', ['idGame'=> $avis->jeuvideo->id_jeu()]);
         
     }
 
@@ -119,7 +119,7 @@ class AvisController extends Controller
 
         $avis->save();
 
-        return redirect()->route('detailVideoGame', ['idGame'=> $avis->jeuvideo->id()]);
+        return redirect()->route('detailVideoGame', ['idGame'=> $avis->jeuvideo->id_jeu()]);
         
     }
 
@@ -137,7 +137,7 @@ class AvisController extends Controller
 
         $avisAbusif->save();
 
-        return redirect()->route('detailVideoGame', ['idGame'=> $avis->jeuvideo->id()]);
+        return redirect()->route('detailVideoGame', ['idGame'=> $avis->jeuvideo->id_jeu()]);
         
     }
 }
