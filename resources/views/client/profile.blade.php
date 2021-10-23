@@ -73,7 +73,7 @@
                 <input type="text" name="fixe" value="{{$compte->telFixe()}}" class="input_field input_real_field"/>
             </div>
             
-            <input type="hidden" name="cli_id" value="{{$compte->id_client()}}">
+            <input type="hidden" name="cli_id" value="{{$compte->id()}}">
 
             <input type="submit" value="Modifier mon compte" class="btn_submit"/>
         </form>
