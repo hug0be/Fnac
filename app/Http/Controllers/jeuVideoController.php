@@ -87,7 +87,7 @@ class jeuVideoController extends Controller
             abort(404, "$e");
         }
         
-        $client = Auth::user();
+        $client = (Client::class)(Auth::user());
         $boughtThisGame = false;
         if($client)
         {
@@ -164,6 +164,8 @@ class jeuVideoController extends Controller
             return redirect()->route("home");
         }
     }
+
+
     public function comparateur() {
         $statsJeux = array();
         //Populate statsJeux if items in comparator
