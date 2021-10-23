@@ -118,13 +118,31 @@ class jeuVideoController extends Controller
 
     public function panier(){
         //session()->forget('panier');
-        $panier = session("panier");
+        $panier = session("panier") ?? [];
+
         $jeuInPanier = [];
         foreach($panier as $idGame => $qte)
         {
             $jeuInPanier[] = ['jeu' => JeuVideo::find($idGame),'qte'=> $qte];
         }
         return view ("jeuVideo.panier", [ 'jeuInPanier' => $jeuInPanier]);
+
+    }
+
+    public function remove_qte_panier(Request $request){
+        //session()->forget('panier');
+        $panier = session("panier");
+        if(isset($panier[$request->idJeu]))
+        {
+            if($panier[$request->idJeu] > 1)
+                $panier[$request->idJeu]--;
+
+            else unset($panier[$request->idJeu]);
+        }
+        session()->put("panier", $panier);
+        
+        //dd(session("panier"));
+        return redirect()->route('panier');
 
     }
 
