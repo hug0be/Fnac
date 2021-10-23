@@ -73,7 +73,7 @@ class Commande extends Model
 		return $this->belongsTo(Magasin::class, 'mag_id');
 	}
 
-	public function lignecommande()
+	public function ligneCommandeList()
 	{
 		return $this->hasMany(LigneCommande::class, 'com_id');
 	}
@@ -102,6 +102,67 @@ class Commande extends Model
 	public function date()
 	{
 		return $this->com_date;
+	}
+
+
+	public function typeDelivery() {
+		
+		if ( $this->isDeliveryRelay()) {
+			$typeDelivery = "Relais" ;
+		}
+		elseif ($this->isDeliveryHouse()) {
+			$typeDelivery = "Domicile" ;
+		}
+		elseif ($this->isDeliveryStore()) {
+			$typeDelivery = "Magasin" ;
+		}
+
+		return $typeDelivery;
+	}
+
+
+	public function isDeliveryRelay() {
+		if ( $this->rel_id != null ) {
+			return true ;
+		}
+	}
+
+	public function isDeliveryHouse() {
+		if ($this->adr_id != null ) {
+			return true ;
+		}
+	}
+
+	public function isDeliveryStore() {
+		if ($this->mag_id != null ) {
+			return true ;
+		}
+	}
+
+
+
+	public function totalOrderEuro() {
+
+		$priceTotal = 0.00;
+
+		foreach( $this->ligneCommandeList as $aLigneCommande ) {
+			$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
+		}
+		return floatval((explode(".",strval($priceTotal))[0]));
+
+		
+	}
+	public function totalOrderCentime() {
+
+		$priceTotal = 0.00;
+
+		foreach( $this->ligneCommandeList as $aLigneCommande ) {
+			$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
+		}
+
+		return floatval( strlen(explode(".",strval($priceTotal))[1])==1 ? (explode(".",strval($priceTotal))[1]) . "0" : (explode(".",strval($priceTotal))[1]));
+
+		
 	}
 
 }

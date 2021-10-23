@@ -37,6 +37,8 @@
                         <div class="container_avisAbusif_avis_form">
     
                             @include('jeuVideo.avis.displayOne', ['aNotice' => $avisAbusif->avis])
+
+                            <a href="{{ route("detailVideoGame", ['idGame' =>$avisAbusif->avis->jeuvideo->jeu_id ]) }}">{{$avisAbusif->avis->jeuvideo->nom()}}</a>
                         
                             <form action="{{ route("delete_avis")}}" method="POST" onsubmit="return confirm('Voulez vraiment supprimer cet avis ?');">
                                 @csrf

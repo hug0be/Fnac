@@ -87,7 +87,7 @@ class Client extends Authenticatable
 		return $this->hasMany(Avis::class, 'cli_id');
 	}
 
-	public function commande()
+	public function commandeList()
 	{
 		return $this->hasMany(Commande::class, 'cli_id');
 	}
@@ -136,7 +136,7 @@ class Client extends Authenticatable
 	}
 
 
-	public function id_client()
+	public function id()
 	{
 		return $this->cli_id;
 	}
@@ -182,5 +182,20 @@ class Client extends Authenticatable
 	public function firstnameUcFirst()
 	{
 		return ucfirst( $this->prenom() ) ;
+	}
+
+	public function boughtThisGame(int $idGame): bool
+	{
+		foreach($this->commandeList as $commande)
+		{
+			foreach($commande->ligneCommandeList as $ligneCommande)
+			{
+				if($ligneCommande->id_jeu() == $idGame)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

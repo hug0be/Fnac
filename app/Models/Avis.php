@@ -75,7 +75,7 @@ class Avis extends Model
 		return $this->hasMany(AvisAbusif::class, 'avi_id');
 	}
 
-	public function id_avis()
+	public function id()
 	{
 		return $this->avi_id;
 	}

@@ -1,11 +1,16 @@
 <?php
 
 use App\Http\Controllers\imageController;
+use App\Http\Controllers\AvisController;
 use App\Http\Controllers\jeuVideoController;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
+<<<<<<< HEAD
 use App\Http\Controllers\SessionController;
+=======
+use App\Http\Controllers\CommandeController;
+>>>>>>> 2311a2a84acc52200e227752fa316eb5c923bce9
 use App\Http\Controllers\videoController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -34,6 +39,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/rayon{idRayon}', [jeuVideoController::class, 'searchByRayon'])->name('searchByRayon');
+Route::post('/', [jeuVideoController::class, 'rechercheJeu'])->name('rechercheJeu');
 Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole'])->name('searchByConsole');
 Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
 
@@ -43,9 +49,6 @@ Route::post('/login', [AuthController::class, 'authentificate'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'createAccount'])->name('register');
 
-//Avis Abusifs
-Route::get('/service-comm/avisAbusifs', [jeuVideoController::class, 'avisAbusifs'])->name('avisAbusifs');
-Route::post('/service-comm/delete_avis', [jeuVideoController::class, 'delete_avis'])->name('delete_avis');
 
 //Upload Photo
 Route::get('/videoGameDetail/imageUpload', [ imageController::class, 'imageUpload' ])->name('image.upload');
@@ -58,5 +61,24 @@ Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name
 //Comparateur
 Route::get('/comparateur', [ jeuVideoController::class, 'comparateur'])->name('comparateur');
 
+<<<<<<< HEAD
 Route::post('/addToSession', [ SessionController::class, 'addToSession']);
 Route::post('/deleteFromSession', [ SessionController::class, 'deleteFromSession']);
+=======
+
+
+//Commande Veille
+Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
+ 
+// Avis
+Route::get('/service-comm/avisAbusifs', [AvisController::class, 'avisAbusifs'])->name('avisAbusifs');
+Route::post('/service-comm/delete_avis', [AvisController::class, 'delete_avis'])->name('delete_avis');
+Route::post('/avis/add', [AvisController::class, 'addAvis'])->name('add_avis');
+
+Route::post('/add_avisUtile', [AvisController::class, 'add_avisUtile'])->name('add_avisUtile');
+Route::post('/add_avisInutile', [AvisController::class, 'add_avisInutile'])->name('add_avisInutile');
+Route::post('/add_avisAbusif', [AvisController::class, 'add_avisAbusif'])->name('add_avisAbusif');
+
+
+ 
+>>>>>>> 2311a2a84acc52200e227752fa316eb5c923bce9

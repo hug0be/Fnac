@@ -27,10 +27,10 @@ class Magasin extends Model
 	public $timestamps = false;
 	protected $primaryKey = 'mag_id';
 
-	protected $casts = [
-		'mag_nom' => 'character varying',
-		'mag_ville' => 'character varying'
-	];
+	// protected $casts = [
+	// 	'mag_nom' => 'character varying',
+	// 	'mag_ville' => 'character varying'
+	// ];
 
 	protected $fillable = [
 		'mag_nom',

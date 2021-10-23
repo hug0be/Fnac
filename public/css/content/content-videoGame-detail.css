@@ -4,7 +4,7 @@
 body {
     background-color: #f2f2f2;
 
-    height: 200vh;
+    /* height: 200vh; */
 }
 
 
@@ -696,14 +696,46 @@ body {
 }
 
 
+.notice_card_name_note {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    /* background-color: red; */
+}
+
+
 .notice_card_name {
     font-size: 19px;
     font-weight: 700;
 
     color: #232323;
-
-    margin-bottom: 12px;
+    /* background-color: orange; */
 }
+
+
+.notice_card_note {
+    /* background-color: purple; */
+}
+.notice_value_note {
+    display: none;
+}
+
+.notice_icon_note {
+    color: #bdc3c7;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
 
 .notice_card_date {
     font-size: 13px;
@@ -733,6 +765,94 @@ body {
 }
 
 
+
+
+
+
+
+.container_notice_useful {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 15px;
+
+    /* background-color: red; */
+}
+
+.notice_useful_txt {
+    font-size: 15px;
+    color: #a6acaf;
+}
+
+
+.container_notice_useful_answer {
+    display: flex;
+
+    /* background-color: rebeccapurple; */
+}
+
+.notice_useful_answer {
+    padding: 10px 13px;
+
+    cursor: pointer;
+
+    color: #a6acaf;
+
+    border: 1px solid #a6acaf;
+    border-radius: 15px;
+    outline: none;
+    background-color: transparent;
+
+    transition: 0.4s ease;
+}
+
+
+
+.notice_useful_answer_yes {
+    margin-right: 5px;
+}
+.notice_useful_answer_yes:hover {
+    color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.notice_useful_answer_no:hover {
+    color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+
+
+
+
+
+
+.notice_card_signal {
+
+    margin-top: 15px;
+}
+
+.notice_card_signal_submit {
+    cursor: pointer;
+
+    background-color: transparent;
+    border: none;
+
+    color: #a6acaf;
+
+    font-size: 13px;
+}
+
+.notice_card_signal_submit:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
     /* --------------------------------------------------------- FIN CONTAINER NOTICE---------------------------------------------------------*/
 
 
@@ -753,6 +873,15 @@ body {
     .container_detail_game_content_notice_card {
         width: 25%;
         min-width: unset;
+    }
+
+    .notice_card_name_note {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .container_notice_useful {
+        flex-direction: column;
     }
 }
 
@@ -775,7 +904,11 @@ body {
         border: none;
     }
 
-    .notice_card_name {
+
+    .notice_card_name_note {
+        flex-direction: row;
+        align-items: center;
+
         margin-top: 10px;
     }
 
@@ -790,11 +923,36 @@ body {
 
         margin-bottom: 15px;
     }
+
+
+
+
+
+
+    .container_notice_useful {
+        flex-direction: row;
+    }
 }
 
 
 
+@media screen and (max-width: 450px) {
+    .container_notice_useful {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
+    .container_notice_useful_answer {
+       align-self: flex-end;
+    }
+
+    
+    .notice_useful_answer {
+        padding: 7px 10px;
+
+    }
+
+}
 
 
 

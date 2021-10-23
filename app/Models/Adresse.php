@@ -36,18 +36,18 @@ class Adresse extends Model
 	protected $primaryKey = 'adr_id';
 	public $timestamps = false;
 
-	protected $casts = [
-		'cli_id' => 'int',
-		'adr_nom' => 'character varying',
-		'adr_type' => 'character varying',
-		'adr_rue' => 'character varying',
-		'adr_complementrue' => 'character varying',
-		'adr_cp' => 'character varying',
-		'adr_ville' => 'character varying',
-		'pay_id' => 'int',
-		'adr_latitude' => 'float',
-		'adr_longitude' => 'float'
-	];
+	// protected $casts = [
+	// 	'cli_id' => 'int',
+	// 	'adr_nom' => 'character varying',
+	// 	'adr_type' => 'character varying',
+	// 	'adr_rue' => 'character varying',
+	// 	'adr_complementrue' => 'character varying',
+	// 	'adr_cp' => 'character varying',
+	// 	'adr_ville' => 'character varying',
+	// 	'pay_id' => 'int',
+	// 	'adr_latitude' => 'float',
+	// 	'adr_longitude' => 'float'
+	// ];
 
 	protected $fillable = [
 		'cli_id',

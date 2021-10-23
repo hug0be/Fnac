@@ -10,6 +10,13 @@
             @include('jeuVideo.avis.displayOne')
         @endforeach
 
-    </div>                
-   
+    </div> 
+    
+  
 </div>
+
+@auth
+    @if($boughtThisGame)
+        @include('jeuVideo.avis.form_Avis')
+    @endif
+@endauth
