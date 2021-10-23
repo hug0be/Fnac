@@ -87,7 +87,7 @@ class jeuVideoController extends Controller
             abort(404, "$e");
         }
         
-        $client = (Client::class)(Auth::user());
+        $client = Auth::user();
         $boughtThisGame = false;
         if($client)
         {
