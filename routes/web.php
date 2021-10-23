@@ -43,7 +43,7 @@ Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideo
 //panier
 Route::get('/panier',[jeuVideoController::class, 'panier'])->name('panier');
 Route::post('/addPanier',[jeuVideoController::class, 'addPanier'])->name('addPanier');
-Route::post('/remove_qte_panier',[jeuVideoController::class, 'remove_qte_panier'])->name('remove_qte_panier');
+Route::post('/decrement_qte_panier',[jeuVideoController::class, 'decrement_qte_panier'])->name('decrement_qte_panier');
 
 //Authentification
 Route::get('/login', [AuthController::class, 'login'])->name('login');
