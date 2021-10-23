@@ -180,7 +180,7 @@ class jeuVideoController extends Controller
                     'Image' => $jeu->photo()->first()->url(),
                     'Nom' => $jeu->nom(),
                     "PrixTTC" => $jeu->prixTTC(),
-                    "Stock" => $jeu->stock(),
+                    "Disponibilité" => $jeu->stock(),
                     "Age légal" => $jeu->publicLegal(),
                     "Date de parution" => $jeu->dateParution(),
                     "Note moyenne" => $jeu->avis()->avg('avi_note'),
@@ -191,7 +191,7 @@ class jeuVideoController extends Controller
             }
         }
         //List of stats that will be compared
-        $statsList = array("PrixTTC", "Stock", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris", "Editeur");
+        $statsList = array("PrixTTC", "Disponibilité", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris", "Editeur");
         return view("jeuVideo.comparateur", ['games'=>$statsJeux, 'stats'=>$statsList]);
     }
 }

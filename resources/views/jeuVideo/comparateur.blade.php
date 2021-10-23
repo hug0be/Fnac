@@ -37,21 +37,6 @@
         .comparator_column_item:nth-child(2n) {
             background-color: #bdc3c7;
         }
-
-        .button {
-            background-color: #f5b027;
-            margin-top: 15px;
-            font-size: 15px;
-            width: 20%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0.5vw 0;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.5s;
-            color: #ffffff;
-        }
         
         .button:hover {
             background-color: #f8c153;
@@ -74,6 +59,8 @@
     <h2 class="subTitle_contact_info">Comparateur</h2>
         @if(!empty($games))
             <div class="comparator_container">
+                <!-- HEADER OF COMPARATOR-->
+
                 <div class="comparator_row">
                     <div class="comparator_column">
                         <div class="comparator_column_header"></div>
@@ -89,20 +76,27 @@
                         </div>
                     @endforeach
                 </div>
+
+                <!-- CONTENT OF COMPARATOR -->
                 <div class="comparator_row">
-                    <div class="comparator_column stats_column">
+
+                    <!-- NAMES OF STATS (PrixTTC, Editeur...) -->
+                    <div class="comparator_column">
                         @foreach($stats as $stat)
                             <div class="comparator_column_item">
                                 <div>{{$stat}}</div>
                             </div>
                         @endforeach
                     </div>
+
+                    <!-- STATS OF EACH GAME -->
                     @foreach ($games as $game)
                     <div class="comparator_column">
                         @foreach($stats as $stat)
                             <div class="comparator_column_item">
+                                <!-- Different display depending on the stat -->
                                 @if($stat=="Note moyenne")
-                                {{ $game[$stat] ? round($game[$stat],2) : "---" }}
+                                    <x-stars_notation :note="$game[$stat]"/>
                                 @elseif($stat=="Age légal")
                                 {{ $game[$stat] ? $game[$stat] : "---" }}
                                 @elseif($stat=="PrixTTC")
@@ -116,14 +110,18 @@
                         @endforeach
                     </div>
                     @endforeach
+
                 </div>
             </div>  
             
+            <!-- EMPTY COMPARATOR BUTTON -->
             <div class="button" onclick="deleteFromSession()">
                 <input type="hidden" name="key" value="comparateur" id="session_key">
                 <i class="fas fa-trash"></i>Vider le comparateur
             </div>
+
         @else
+            <!-- "NO GAMES" DISPLAY -->
             Aucun jeux dans le comparateur
             <a class="button" href="{{route('home')}}">
                 Ajouter des jeux
