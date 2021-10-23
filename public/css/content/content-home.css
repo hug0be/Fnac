@@ -1,5 +1,7 @@
-
-
+a {
+    color: black;
+    text-decoration: none;
+}
 
 /* --------------------------------------------------------- ALL DISPLAY LINE ---------------------------------------------------------*/
 
@@ -11,12 +13,6 @@
 
     /* background-color: orange; */
 }
-
-
-
-
-
-
 
 
 .container_all_game_line_content {

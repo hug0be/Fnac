@@ -5,6 +5,7 @@ use App\Models\Client;
 use App\Models\Editeur;
 use App\Models\JeuVideo;
 use App\Models\MotCle;
+use App\Models\Photo;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -158,7 +159,8 @@ class jeuVideoController extends Controller
             //Calculates stats for each game
             foreach($jeux as $jeu) {
                 $statsJeux[$jeu->id_jeu()] = array(
-                    "Nom" => $jeu->nom(),
+                    'Image' => $jeu->photo()->first()->url(),
+                    'Nom' => $jeu->nom(),
                     "PrixTTC" => $jeu->prixTTC(),
                     "Stock" => $jeu->stock(),
                     "Age légal" => $jeu->publicLegal(),
@@ -169,9 +171,9 @@ class jeuVideoController extends Controller
                     "Editeur" => Editeur::find($jeu->edi_id)->nom(),
                 );
             }
-            
         }
-        $statsList = array("Nom", "PrixTTC", "Stock", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris", "Editeur");
-        return view("jeuVideo.comparateur", ['statsJeux'=>$statsJeux, 'statsList'=>$statsList]);
+        //List of stats that will be compared
+        $statsList = array("PrixTTC", "Stock", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris", "Editeur");
+        return view("jeuVideo.comparateur", ['games'=>$statsJeux, 'stats'=>$statsList]);
     }
 }
