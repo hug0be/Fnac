@@ -5,8 +5,7 @@
     <div class="notice_card_name_note">  
         <p class="notice_card_name"> {{ $aNotice->client->firstnameUcFirst() }} {{ $aNotice->client->surnameFirstLetter() }}. </p>  
         <p class="notice_card_note"> 
-            <span class="notice_value_note">{{ $aNotice->avi_note }}</span>   
-
+            <span class="notice_value_note">{{ $aNotice->avi_note }}</span>
             <i class="fas fa-star notice_icon_note"></i>
             <i class="fas fa-star notice_icon_note"></i>
             <i class="fas fa-star notice_icon_note"></i>
