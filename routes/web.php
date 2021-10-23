@@ -39,8 +39,11 @@ Route::get('/rayon{idRayon}', [jeuVideoController::class, 'searchByRayon'])->nam
 Route::post('/', [jeuVideoController::class, 'rechercheJeu'])->name('rechercheJeu');
 Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole'])->name('searchByConsole');
 Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
+
+//panier
 Route::get('/panier',[jeuVideoController::class, 'panier'])->name('panier');
 Route::post('/addPanier',[jeuVideoController::class, 'addPanier'])->name('addPanier');
+Route::post('/remove_qte_panier',[jeuVideoController::class, 'remove_qte_panier'])->name('remove_qte_panier');
 
 //Authentification
 Route::get('/login', [AuthController::class, 'login'])->name('login');

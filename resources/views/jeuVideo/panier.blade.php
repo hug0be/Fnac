@@ -39,8 +39,22 @@
                     </div>
                 </div>
 
-                <h1>QTE : {{$aLignePanier['qte']}}</h1>
+                <h1>QTE :
+                    
+                    <form action="{{ route("remove_qte_panier")}}" method="POST">
+                        @csrf
+                        <input type="hidden" name='idJeu' value="{{$aLignePanier['jeu']->id()}}">
+                        <input type="submit" value="-" class="">
+                    </form> 
+                    {{$aLignePanier['qte']}}
+                    <form action="{{ route("addPanier")}}" method="POST">
+                        @csrf
+                        <input type="hidden" name='idJeu' value="{{$aLignePanier['jeu']->id()}}">
+                        <input type="submit" value="+" class="">
+                    </form>
 
+            </h1>
+            
             </div>
 
             
