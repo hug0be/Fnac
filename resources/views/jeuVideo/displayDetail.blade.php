@@ -257,4 +257,5 @@
 @section('js')
     <script src="{{ asset("js/sideBar-toggle/sideBar-videoGame-detail.js") }}"></script>
     <script src="{{ asset("js/content/content-videoGame-detail.js") }}"></script>
+    <script src="{{ asset("js/avis/avis_note_display.js") }}"></script>
 @endsection

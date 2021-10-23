@@ -38,7 +38,7 @@
     
                             @include('jeuVideo.avis.displayOne', ['aNotice' => $avisAbusif->avis])
 
-                            <a href="{{ route("detailVideoGame", ['idGame' =>$avisAbusif->avis->jeuvideo->jeu_id ]) }}">{{$avisAbusif->avis->jeuvideo->nom()}}</a>
+                            <a href="{{ route("detailVideoGame", ['idGame' =>$avisAbusif->avis->jeuvideo->jeu_id ]) }}" class="avisAbusif_name_game" >{{$avisAbusif->avis->jeuvideo->nom()}}</a>
                         
                             <form action="{{ route("delete_avis")}}" method="POST" onsubmit="return confirm('Voulez vraiment supprimer cet avis ?');">
                                 @csrf
@@ -76,4 +76,5 @@
 
 @section('js')
     <script src="{{ asset("js/sideBar-toggle/sideBar-videoGame-detail.js") }}"></script>
+    <script src="{{ asset("js/avis/avis_note_display.js") }}"></script>
 @endsection
