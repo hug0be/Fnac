@@ -672,7 +672,7 @@ body {
 
     padding-bottom: 15px;
 
-
+    scrollbar-width: none;
 }
 
 .container_detail_game_content_all_notice_card::-webkit-scrollbar {

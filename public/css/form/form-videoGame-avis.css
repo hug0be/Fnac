@@ -108,6 +108,8 @@
 .form_notice_input_box_normal input, textarea {
     padding: 10px 8px;
 
+    font-family: 'Roboto';
+
     outline: none;
     border: 1px solid #bdc3c7;
 }

@@ -226,6 +226,10 @@
 @section('js')
     <script src="{{ asset("js/sideBar-toggle/sideBar-videoGame-detail.js") }}"></script>
     <script src="{{ asset("js/content/content-videoGame-detail.js") }}"></script>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ asset("js/session.js") }}"></script>
+
+    <script src="{{ asset("js/avis/avis_note_display.js") }}"></script>
+
 @endsection
