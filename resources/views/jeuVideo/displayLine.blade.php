@@ -16,6 +16,7 @@
             <a href="{{ route("detailVideoGame", ['idGame' => $videoGame->jeu_id ]) }}" class="game_line_link_img">
                 <img src="{{asset("Photos/".$photo->pho_url)}}" alt="" class="game_line_img">
             </a>
+
         </div>
 
             @php $displayFirstImage = true; @endphp

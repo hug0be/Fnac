@@ -12,10 +12,11 @@
 
     </div> 
     
-    @auth
-        @if($boughtThisGame)
-            @include('jeuVideo.avis.from')
-        @endif
-    @endauth
-   
+  
 </div>
+
+@auth
+    @if($boughtThisGame)
+        @include('jeuVideo.avis.form_Avis')
+    @endif
+@endauth

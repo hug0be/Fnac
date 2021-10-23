@@ -149,7 +149,7 @@ class JeuVideo extends Model
 
 
 
-	public function id()
+	public function id_jeu()
 	{
 		return $this->jeu_id;
 	}
@@ -199,4 +199,29 @@ class JeuVideo extends Model
 		return floatval((explode(".",strval($this->jeu_prixttc))[0]));
 	}
 
+	public static function jeuxMotCle($mot){
+		$jeux = JeuVideo::all();
+		$jeuxMotCle = [];
+		foreach($jeux as $jeu){
+			foreach($jeu->motcle as $tabMot){
+				if(strcasecmp($tabMot->mot(),$mot) ==0){
+					$jeuxMotCle[] = $jeu;
+					break;
+				}
+			}
+		}
+		return $jeuxMotCle;
+	}
+
+	public static function chercheJeu($recherche){
+		$jeux = JeuVideo::all();
+		$jeuxTrouves = [];
+		foreach($jeux as $jeu){
+			if(str_contains(strtoupper($jeu->nom()),strtoupper($recherche))){
+				$jeuxTrouves[] = $jeu;
+			}
+		}
+		return $jeuxTrouves;
+
+	}
 }

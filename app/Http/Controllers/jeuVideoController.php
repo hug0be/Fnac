@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Client;
+use App\Models\Editeur;
 use App\Models\JeuVideo;
+use App\Models\MotCle;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -99,7 +100,6 @@ class jeuVideoController extends Controller
         ]);
     }
 
-
     public function addPanier(Request $request){
         //session()->forget('panier');
         $panier = session("panier");
@@ -129,4 +129,49 @@ class jeuVideoController extends Controller
     }
 
 
+    
+    public function rechercheJeu(Request $request)
+    {
+        if($request->barreRecherche != ""){
+            if(MotCle::findMot($request->barreRecherche)){
+                $jeux = JeuVideo::jeuxMotCle($request->barreRecherche);
+            }
+            else{
+                $jeux = JeuVideo::chercheJeu($request->barreRecherche);
+            }
+            return view("jeuVideo.displayAllLines", ['videoGames'=>$jeux]);
+        }
+        else{
+            return redirect()->route("home");
+        }
+    }
+    public function comparateur() {
+        $statsJeux = array();
+        //Populate statsJeux if items in comparator
+        if(session()->has('comparateur')) {
+            //Test if all games in session exists
+            foreach(session('comparateur') as $idJeu) {
+                $jeu = JeuVideo::find($idJeu);
+                if($jeu) $jeux[]=$jeu;
+                else return redirect()->route('home');
+            }
+            //Calculates stats for each game
+            foreach($jeux as $jeu) {
+                $statsJeux[$jeu->id_jeu()] = array(
+                    "Nom" => $jeu->nom(),
+                    "PrixTTC" => $jeu->prixTTC(),
+                    "Stock" => $jeu->stock(),
+                    "Age légal" => $jeu->publicLegal(),
+                    "Date de parution" => $jeu->dateParution(),
+                    "Note moyenne" => $jeu->avis()->avg('avi_note'),
+                    "Nombre de ventes" => $jeu->ligneCommande()->sum('lec_quantite'),
+                    "Nombre de favoris" => $jeu->favori()->count(),
+                    "Editeur" => Editeur::find($jeu->edi_id)->nom(),
+                );
+            }
+            
+        }
+        $statsList = array("Nom", "PrixTTC", "Stock", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris", "Editeur");
+        return view("jeuVideo.comparateur", ['statsJeux'=>$statsJeux, 'statsList'=>$statsList]);
+    }
 }

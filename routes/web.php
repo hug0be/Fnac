@@ -6,6 +6,7 @@ use App\Http\Controllers\jeuVideoController;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\videoController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [jeuVideoController::class, 'home'])->name('home');
+
 //Il faut être authentifié pour accéder à ces routes
 Route::middleware('auth')->group(function () {
     //Compte client
@@ -32,9 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::get('/', [jeuVideoController::class, 'home'])->name('home');
-
 Route::get('/rayon{idRayon}', [jeuVideoController::class, 'searchByRayon'])->name('searchByRayon');
+Route::post('/', [jeuVideoController::class, 'rechercheJeu'])->name('rechercheJeu');
 Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole'])->name('searchByConsole');
 Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
 Route::get('/panier',[jeuVideoController::class, 'panier'])->name('panier');
@@ -58,6 +60,8 @@ Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name
 //Comparateur
 Route::get('/comparateur', [ jeuVideoController::class, 'comparateur'])->name('comparateur');
 
+Route::post('/addToSession', [ SessionController::class, 'addToSession']);
+Route::post('/deleteFromSession', [ SessionController::class, 'deleteFromSession']);
 
 
 //Commande Veille

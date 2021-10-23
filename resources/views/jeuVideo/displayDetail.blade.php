@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset("css/sideBar/sideBar-videoGame-detail.css") }}">
     <link rel="stylesheet" href="{{ asset("css/content/content-videoGame-detail.css") }}">
     <link rel="stylesheet" href="{{ asset("css/form/form-videoGame-detail.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/form/form-videoGame-avis.css") }}">
 
 @endsection
 
@@ -41,15 +42,13 @@
 
             <div class="container_first_second_section detail_game_content_padding">
                 <div class="container_detail_game_content_title_info ">
+                    <x-input-error name="session"/> 
                     <h1 class="container_detail_game_content_title_h1" > {{ $videoGame->jeu_nom }} </h1>
-    
                     <div class="detail_game_content_info_container">
                         <p class="detail_game_content_info_container_txt" >Jeu <span>-</span></p>
                         <p class="detail_game_content_info_container_txt" > {{ $videoGame->console->con_nom }} <span>-</span> </p>
-                        <p class="detail_game_content_info_container_txt" >Paru le  {{ $videoGame->jeu_dateparution->translatedFormat(' jS F Y') }} </p>
-                        
+                        <p class="detail_game_content_info_container_txt" >Paru le  {{ $videoGame->jeu_dateparution->translatedFormat(' jS F Y') }} </p>  
                     </div>
-    
                 </div>
     
     
@@ -147,23 +146,30 @@
                         </div>
     
                         @include('jeuVideo.form_Panier')
-    
+
+
+                        <div class="detail_game_comparator_container">
+                            <div onclick="addToSession()" class="comparator_add">
+                                <input type="hidden" name="key" value="comparateur" id="session_key">
+                                <input type="hidden" name="value" id="session_value" value="{{$videoGame->id_jeu()}}">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <a href="{{route("comparateur")}}">
+                                <div class="comparator_link">
+                                    Accéder au comparateur
+                                </div>
+                            </a>
+                        </div>
                     </div>
-    
                 </div>
     
     
                 <div class="container_detail_game_content_spec_descr">
-    
                     <div class="container_detail_game_content_spec">
-    
                         <div class="container_detail_game_content_spec_tab">
-    
                             <div class="detail_game_spec">
                                 <h5 class="detail_game_spec_title">Détails produits</h5>
                             </div>
-    
-    
                             <div class="detail_game_spec_line_infos">
                                 <p class="spec_line_info_type">Plateforme</p>
                                 <a href="#" class="spec_line_info_link"> {{ $videoGame->console->con_nom }} </a>
@@ -183,69 +189,34 @@
                                 <p class="spec_line_info_type">Public légal</p>
                                 <p class="spec_line_info_txt"> {{ $videoGame->jeu_publiclegal }} </p>
                             </div>
-    
-        
-          
                         </div>
-         
-    
-    
-    
-    
                     </div>
     
-    
-    
-    
                     <div class="container_detail_game_content_descr">
-                        
                         <div class="detail_game_descr">
-    
                             <h4 class="detail_game_descr_title">Description</h4>
-    
                             <p class="detail_game_descr_txt">
                                 {{ $videoGame->jeu_description }}
                             </p>
-    
                         </div>
-    
                     </div>
                 </div>
             </div>
-
             @include('jeuVideo.avis.displayAll')
-          
         </div>
 
 
 
         <div class="container_lightbox_detail_game">
-            
             <div class="lightbox_detail_game_content">
                 <div class="lightbox_detail_game_close">
                     <div class="lightbox_detail_game_close_sub_container">
 
                     </div>
                 </div>
-
                 <img src="" alt="" class="lightbox_detail_game_img">
             </div>
-
         </div>
-
-
-        {{-- <div class="container_detail_game_avis">
-            <h1>Avis</h1>
-            @foreach ($videoGame->avis as $avis)
-            <div style="margin:10px; background-color: white">
-                <p>Date : Le {{ $avis->avi_date->translatedFormat('l jS F Y à H\hi') }} </p>
-                <p>Titre : {{ $avis->avi_titre }}</p>
-                <p>Commentaire : {{ $avis->avi_detail }}</p>   
-                <p>Auteur : {{ $avis->client->cli_nom }} {{ $avis->client->cli_prenom}} </p>
-            </div>
-            @endforeach
-        </div> --}}
-
     </div>
 
 @endsection
@@ -254,4 +225,10 @@
 @section('js')
     <script src="{{ asset("js/sideBar-toggle/sideBar-videoGame-detail.js") }}"></script>
     <script src="{{ asset("js/content/content-videoGame-detail.js") }}"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{ asset("js/session.js") }}"></script>
+
+    <script src="{{ asset("js/avis/avis_note_display.js") }}"></script>
+
 @endsection
