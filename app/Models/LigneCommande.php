@@ -42,7 +42,7 @@ class LigneCommande extends Model
 		return $this->belongsTo(Commande::class, 'com_id');
 	}
 
-	public function jeuvideo()
+	public function jeuVideo()
 	{
 		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}

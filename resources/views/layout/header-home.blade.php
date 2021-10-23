@@ -37,6 +37,8 @@
         </div>
     </div>
 
+    <a href="{{ route("panier") }}">Panier</a>
+
     <!-- Login and register buttons -->
     <div class="container_header_account" >
         @auth

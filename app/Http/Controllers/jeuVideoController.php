@@ -12,6 +12,8 @@ use Throwable;
 class jeuVideoController extends Controller
 {
 
+    public static $nb = 0;
+
     /**
      * Show the home page of the Fnac webSite
      *
@@ -20,8 +22,10 @@ class jeuVideoController extends Controller
      */
     public function home()
     {
+       
         return view ("jeuVideo.displayAllLines", ['videoGames'=>JeuVideo::all()]);
     }
+
 
 
     /**
@@ -94,4 +98,35 @@ class jeuVideoController extends Controller
             'boughtThisGame' => $boughtThisGame
         ]);
     }
+
+
+    public function addPanier(Request $request){
+        //session()->forget('panier');
+        $panier = session("panier");
+        if(isset($panier[$request->idJeu]))
+        {
+            $panier[$request->idJeu]++;
+        } else {
+            $panier[$request->idJeu] = 1;
+        }
+        session()->put("panier", $panier);
+        
+        //dd(session("panier"));
+        return redirect()->route('panier');
+
+    }
+
+    public function panier(){
+        //session()->forget('panier');
+        $panier = session("panier");
+        $jeuInPanier = [];
+        foreach($panier as $idGame => $qte)
+        {
+            $jeuInPanier[] = ['jeu' => JeuVideo::find($idGame),'qte'=> $qte];
+        }
+        return view ("jeuVideo.panier", [ 'jeuInPanier' => $jeuInPanier]);
+
+    }
+
+
 }
