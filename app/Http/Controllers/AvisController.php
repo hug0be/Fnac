@@ -64,11 +64,11 @@ class AvisController extends Controller
             'avi_detail' => 'required',
           ],
         [
-            'avi_note.required' => 'Il fait que vous précisez une note.',
+            'avi_note.required' => 'Il faut que vous précisez une note.',
             'avi_note.min' => 'La note doit être au minimum à 1',
             'avi_note.maximum' => 'La note doit être au maximum à 5',
-            'avi_detail.required' => 'Il fait que vous entrez un avis.',
-            'avi_titre.required' => 'Il fait que vous doniez un titre a votre avis.',
+            'avi_detail.required' => 'Il faut que vous entrez un avis.',
+            'avi_titre.required' => 'Il faut que vous doniez un titre a votre avis.',
         ]);
         $client = Client::find(Auth::user()->cli_id);
         
