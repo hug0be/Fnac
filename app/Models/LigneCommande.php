@@ -55,7 +55,7 @@ class LigneCommande extends Model
 	{
 		return $this->jeu_id;
 	}
-	public function quantité()
+	public function quantite()
 	{
 		return $this->lec_quantite;
 	}

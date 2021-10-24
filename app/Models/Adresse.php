@@ -73,7 +73,7 @@ class Adresse extends Model
 		return $this->belongsTo(Pays::class, 'pay_id');
 	}
 
-	public function commande()
+	public function commandeList()
 	{
 		return $this->hasMany(Commande::class, 'adr_id');
 	}

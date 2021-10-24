@@ -63,32 +63,32 @@ class JeuVideo extends Model
 		return $this->belongsTo(Console::class, 'con_id', 'con_id');
 	}
 
-	public function avis()
+	public function avisList()
 	{
 		return $this->hasMany(Avis::class, 'jeu_id')->orderBy('avi_date', 'desc');
 	}
 
-	public function motcle()
+	public function motcleList()
 	{
 		return $this->hasMany(MotCle::class, 'jeu_id');
 	}
 
-	public function photo()
+	public function photoList()
 	{
 		return $this->hasMany(Photo::class, 'jeu_id');
 	}
 
-	public function video()
+	public function videoList()
 	{
 		return $this->hasMany(Video::class, 'jeu_id');
 	}
 
-	public function alerte()
+	public function alerteList()
 	{
 		return $this->hasMany(Alerte::class, 'jeu_id');
 	}
 
-	public function favori()
+	public function favoriList()
 	{
 		return $this->hasMany(Favori::class, 'jeu_id');
 	}
@@ -118,7 +118,7 @@ class JeuVideo extends Model
 			'ray_id',);
 	}
 
-	public function ligneCommande()
+	public function ligneCommandeList()
 	{
 		return $this->hasMany(LigneCommande::class, 'jeu_id');
 	}
@@ -207,7 +207,7 @@ class JeuVideo extends Model
 		$jeux = JeuVideo::all();
 		$jeuxMotCle = [];
 		foreach($jeux as $jeu){
-			foreach($jeu->motcle as $tabMot){
+			foreach($jeu->motcleList as $tabMot){
 				if(strcasecmp($tabMot->mot(),$mot) ==0){
 					$jeuxMotCle[] = $jeu;
 					break;

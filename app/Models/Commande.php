@@ -139,30 +139,34 @@ class Commande extends Model
 		}
 	}
 
-
-
-	public function totalOrderEuro() {
-
+	public function getTotalPrice()
+	{
 		$priceTotal = 0.00;
 
 		foreach( $this->ligneCommandeList as $aLigneCommande ) {
 			$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
 		}
-		return floatval((explode(".",strval($priceTotal))[0]));
 
-		
+		return $priceTotal;
 	}
+
+	public function totalOrderEuro() 
+	{
+		return floatval((explode(".",strval($this->getTotalPrice()))[0]));
+
+	}
+
 	public function totalOrderCentime() {
 
-		$priceTotal = 0.00;
+		$priceTotal = $this->getTotalPrice();
 
-		foreach( $this->ligneCommandeList as $aLigneCommande ) {
-			$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
-		}
+		// foreach( $this->ligneCommandeList as $aLigneCommande ) {
+		// 	$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
+		// }
+		$cents = (explode(".",strval($priceTotal))[1]);
 
-		return floatval( strlen(explode(".",strval($priceTotal))[1])==1 ? (explode(".",strval($priceTotal))[1]) . "0" : (explode(".",strval($priceTotal))[1]));
+		return floatval( strlen($cents)==1 ? $cents . "0" : $cents);
 
-		
 	}
 
 }

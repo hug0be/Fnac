@@ -6,7 +6,7 @@
 
     <div class="container_detail_game_content_all_notice_card">
 
-        @foreach ($videoGame->avis as $aNotice)
+        @foreach ($videoGame->avisList as $aNotice)
             @include('jeuVideo.avis.displayOne')
         @endforeach
 

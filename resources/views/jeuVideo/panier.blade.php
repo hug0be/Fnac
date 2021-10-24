@@ -37,20 +37,7 @@
                     <div class="container_one_cart_line">
     
                         <div class="one_cart_line_container_img">
-                            @php
-                                $displayFirstImage = false;
-                            @endphp
-    
-                            @foreach ($aLignePanier['jeu']->photo as $photo)
-        
-                                @if (!$displayFirstImage)
-                                
-                                    <img src="{{asset("Photos/".$photo->pho_url)}}" alt="" class="one_cart_line_img" >
-        
-                                    @php $displayFirstImage = true; @endphp
-                                @endif
-                            
-                            @endforeach
+                            <img src="{{asset("Photos/".$videoGame->photoList()->first()->url())}}" alt="" class="one_cart_line_img" >                                   
                         </div>
                         
                         <div class="container_name_qty_price">
