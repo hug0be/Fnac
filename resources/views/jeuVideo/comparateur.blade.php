@@ -1,6 +1,5 @@
 @extends('base')
 @section('css')
-    <link rel="stylesheet" href="{{ asset("css/content/content-home.css") }}">
     <style>
         .comparator_container {
             font-size: 20px;
@@ -20,13 +19,13 @@
             flex-direction: column;
             justify-content: end;
         }
-        .comparator_column_item {
+        .comparator_item {
             display: flex;
             flex-direction: column;
             margin: 15px 0px 15px 0px;
             padding: 5px;
         }
-        .comparator_column_header {
+        .comparator_header {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -34,12 +33,8 @@
             padding: 30px;
         }
 
-        .comparator_column_item:nth-child(2n) {
+        .comparator_item:nth-child(2n) {
             background-color: #bdc3c7;
-        }
-        
-        .button:hover {
-            background-color: #f8c153;
         }
 
         .container_title {
@@ -59,16 +54,16 @@
     <h2 class="subTitle_contact_info">Comparateur</h2>
         @if(!empty($games))
             <div class="comparator_container">
+                
                 <!-- HEADER OF COMPARATOR-->
-
                 <div class="comparator_row">
                     <div class="comparator_column">
-                        <div class="comparator_column_header"></div>
+                        <div class="comparator_header"></div>
                     </div>
                     @foreach ($games as $id => $game)
                         <div class="comparator_column">
                             <a href="/videoGameDetail/{{$id}}">
-                                <div class="comparator_column_header">
+                                <div class="comparator_header">
                                     <img src="{{ asset("Photos/".$game['Image']) }}" alt="" class="game_line_img">
                                     {{$game['Nom']}}
                                 </div>
@@ -82,35 +77,41 @@
 
                     <!-- NAMES OF STATS (PrixTTC, Editeur...) -->
                     <div class="comparator_column">
-                        @foreach($stats as $stat)
-                            <div class="comparator_column_item">
-                                <div>{{$stat}}</div>
-                            </div>
-                        @endforeach
+                    @foreach($stats as $stat)
+                        <div class="comparator_item">
+                            {{$stat}}
+                        </div>
+                    @endforeach
                     </div>
 
                     <!-- STATS OF EACH GAME -->
                     @foreach ($games as $game)
                     <div class="comparator_column">
                         @foreach($stats as $stat)
-                            <div class="comparator_column_item">
-                                <!-- Different display depending on the stat -->
-                                @if($stat=="Note moyenne")
-                                    <x-stars_notation :note="$game[$stat]"/>
-                                @elseif($stat=="Age légal")
-                                {{ $game[$stat] ? $game[$stat] : "---" }}
-                                @elseif($stat=="PrixTTC")
-                                {{ $game[$stat] }} €
-                                @elseif($stat=="Date de parution")
-                                {{$game[$stat]->translatedFormat('d/m/Y')}}
+                        <div class="comparator_item">
+                            <!-- Different display depending on the stat -->
+                            @if($stat=="Note moyenne")
+                                <x-stars_notation :note="$game[$stat]"/>
+                            @elseif($stat=="Age légal")
+                            {{ $game[$stat] ? $game[$stat] : "---" }}
+                            @elseif($stat=="Disponibilité")
+                                @if($game[$stat])
+                                    <p class="game_line_in_stock"><i class="fas fa-check-circle icon_game_line"></i> En stock </p>
                                 @else
-                                {{$game[$stat]}}
+                                    <p class="game_line_out_of_stock"><i class="fas fa-times-circle icon_game_line"></i> Rupture de stock </p>
                                 @endif
-                            </div>
+                            @elseif($stat=="PrixTTC")
+                            {{ $game[$stat] }} €
+                            @elseif($stat=="Date de parution")
+                            {{$game[$stat]->translatedFormat('d/m/Y')}}
+                            @else
+                            {{$game[$stat]}}
+                            @endif
+
+                        </div>
                         @endforeach
                     </div>
                     @endforeach
-
                 </div>
             </div>  
             

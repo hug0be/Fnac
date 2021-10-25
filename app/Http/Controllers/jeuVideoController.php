@@ -205,7 +205,7 @@ class jeuVideoController extends Controller
                     'Image' => $jeu->photo()->first()->url(),
                     'Nom' => $jeu->nom(),
                     "PrixTTC" => $jeu->prixTTC(),
-                    "Disponibilité" => $jeu->stock(),
+                    "Disponibilité" => ($jeu->stock() > 0),
                     "Age légal" => $jeu->publicLegal(),
                     "Date de parution" => $jeu->dateParution(),
                     "Note moyenne" => $jeu->avis()->avg('avi_note'),

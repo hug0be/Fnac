@@ -1,4 +1,4 @@
-<div class="game_line_container_add_cart">
+<div class="game_line_container_add_cart button">
     <form action="{{route("addPanier")}}" method="POST">
         @csrf
         <input type="hidden" name="idJeu" value="{{$videoGame->id()}}">
