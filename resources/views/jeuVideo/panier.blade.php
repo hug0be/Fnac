@@ -37,7 +37,7 @@
                     <div class="container_one_cart_line">
     
                         <div class="one_cart_line_container_img">
-                            <img src="{{asset("Photos/".$videoGame->photoList()->first()->url())}}" alt="" class="one_cart_line_img" >                                   
+                            <img src="{{asset("Photos/".$aLignePanier['jeu']->photoList()->first()->url())}}" alt="" class="one_cart_line_img" >                                   
                         </div>
                         
                         <div class="container_name_qty_price">

@@ -20,16 +20,19 @@ class AvisController extends Controller
     {
         $avisAbusifList = AvisAbusif::all();
 
-        $idAvisList = [];
+        $nbAvisAbusifByIdList = [];
         foreach($avisAbusifList as $key=>$avisAbusif)
         {
-            if(in_array($avisAbusif->avi_id, $idAvisList))
+            if(array_key_exists($avisAbusif->avi_id, $nbAvisAbusifByIdList)) {
                 unset($avisAbusifList[$key]);
+                $nbAvisAbusifByIdList[$avisAbusif->avi_id]++;
+            }
             else
-                $idAvisList[] = $avisAbusif->avi_id;
+                $nbAvisAbusifByIdList[$avisAbusif->avi_id] = 1;
         }
         return view ("serviceComm.avisAbusifs", [
             'avisAbusifs' => $avisAbusifList,
+            'nbAvisAbusifByIdList' => $nbAvisAbusifByIdList,
         ]);
     }
 
