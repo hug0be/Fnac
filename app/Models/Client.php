@@ -82,7 +82,7 @@ class Client extends Authenticatable
 		return $this->belongsTo(Magasin::class, 'mag_id');
 	}
 
-	public function avis()
+	public function avisList()
 	{
 		return $this->hasMany(Avis::class, 'cli_id');
 	}
@@ -92,24 +92,23 @@ class Client extends Authenticatable
 		return $this->hasMany(Commande::class, 'cli_id');
 	}
 
-	public function alerte()
+	public function alerteList()
 	{
 		return $this->hasMany(Alerte::class, 'cli_id');
 	}
 
-	public function avisabusif()
+	public function avisAbusifList()
 	{
 		return $this->hasMany(AvisAbusif::class, 'cli_id');
 	}
 
-	public function favori()
+	public function relaisList()
 	{
-		return $this->hasMany(Favori::class, 'cli_id');
-	}
-
-	public function relaisclient()
-	{
-		return $this->hasMany(RelaisClient::class, 'cli_id');
+		return $this->belongsToMany(
+			Relais::class,
+			't_j_relaisclient_rec',
+			'cli_id',
+			'rel_id');
 	}
 
 	public function adresse()
@@ -120,7 +119,7 @@ class Client extends Authenticatable
 	public function jeuFavoris()
 	{
 		return $this->belongsToMany(
-			Genre::class,
+			JeuVideo::class,
 			't_j_favori_fav',
 			'cli_id',
 			'jeu_id');
@@ -129,7 +128,7 @@ class Client extends Authenticatable
 	public function jeuAlertes()
 	{
 		return $this->belongsToMany(
-			Genre::class,
+			JeuVideo::class,
 			't_j_alerte_ale',
 			'cli_id',
 			'jeu_id');

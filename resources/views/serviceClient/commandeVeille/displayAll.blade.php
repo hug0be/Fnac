@@ -160,19 +160,7 @@
 
                                     <div class="contentComm_line_container">
 
-                                        @php
-                                            $displayFirstImage = false;
-                                        @endphp
-    
-                                        @foreach ($aLigneCommande->jeuvideo->photo as $photo)
-    
-                                            @if (!$displayFirstImage)
-                                                <img src="{{asset("Photos/".$photo->pho_url)}}" alt="" class="contentComm_line_img">
-    
-                                                @php $displayFirstImage = true; @endphp
-                                            @endif
-                                        
-                                        @endforeach
+                                       <img src="{{asset("Photos/".$videoGame->photoList()->first()->url())}}" alt="" class="contentComm_line_img">
                                         
                                         <p class="contentComm_line_name" >{{ $aLigneCommande->jeuvideo->jeu_nom }}</p>
 

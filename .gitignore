@@ -14,5 +14,3 @@ yarn-error.log
 /.idea
 /.vscode
 .gitconfig
-/public/Videos
-/public/Photos

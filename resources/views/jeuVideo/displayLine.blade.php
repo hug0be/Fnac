@@ -3,27 +3,11 @@
     <div class="container_game_line_content">
 
 
-    @php
-        $displayFirstImage = false;
-    @endphp
-
-
-    @foreach ($videoGame->photo as $photo)
-
-        @if (!$displayFirstImage)
-
-        <div class="game_line_container_img">
-            <a href="{{ route("detailVideoGame", ['idGame' => $videoGame->jeu_id ]) }}" class="game_line_link_img">
-                <img src="{{asset("Photos/".$photo->pho_url)}}" alt="" class="game_line_img">
-            </a>
-
-        </div>
-
-            @php $displayFirstImage = true; @endphp
-        @endif
-
-    @endforeach
-
+    <div class="game_line_container_img">
+        <a href="{{ route("detailVideoGame", ['idGame' => $videoGame->jeu_id ]) }}" class="game_line_link_img">
+            <img src="{{asset("Photos/".$videoGame->photoList()->first()->url())}}" alt="" class="game_line_img">
+        </a>
+    </div>
 
         <div class="game_line_container_infos">
 

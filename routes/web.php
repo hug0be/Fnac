@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\PanierController;
 use App\Http\Controllers\videoController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -41,9 +42,9 @@ Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole']
 Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
 
 //panier
-Route::get('/panier',[jeuVideoController::class, 'panier'])->name('panier');
-Route::post('/addPanier',[jeuVideoController::class, 'addPanier'])->name('addPanier');
-Route::post('/decrement_qte_panier',[jeuVideoController::class, 'decrement_qte_panier'])->name('decrement_qte_panier');
+Route::get('/panier',[PanierController::class, 'panier'])->name('panier');
+Route::post('/addPanier',[PanierController::class, 'addPanier'])->name('addPanier');
+Route::post('/decrement_qte_panier',[PanierController::class, 'decrement_qte_panier'])->name('decrement_qte_panier');
 
 //Authentification
 Route::get('/login', [AuthController::class, 'login'])->name('login');

@@ -20,16 +20,19 @@ class AvisController extends Controller
     {
         $avisAbusifList = AvisAbusif::all();
 
-        $idAvisList = [];
+        $nbAvisAbusifByIdList = [];
         foreach($avisAbusifList as $key=>$avisAbusif)
         {
-            if(in_array($avisAbusif->avi_id, $idAvisList))
+            if(array_key_exists($avisAbusif->avi_id, $nbAvisAbusifByIdList)) {
                 unset($avisAbusifList[$key]);
+                $nbAvisAbusifByIdList[$avisAbusif->avi_id]++;
+            }
             else
-                $idAvisList[] = $avisAbusif->avi_id;
+                $nbAvisAbusifByIdList[$avisAbusif->avi_id] = 1;
         }
         return view ("serviceComm.avisAbusifs", [
             'avisAbusifs' => $avisAbusifList,
+            'nbAvisAbusifByIdList' => $nbAvisAbusifByIdList,
         ]);
     }
 
@@ -64,11 +67,11 @@ class AvisController extends Controller
             'avi_detail' => 'required',
           ],
         [
-            'avi_note.required' => 'Il fait que vous précisez une note.',
+            'avi_note.required' => 'Il faut que vous précisez une note.',
             'avi_note.min' => 'La note doit être au minimum à 1',
             'avi_note.maximum' => 'La note doit être au maximum à 5',
-            'avi_detail.required' => 'Il fait que vous entrez un avis.',
-            'avi_titre.required' => 'Il fait que vous doniez un titre a votre avis.',
+            'avi_detail.required' => 'Il faut que vous entrez un avis.',
+            'avi_titre.required' => 'Il faut que vous doniez un titre a votre avis.',
         ]);
         $client = Client::find(Auth::user()->cli_id);
         

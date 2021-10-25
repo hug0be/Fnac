@@ -1,0 +1,479 @@
+
+
+
+/* --------------------------------------------------------- CONTAINER CART ---------------------------------------------------------*/
+
+
+.container_cart {
+    /* background-color: burlywood; */
+}
+
+
+
+
+    /* ---------------------------------------------------------  CONTAINER CART CONTENT ---------------------------------------------------------*/
+
+.container_cart_content {
+
+    width: 75%;
+    min-width: 1200px;
+
+    margin: 20px auto;
+
+    padding: 24px;
+
+    display: flex;
+    align-items: flex-start;
+
+    background-color: #e9eef0;
+}
+
+
+
+
+        /* ---------------------------------------------------------  CONTAINER ALL LINE CART & PAYMENT ---------------------------------------------------------*/
+
+.container_all_line_cart_payment {
+
+    width: 70%;
+    /* background-color: cadetblue; */
+}
+
+
+
+
+            /* ---------------------------------------------------------  CONTAINER ALL LINE CART  ---------------------------------------------------------*/
+
+.container_all_line_cart {
+
+    padding: 24px;
+    background-color: #ffffff;
+}
+
+.cart_title {
+    font-size: 26px;
+    margin-bottom: 45px;
+}
+
+
+
+                /* ---------------------------------------------------------  CONTAINER ONE LINE CART  ---------------------------------------------------------*/
+.container_one_cart_line {
+    margin-bottom: 5px;
+    height: 125px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #bdc3c7;
+
+    /* background-color: cornsilk; */
+}
+
+.container_one_cart_line:last-child {
+    border: none;
+}
+
+
+                    /* ---------------------------------------------------------  CONTAINER IMG  ---------------------------------------------------------*/
+
+
+.one_cart_line_container_img {
+    width: 12%;
+    min-width: 100px;
+
+    max-height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* background-color: darkgray; */
+}
+
+
+.one_cart_line_img {
+    height: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+
+
+
+                    /* --------------------------------------------------------- FIN CONTAINER IMG  ---------------------------------------------------------*/
+
+
+
+
+
+                    /* ---------------------------------------------------------  CONTAINER NAME & QTY & PRICE ---------------------------------------------------------*/
+    
+.container_name_qty_price {
+    width: 85%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 10px auto;
+
+    /* background-color: lightcoral; */
+}
+
+
+
+
+                        /* ---------------------------------------------------------  CONTAINER NAME & QTY ---------------------------------------------------------*/
+.container_name_qty {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* background-color: peru; */
+}
+
+.cart_link_name {
+    text-decoration: none;
+    font-size: 15px;
+    color: #000000;
+}
+
+.cart_link_name:hover {
+    text-decoration: underline;
+}
+
+
+
+.container_qty_all {
+    width: 20%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    
+
+    /* background-color: rebeccapurple; */
+}
+
+
+.container_form_plus, .container_form_minus {
+    width: 30px;
+    height: 30px;
+
+    /* background-color: red; */
+}
+
+.container_form_plus form, input{
+    width: 100%;
+    height: 100%;
+}
+
+.qty_form_input {
+
+    border: none;
+    color: #ffffff;
+
+    cursor: pointer;
+    background-color: #f5b027;
+}
+
+.qty_form_input:hover {
+    background-color: #f8c153;
+}
+
+
+
+.container_qty_value {
+    flex-grow: 1;
+    height: 29px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    color: #000000;
+
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+
+    background-color: #ffffff;
+}
+
+
+
+
+
+                        /* ---------------------------------------------------------  FIN CONTAINER NAME & QTY ---------------------------------------------------------*/
+
+
+
+
+
+                        /* ---------------------------------------------------------  CONTAINER PRICE ---------------------------------------------------------*/
+.container_price {
+    display: flex;
+    justify-content: flex-end;
+
+    /* background-color: plum; */
+}
+
+.container_price_values {
+    display: flex;
+
+    color: #dd1e35;
+}
+
+.game_line_price_first_value {
+    font-size: 20px;
+}
+.game_line_price_second_value {
+    font-size: 14px;
+}
+
+
+
+                        /* ---------------------------------------------------------  FIN CONTAINER PRICE ---------------------------------------------------------*/
+
+
+                    /* ---------------------------------------------------------  FIN CONTAINER NAME & QTY & PRICE ---------------------------------------------------------*/
+
+
+                /* ---------------------------------------------------------  FIN CONTAINER ONE LINE CART  ---------------------------------------------------------*/
+
+
+            /* ---------------------------------------------------------  FIN CONTAINER ALL LINE CART  ---------------------------------------------------------*/
+
+
+
+
+
+
+            /* ---------------------------------------------------------  CONTAINER PAYMENT  ---------------------------------------------------------*/
+.container_payment {
+    margin-top: 24px;
+
+    padding: 24px;
+
+    background-color: #ffffff;
+}
+
+.payment_title {
+    font-size: 26px;
+    margin-bottom: 45px;
+}
+
+
+
+.payment_img {
+    width: 50px;
+}
+
+
+
+
+            /* ---------------------------------------------------------  FIN CONTAINER PAYMENT  ---------------------------------------------------------*/
+
+
+
+
+
+
+        /* ---------------------------------------------------------  FIN CONTAINER ALL LINE CART & PAYMENT ---------------------------------------------------------*/
+
+
+
+
+
+        /* --------------------------------------------------------- CONTAINER TOTAL ---------------------------------------------------------*/
+
+.container_total_group {
+
+    width: 30%;
+    margin-left: 24px;
+
+    padding: 24px;
+
+  
+    background-color: #ffffff;
+}
+
+
+.total_title {
+    font-size: 26px;
+    margin-bottom: 45px;
+}
+
+
+
+.container_total_group_line {
+
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 11px;
+    padding-bottom: 12px;
+
+    font-size: 14px;
+
+    color: #1a1a1a;
+
+    /* background-color: gold; */
+}
+
+
+.container_total {
+    font-weight: bold;
+
+    border-top: 0.5px solid #bdc3c7;
+}
+
+
+
+
+
+
+.container_btn_command {
+    width: 100%;
+
+    margin-top: 24px;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: #f5b027;
+}
+
+.container_btn_command:hover {
+    background-color: #f8c153;
+}
+
+.btn_command {
+
+    width: 100%;
+
+    padding: 10px 0;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+
+        /* --------------------------------------------------------- FIN CONTAINER TOTAL ---------------------------------------------------------*/
+
+
+
+
+    /* ---------------------------------------------------------  FIN CONTAINER CART CONTENT ---------------------------------------------------------*/
+
+
+
+
+/* --------------------------------------------------------- FIN CONTAINER CART ---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .container_cart_content {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+
+
+@media screen and (max-width: 960px) {
+    .container_cart_content {
+        flex-direction: column;
+        align-items: flex-start;
+    
+    }
+
+    .container_all_line_cart_payment, .container_total_group {
+
+        width: 100%;
+    }
+
+    .container_total_group {
+        margin-left: 0;
+        margin-top: 24px;
+    }
+
+
+    .container_one_cart_line {
+        flex-direction: column;
+        height: unset;
+
+        margin-bottom: 16px;
+    }
+
+    .container_name_qty_price {
+        width: 100%;
+    }
+
+    .one_cart_line_container_img {
+        width: 12%;
+        height: 120px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        align-self: center;
+        
+
+    }
+    
+    
+    .one_cart_line_img {
+        height: 100%;
+        max-width: unset;
+        display: block;
+    }
+
+
+    .container_name_qty {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+
+
+    .container_qty_all {
+        width: 20%;
+
+        margin-top: 15px;
+    
+        min-width: 125px;
+    
+    }
+
+
+    .container_price {
+       margin-top: 15px;
+
+    }
+}
+
+

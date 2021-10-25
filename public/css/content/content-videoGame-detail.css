@@ -291,6 +291,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.5s;
+
 }
 
 .detail_game_cart:hover {
@@ -303,6 +304,49 @@ body {
     color: #ffffff;
     background-color: transparent;
 }
+
+
+
+
+
+.game_line_container_add_cart {
+    width: 80%;
+
+    margin-top: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    border-radius: 5px;
+
+    background-color: #f5b027;
+
+}
+
+.game_line_container_add_cart form {
+    width: 100%;
+}
+
+.game_line_add_cart {
+    width: 100%;
+    padding: 1vw 0;
+
+    background-color: transparent;
+    border: none;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+}
+
+.game_line_add_cart:hover {
+    background-color: #f8c153;
+}
+
 
 .detail_game_comparator_container {
     justify-content: space-between;
@@ -408,6 +452,10 @@ body {
     .detail_game_cart {
         background-color: #f5b027;
     
+        
+    }
+
+    .game_line_add_cart {
         margin-top: 5px;
     
         font-size: 15px;
@@ -415,6 +463,7 @@ body {
         padding: 10px 0;
 
         margin-bottom: 15px;
+    
     }
 }
 

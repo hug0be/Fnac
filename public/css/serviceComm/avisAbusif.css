@@ -93,6 +93,10 @@
     /* background-color: orchid; */
 }
 
+.avisAbusif_nb_signal {
+    margin: 15px;
+}
+
 
 
 .avisAbusif_btn_del {
@@ -110,6 +114,8 @@
     cursor: pointer;
 
 }
+
+
 
 
             /* --------------------------------------------------------- FIN CONTAINER AVIS FORM ---------------------------------------------------------*/

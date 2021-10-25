@@ -59,7 +59,7 @@
                         <div class="container_column_small_imgs">
     
     
-                            @foreach ($videoGame->photo as $photo)
+                            @foreach ($videoGame->photoList as $photo)
 
                             @if (is_file(public_path("Photos/".$photo->pho_url)))
                             <div class="container_small_img">
@@ -69,7 +69,7 @@
 
                             @endforeach 
     
-                            @foreach ($videoGame->video as $video)
+                            @foreach ($videoGame->videoList as $video)
                             @if (is_file(public_path("Videos/".$video->vid_url)))
                             <div class="container_small_img">
                                 <video class="game_detail_small_img" preload="auto">
@@ -93,24 +93,9 @@
                         </div>
     
     
-                        <div class="container_active_img">
-    
-                            @php
-                                $displayFirstImage = false;
-                            @endphp
-    
-    
-                            @foreach ($videoGame->photo as $photo)
-    
-                                @if (!$displayFirstImage)
-                                    
-                                    <img src="{{asset("Photos/".$photo->pho_url)}}" alt="" class="game_detail_active_img">
-     
-                        
-                                    @php $displayFirstImage = true; @endphp
-                                @endif
-                    
-                            @endforeach
+                        <div class="container_active_img">   
+                              
+                            <img src="{{asset("Photos/".$videoGame->photoList()->first()->url())}}" alt="" class="game_detail_active_img">
 
                             <div class="active_img_open">
                                 <img src="{{ asset('/img/icon/icon-search.svg')}}" alt="" class="icon_active_img_open">
