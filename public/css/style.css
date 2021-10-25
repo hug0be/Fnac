@@ -336,8 +336,8 @@ body {
 }
 .settings_dropdown {
     position: absolute;
-    top: 38px;
-    left: -130px;
+    top: 55px;
+    left: -110px;
     display: flex;
     flex-direction: column;
     visibility: hidden;

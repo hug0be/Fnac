@@ -41,7 +41,7 @@
         @auth
         <div class="header_container_aisle_search header_border_right">
             <div class="settings_container">
-                <div style="font-size:20px; padding:10px">
+                <div class="aisle_container" style="font-size:20px; padding:10px">
                     <i class="fas fa-cog"></i><i class="fas fa-chevron-down header_aisle_chevron_down"></i>
                 </div>
                 <div class="settings_dropdown">
