@@ -93,6 +93,10 @@
     /* background-color: orchid; */
 }
 
+.avisAbusif_nb_signal {
+    margin: 15px;
+}
+
 
 
 .avisAbusif_btn_del {
@@ -110,6 +114,8 @@
     cursor: pointer;
 
 }
+
+
 
 
             /* --------------------------------------------------------- FIN CONTAINER AVIS FORM ---------------------------------------------------------*/
@@ -142,14 +148,40 @@
 }
 
 
+.notice_card_name_note {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    /* background-color: red; */
+}
+
+
 .notice_card_name {
     font-size: 19px;
     font-weight: 700;
 
     color: #232323;
-
-    margin-bottom: 12px;
+    /* background-color: orange; */
 }
+
+
+.notice_card_note {
+    /* background-color: purple; */
+}
+.notice_value_note {
+    display: none;
+}
+
+.notice_icon_note {
+    color: #bdc3c7;
+    font-size: 13px;
+}
+
+
+
 
 .notice_card_date {
     font-size: 13px;
@@ -179,6 +211,18 @@
 }
 
 
+.avisAbusif_name_game {
+    margin: 15px 10px;
+
+    color: #333333;
+}
+
+
+
+
+.container_notice_useful, .notice_card_signal {
+    display: none;
+}
 
 
 

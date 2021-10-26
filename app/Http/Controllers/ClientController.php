@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\Client;
-use App\Models\Rayon;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -14,22 +13,18 @@ class ClientController extends Controller
 {
 
     public function detailAccount() {
-        return view( "client.detailAccount", [ 'detailsAccount'=> Client::find(Auth::id()), 'rayons'=>Rayon::all()] );
+        return view("client.detailAccount", [ 'detailsAccount'=> Auth::user() ]);
     }
 
     public function profile() {
-        $client = Auth::user();
-        if($client)
-            return view("profile", ['rayons'=>Rayon::all(),'compte'=>$client]);
-        else
-            return redirect()->route("login");
+        return view("client.profile", ['compte'=>Auth::user()]);
     }
 
     public function editAccount(Request $request) {
         $validated = $request->validate([
             'cli_id' => ['required', 'exists:t_e_client_cli,cli_id'],
             'civilité' =>  ['required', Rule::in(['M','Mme','Mlle'])],
-            'email' => ['required','email','max:80'],
+            'email' => ['required','email','max:80',Rule::unique('t_e_client_cli','cli_mel')->ignore($request->cli_id, 'cli_id')],
             'nom' =>['required','alpha','max:50'],
             'prenom'=>['required','alpha','max:50'],
             'pseudo'=>['required','max:20'],
@@ -45,12 +40,11 @@ class ClientController extends Controller
         $client->cli_telportable = $request->portable;
         $client->cli_telfixe = $request->fixe;
         $client->save();
-        return back();
+        return back()->withInput(['validation'=>'Votre compte a bien été modifié !']);
     }
 
     public function password() {
-        $id_client = Auth::user()->id_client();
-        return view("password", ['id_client'=>$id_client, 'rayons'=>Rayon::all()]);
+        return view("client.password");
     }
     public function changePassword(Request $request) {
         $validated = $request->validate([

@@ -14,25 +14,25 @@
     <div>
         <form method="post" action= "/password">
             @csrf
+            <x-input-error name="current_password"/>
             <div class="input_box">
-                {{$errors->first('current_password')}}
                 <label for="current_password" class="label_field" >Mot de passe actuel</label>
                 <input type="password" name="current_password" class="input_field input_real_field"/>
             </div>
-            
+
+            <x-input-error name="new_password"/>
             <div class="input_box">
-                {{$errors->first('new_password')}}
                 <label for="new_password" class="label_field" >Nouveau mot de passe</label>
                 <input type="password" name="new_password" class="input_field input_real_field"/>
             </div>
             
+            <x-input-error name="new_password_confirmation"/>
             <div class="input_box">
-                {{$errors->first('new_password_confirmation')}}
                 <label for="new_password_confirmation" class="label_field" >Confirmer le mot de passe</label>
                 <input type="password" name="new_password_confirmation" class="input_field input_real_field"/>
             </div>
             
-            <input type="hidden" name="cli_id" value="{{$id_client}}">
+            <input type="hidden" name="cli_id" value="{{Auth::id()}}">
 
             <input type="submit" value="Modifier" class="btn_submit"/>
         </form>

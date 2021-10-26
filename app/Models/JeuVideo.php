@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use App\Models\JeuVideo as ModelsJeuVideo;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -62,32 +63,32 @@ class JeuVideo extends Model
 		return $this->belongsTo(Console::class, 'con_id', 'con_id');
 	}
 
-	public function avis()
+	public function avisList()
 	{
 		return $this->hasMany(Avis::class, 'jeu_id')->orderBy('avi_date', 'desc');
 	}
 
-	public function motcle()
+	public function motcleList()
 	{
 		return $this->hasMany(MotCle::class, 'jeu_id');
 	}
 
-	public function photo()
+	public function photoList()
 	{
 		return $this->hasMany(Photo::class, 'jeu_id');
 	}
 
-	public function video()
+	public function videoList()
 	{
 		return $this->hasMany(Video::class, 'jeu_id');
 	}
 
-	public function alerte()
+	public function alerteList()
 	{
 		return $this->hasMany(Alerte::class, 'jeu_id');
 	}
 
-	public function favori()
+	public function favoriList()
 	{
 		return $this->hasMany(Favori::class, 'jeu_id');
 	}
@@ -117,7 +118,7 @@ class JeuVideo extends Model
 			'ray_id',);
 	}
 
-	public function ligneCommande()
+	public function ligneCommandeList()
 	{
 		return $this->hasMany(LigneCommande::class, 'jeu_id');
 	}
@@ -148,6 +149,10 @@ class JeuVideo extends Model
 
 
 
+	public function id()
+	{
+		return $this->jeu_id;
+	}
 	public function id_jeu()
 	{
 		return $this->jeu_id;
@@ -189,5 +194,38 @@ class JeuVideo extends Model
 		return $this->jeu_stock;
 	}
 	
+	public function prixTTCcentime()
+	{
+		return floatval((explode(".",strval($this->jeu_prixttc))[1]));
+	}
+	public function prixTTCeuro()
+	{
+		return floatval((explode(".",strval($this->jeu_prixttc))[0]));
+	}
 
+	public static function jeuxMotCle($mot){
+		$jeux = JeuVideo::all();
+		$jeuxMotCle = [];
+		foreach($jeux as $jeu){
+			foreach($jeu->motcleList as $tabMot){
+				if(strcasecmp($tabMot->mot(),$mot) ==0){
+					$jeuxMotCle[] = $jeu;
+					break;
+				}
+			}
+		}
+		return $jeuxMotCle;
+	}
+
+	public static function chercheJeu($recherche){
+		$jeux = JeuVideo::all();
+		$jeuxTrouves = [];
+		foreach($jeux as $jeu){
+			if(str_contains(strtoupper($jeu->nom()),strtoupper($recherche))){
+				$jeuxTrouves[] = $jeu;
+			}
+		}
+		return $jeuxTrouves;
+
+	}
 }

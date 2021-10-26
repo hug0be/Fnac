@@ -12,27 +12,11 @@
 
         @endif --}}
 
-    
-
-        @if (count($errors) > 0)
-
-            <div class="alert alert-danger">
-
-                <strong>Désolé!</strong> L'image n'a pas été correctement ajouter 
-
-                <ul>
-
-                    @foreach ($errors->all() as $error)
-
-                        <li>{{ $error }}</li>
-
-                    @endforeach
-
-                </ul>
-
-            </div>
-
-        @endif
+        <div class="alert alert-danger">
+            @if ($errors->has('image'))
+                L'image n'a pas été enregistré.
+            @endif
+        </div>
 
     
         <div class="container_form_add_img">
@@ -43,12 +27,10 @@
     
     
                 <div class="btn_add_image">
-
                     <input type="file" name="image"  id="upload_img" class="btn_choose_file ">
                     <label for="upload_img" class="lab_choose_file"> 
                         <img src="{{asset("img/icon/icon-add-image.png")}}" alt="" class="icon_choose_file">
                     </label>
-
                 </div>
                     
 

@@ -20,25 +20,11 @@
 
     
 
-        @if (count($errors) > 0)
-
-            <div class="alert alert-danger">
-
-                <strong>Désolé!</strong> La video n'a pas été correctement ajouter 
-
-                <ul>
-
-                    @foreach ($errors->all() as $error)
-
-                        <li>{{ $error }}</li>
-
-                    @endforeach
-
-                </ul>
-
-            </div>
-
-        @endif
+        <div class="alert alert-danger">
+            @if ($errors->has('video'))
+                La vidéo n'a pas été enregistré.
+            @endif
+        </div>
 
     
         <div class="container_form_add_vid">

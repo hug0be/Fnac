@@ -20,6 +20,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     let container_detail_game_content_all_notice_card = document.querySelector('.container_detail_game_content_all_notice_card');
 
+    let notice_card_note = document.querySelectorAll('.notice_card_note') ;
+
+
+
+    let all_notice_icon_form_note = document.querySelectorAll('.notice_icon_form_note') ;
+    let form_notice_input_note_hidden = document.querySelector('.form_notice_input_note_hidden');
+
+
 
     // ----------------------- Display img open
     game_detail_active_img.addEventListener('mouseenter', ()=> {
@@ -157,6 +165,46 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 
 
+
+
+
+ 
+
+
+
+
+    // ------------------------ Note notice form
+
+    // console.log(all_notice_icon_form_note);
+
+    all_notice_icon_form_note.forEach(aIconStar => {
+        console.log(aIconStar.getAttribute('data-valueNote'));
+
+        aIconStar.addEventListener('click', ()=> {
+            
+            form_notice_input_note_hidden.value = aIconStar.getAttribute('data-valueNote') ;
+
+            // Color Fill Star Note
+            let form_notice_note_value = aIconStar.getAttribute('data-valueNote') ;
+
+            // Each click reset color fill star
+            for (let i = 0; i < 5; i++) {
+                all_notice_icon_form_note[i].style.color = "#bdc3c7" ;
+            }
+
+            // Each click color fill star with note
+            for (let i = 0; i < form_notice_note_value; i++) {
+                all_notice_icon_form_note[i].style.color = "#f5b027" ;
+            }
+
+        })
+
+
+        
+
+
+        
+    })
 
 
 

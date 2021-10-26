@@ -3,26 +3,11 @@
     <div class="container_game_line_content">
 
 
-    @php
-        $displayFirstImage = false;
-    @endphp
-
-
-    @foreach ($videoGame->photo as $photo)
-
-        @if (!$displayFirstImage)
-
-        <div class="game_line_container_img">
-            <a href="{{ route("detailVideoGame", ['idGame' => $videoGame->jeu_id ]) }}" class="game_line_link_img">
-                <img src="{{asset("Photos/".$photo->pho_url)}}" alt="" class="game_line_img">
-            </a>
-        </div>
-
-            @php $displayFirstImage = true; @endphp
-        @endif
-
-    @endforeach
-
+    <div class="game_line_container_img">
+        <a href="{{ route("detailVideoGame", ['idGame' => $videoGame->jeu_id ]) }}" class="game_line_link_img">
+            <img src="{{asset("Photos/".$videoGame->photoList()->first()->url())}}" alt="" class="game_line_img">
+        </a>
+    </div>
 
         <div class="game_line_container_infos">
 
@@ -70,29 +55,21 @@
         <div class="game_line_container_price_values">
 
             <div class="game_line_price_first_value">
-                @php
-                    $game_line_price_first_value = substr($videoGame->jeu_prixttc, 0, 2);
-                @endphp
 
-                {{ $game_line_price_first_value }}
+                {{ $videoGame->prixTTCeuro() }}
             </div>
 
 
             <div class="game_line_price_second_value">
-                @php
-                    $game_line_price_second_value = substr($videoGame->jeu_prixttc, 3);
-                @endphp
 
-                €{{ $game_line_price_second_value }}
+                €{{ $videoGame->prixTTCcentime() }}
             </div>
 
         </div>
 
 
 
-        <div class="game_line_container_add_cart">
-            <a href="#" class="game_line_add_cart"> <i class="fas fa-shopping-bag"></i> Ajouter au panier </a>
-        </div>
+        @include('jeuVideo.form_Panier')
 
     </div>
   

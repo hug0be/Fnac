@@ -2,9 +2,14 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\jeuVideoController;
+use App\Models\Console;
+use App\Models\JeuVideo;
+use App\Models\Rayon;
 use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
- 
+use Illuminate\Support\Facades\View;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -22,8 +27,9 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         Carbon::setLocale('fr');
+        View::share('rayons', Rayon::all());
+        View::share('consoles', Console::all());
     }
 }

@@ -39,11 +39,24 @@
 
         </div>
 
-        <div class="container_search">
-            <input type="text" name="" id="" placeholder="Rechercher un produit" class="header_search_input">
-            <div class="btn_search">
-                <img src="{{ asset('/img/icon/icon-search.svg')}}" alt="" class="header_search_img">
-            </div>
-        </div>
+        @include('layout.rechercheForm')
+    </div>
+
+    <div class="container_header_account" >
+        @auth
+            <a href="{{ route("detailAccount") }}" class="header_link_account">
+                <i class="fas fa-user"></i>
+            </a>
+            <a href="{{route("logout")}}" class="header_link_logout header_link">
+                <span class="logout_txt log_txt">Se déconnecter</span> 
+                <span class="logout_icon log_icon"> <i class="fas fa-sign-out-alt"></i> </span>
+            </a>
+        @endauth
+        @guest
+            <a href="{{route("login")}}" class="header_link_login header_link">
+                <span class="login_txt log_txt">Se connecter</span> 
+                <span class="login_icon log_icon"> <i class="fas fa-sign-in-alt"></i> </span> 
+            </a>
+        @endguest
     </div>
 </header>

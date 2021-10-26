@@ -1,16 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Avis;
-use App\Models\AvisAbusif;
+use App\Models\Client;
+use App\Models\Editeur;
 use App\Models\JeuVideo;
+use App\Models\MotCle;
+use App\Models\Photo;
 use App\Models\Rayon;
-use App\Models\Console;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Throwable;
 
 class jeuVideoController extends Controller
 {
+
+    public static $nb = 0;
 
     /**
      * Show the home page of the Fnac webSite
@@ -20,8 +24,10 @@ class jeuVideoController extends Controller
      */
     public function home()
     {
-        return view ("jeuVideo.displayAllLines", ['videoGames'=>JeuVideo::all(), 'rayons' => Rayon::all(), 'consoles'=>Console::all() ]);
+       
+        return view ("jeuVideo.displayAllLines", ['videoGames'=>JeuVideo::all()]);
     }
+
 
 
     /**
@@ -44,7 +50,7 @@ class jeuVideoController extends Controller
             }
         }
 
-        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames , 'rayons' => Rayon::all(), 'currentRay' => $currentRay, 'consoles'=>Console::all() ]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames, 'currentRay' => $currentRay]);
     }
 
     /**
@@ -63,71 +69,93 @@ class jeuVideoController extends Controller
                 $videoGames[] = $videoGame;
         }
 
-        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames , 'rayons' => Rayon::all(), 'consoles'=>Console::all()]);
+        return view ("jeuVideo.displayAllLines", ['videoGames'=> $videoGames]);
     }
 
-    
-
     /**
-     * Show the profile for a given user.
+     * Display the detail of a video game selected
      *
      *
      * @return \Illuminate\View\View
      */
     public function detailVideoGame($idGame)
     {
-        $videoGameSelected = JeuVideo::find($idGame);
-        return view ("jeuVideo.displayDetail", [
-            'videoGame'=> $videoGameSelected, 
-            'rayons' => Rayon::all(),
-            'consoles'=>Console::all()
-        ]);
-    }
-
-
-    /**
-     * Show the avis maked as abusifs
-     *
-     *
-     * @return \Illuminate\View\View
-     */
-    public function avisAbusifs()
-    {
-        $avisAbusifList = AvisAbusif::all();
-
-        $idAvisList = [];
-        foreach($avisAbusifList as $key=>$avisAbusif)
-        {
-            if(in_array($avisAbusif->avi_id, $idAvisList))
-                unset($avisAbusifList[$key]);
-            else
-                $idAvisList[] = $avisAbusif->avi_id;
+        try {
+            $videoGameSelected = JeuVideo::findOrFail($idGame);
         }
-        return view ("serviceComm.avisAbusifs", [
-            'avisAbusifs' => $avisAbusifList,
-            'rayons' => Rayon::all(),
-            'consoles'=>Console::all()
-
-        ]);
-    }
-
-    /**
-     * Delete an abusifAvis
-     *
-     * @return \Illuminate\View\View
-     */
-    public function delete_avis(Request $request)
-    {
-        $avisAbusifList = AvisAbusif::where('avi_id', $request->id_avis)->get();
-        $avis = $avisAbusifList[0]->avis;
-        foreach($avisAbusifList as $avisAbusif)
-        {
-            $avisAbusif->delete();
+        catch (Throwable $e) {
+            abort(404, "$e");
         }
-        $avis->delete();
-        return redirect()->route('avisAbusifs');
         
+        $client = Auth::user();
+        $boughtThisGame = false;
+        if($client)
+        {
+            $boughtThisGame = $client->boughtThisGame($idGame);
+        }
+
+        return view ("jeuVideo.displayDetail", [
+            'videoGame'=> $videoGameSelected,
+            'client' => Auth::user(),
+            'boughtThisGame' => $boughtThisGame
+        ]);
     }
 
-    
+
+    /**
+     * Method to display the result of a research
+     * 
+     * @return \Illuminate\View\View or redirect to home
+     */
+    public function rechercheJeu(Request $request)
+    {
+        if($request->barreRecherche != ""){
+            if(MotCle::findMot($request->barreRecherche)){
+                $jeux = JeuVideo::jeuxMotCle($request->barreRecherche);
+            }
+            else{
+                $jeux = JeuVideo::chercheJeu($request->barreRecherche);
+            }
+            return view("jeuVideo.displayAllLines", ['videoGames'=>$jeux]);
+        }
+        else{
+            return redirect()->route("home");
+        }
+    }
+
+     /**
+     * Method to display the comparator
+     * 
+     * @return \Illuminate\View\View
+     */
+    public function comparateur() {
+        $statsJeux = array();
+        //Populate statsJeux if items in comparator
+        if(session()->has('comparateur')) {
+            //Test if all games in session exists
+            foreach(session('comparateur') as $idJeu) {
+                $jeu = JeuVideo::find($idJeu);
+                if($jeu) $jeux[]=$jeu;
+                else return redirect()->route('home');
+            }
+            //Calculates stats for each game
+            foreach($jeux as $jeu) {
+                $statsJeux[$jeu->id_jeu()] = array(
+                    'Image' => $jeu->photoList()->first()->url(),
+                    'Nom' => $jeu->nom(),
+                    "PrixTTC" => $jeu->prixTTC(),
+                    "Disponibilité" => ($jeu->stock() > 0),
+                    "Age légal" => $jeu->publicLegal(),
+                    "Date de parution" => $jeu->dateParution(),
+                    "Note moyenne" => $jeu->avisList()->avg('avi_note'),
+                    "Nombre de ventes" => $jeu->ligneCommandeList()->sum('lec_quantite'),
+                    "Nombre de favoris" => $jeu->favoriList()->count(),
+                    "Editeur" => Editeur::find($jeu->edi_id)->nom(),
+                );
+            }
+        }
+        //List of stats that will be compared
+        $statsList = array("PrixTTC", "Disponibilité", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris", "Editeur");
+        return view("jeuVideo.comparateur", ['games'=>$statsJeux, 'stats'=>$statsList]);
+    }
 }

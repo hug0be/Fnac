@@ -1,6 +1,3 @@
-
-
-
 /* --------------------------------------------------------- ALL DISPLAY LINE ---------------------------------------------------------*/
 
 .container_all_game_line {
@@ -11,12 +8,6 @@
 
     /* background-color: orange; */
 }
-
-
-
-
-
-
 
 
 .container_all_game_line_content {
@@ -164,18 +155,23 @@
     justify-content: center;
 
     max-width: 250px;
-/*
-    padding: 5px 15px; */
+
 
     /* background-color: blueviolet; */
 }
 
+.game_line_link_img {
+    height: 100%;
+}
+
+
+
 .game_line_img {
     display: block;
-    /*width: 70%;*/
-    height: 100%;
+    max-height: 100%;
 
 }
+
 
 
         /* --------------------------------------------------------- FIN CONTAINER IMG ---------------------------------------------------------*/
@@ -356,6 +352,8 @@
 .game_line_add_cart {
     text-decoration: none;
     color: #ffffff;
+    background : transparent; 
+    border : none;
 }
 
 

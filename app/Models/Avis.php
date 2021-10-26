@@ -70,12 +70,12 @@ class Avis extends Model
 		return $this->belongsTo(JeuVideo::class, 'jeu_id');
 	}
 
-	public function avisabusif()
+	public function avisAbusifList()
 	{
 		return $this->hasMany(AvisAbusif::class, 'avi_id');
 	}
 
-	public function id_avis()
+	public function id()
 	{
 		return $this->avi_id;
 	}
@@ -110,14 +110,5 @@ class Avis extends Model
 	public function nbPasUtile()
 	{
 		return $this->avi_nbutilenon;
-	}
-	
-	public function avisAbusifs()
-	{
-		return $this->belongsToMany(
-			Genre::class,
-			't_j_avisabusif_ava',
-			'avi_id',
-			'cli_id');
 	}
 }
