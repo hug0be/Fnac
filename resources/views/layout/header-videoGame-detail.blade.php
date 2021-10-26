@@ -43,6 +43,8 @@
     </div>
 
     <div class="container_header_account" >
+        <a href="{{ route("panier") }}" class="header_link_account">Panier</a>
+
         @auth
             <a href="{{ route("detailAccount") }}" class="header_link_account">
                 <i class="fas fa-user"></i>

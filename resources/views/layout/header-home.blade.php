@@ -59,6 +59,7 @@
         </div> 
         @endauth
         @guest
+        <a href="{{ route("panier") }}" class="header_link_account">Panier</a>
             <a href="{{route("login")}}" class="header_link_login header_link">
                 <span class="login_txt log_txt">Se connecter</span> 
                 <span class="login_icon log_icon"> <i class="fas fa-sign-in-alt"></i> </span> 
