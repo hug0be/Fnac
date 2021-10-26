@@ -6,6 +6,7 @@ use App\Models\Commande;
 use App\Models\JeuVideo;
 use App\Models\LigneCommande;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Report\Xml\Totals;
 
 class PanierController extends Controller
 {
@@ -42,11 +43,16 @@ class PanierController extends Controller
         $panier = session("panier") ?? [];
 
         $jeuInPanier = [];
+        $total = 0;
         foreach($panier as $idGame => $qte)
         {
-            $jeuInPanier[] = ['jeu' => JeuVideo::find($idGame),'qte'=> $qte];
+            $jeu = JeuVideo::find($idGame);
+            $total += $jeu->prixTTC() * $qte;
+            $jeuInPanier[] = ['jeu' => $jeu,'qte'=> $qte]; 
+
         }
-        return view ("jeuVideo.panier", [ 'jeuInPanier' => $jeuInPanier]);
+
+        return view ("jeuVideo.panier", [ 'jeuInPanier' => $jeuInPanier, 'total' => $total]);
 
     }
 

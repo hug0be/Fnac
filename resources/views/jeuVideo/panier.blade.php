@@ -134,7 +134,7 @@
 
             <div class="container_subTotal container_total_group_line">
                 <p class="subTotal_txt">Sous-total</p>
-                <p class="subTotal_price"> 159€ </p>
+                <p class="subTotal_price"> {{$total}}€ </p>
 
             </div>
 
@@ -146,7 +146,7 @@
 
             <div class="container_total container_total_group_line">
                 <p class="total_txt">Total (TVA incluse)</p>
-                <p class="total_price"> 159€ </p>
+                <p class="total_price"> {{$total}}€ </p>
             </div>
 
             <div class="container_btn_command">
