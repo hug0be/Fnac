@@ -8,6 +8,7 @@ use App\Models\JeuVideo;
 use App\Models\Rayon;
 use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -31,5 +32,6 @@ class AppServiceProvider extends ServiceProvider
         Carbon::setLocale('fr');
         View::share('rayons', Rayon::all());
         View::share('consoles', Console::all());
+        View::share('client', Auth::user() ? Auth::user() : null);
     }
 }
