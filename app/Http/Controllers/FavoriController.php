@@ -24,4 +24,15 @@ class FavoriController extends Controller
         }
         return redirect()->back();
     }
+
+    /**
+     * Show the home page of the Fnac webSite
+     *
+     *
+     * @return \Illuminate\View\View
+     */
+    public function favoritesGames()
+    {  
+        return view ("jeuVideo.displayAllLines", ['videoGames'=>Auth::user()->jeuFavoris]);
+    }
 }

@@ -2,7 +2,13 @@
     <div class="menu_nav_sidebar_content">
         
         <div class="menu_nav_sidebar_container_aisle">
+            @auth    
+                <a href="{{ route('favoritesGames') }}">
+                    JEUX FAVORIS
+                </a>
+            @endauth
             <h4 class="menu_nav_sidebar_title">
+                
                 <a href="{{ route('home') }}">
                     TOUS LES RAYONS
                 </a>

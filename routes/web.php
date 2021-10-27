@@ -83,5 +83,6 @@ Route::post('/add_avisAbusif', [AvisController::class, 'add_avisAbusif'])->name(
 
 //favori
 Route::post('/toggle_favori', [FavoriController::class, 'toggle_favori'])->name('toggle_favori');
+Route::get('/favoritesGames', [FavoriController::class, 'favoritesGames'])->name('favoritesGames');
 
  
