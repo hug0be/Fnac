@@ -27,8 +27,8 @@ class AuthController extends Controller {
             'nom' =>['required','alpha','max:50'],
             'prenom'=>['required','alpha','max:50'],
             'pseudo'=>['required','max:20'],
-            'portable'=>['required_without:fixe'],
-            'fixe'=>['required_without:portable'],
+            'portable'=>['nullable', 'required_without:fixe','regex:/^[0-9]{10}$/'],
+            'fixe'=>['nullable', 'required_without:portable','regex:/^[0-9]{10}$/'],
         ]);
         $client = Client::create([
             'cli_civilite' => $request->civilite,
