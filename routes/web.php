@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\FavoriController;
 use App\Http\Controllers\PanierController;
 use App\Http\Controllers\videoController;
 use Illuminate\Support\Facades\Route;
@@ -80,5 +81,7 @@ Route::post('/add_avisUtile', [AvisController::class, 'add_avisUtile'])->name('a
 Route::post('/add_avisInutile', [AvisController::class, 'add_avisInutile'])->name('add_avisInutile');
 Route::post('/add_avisAbusif', [AvisController::class, 'add_avisAbusif'])->name('add_avisAbusif');
 
+//favori
+Route::post('/toggle_favori', [FavoriController::class, 'toggle_favori'])->name('toggle_favori');
 
  

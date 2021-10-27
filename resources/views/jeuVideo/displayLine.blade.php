@@ -47,50 +47,34 @@
             </div>
         </div>
 
+        @include('jeuVideo/form_Favori')
 
 
+        <div class="game_line_container_price_add_cart">
 
-    <div class="game_line_container_price_add_cart">
+            <div class="game_line_container_price_values">
 
-        <div class="game_line_container_price_values">
+                <div class="game_line_price_first_value">
+                   
+                    {{ $videoGame->prixTTCeuro() }}
+                </div>
 
-            <div class="game_line_price_first_value">
 
-                {{ $videoGame->prixTTCeuro() }}
+                <div class="game_line_price_second_value">
+
+                    €{{ $videoGame->prixTTCcentime() }}
+                </div>
+
             </div>
 
+            
+            
 
-            <div class="game_line_price_second_value">
 
-                €{{ $videoGame->prixTTCcentime() }}
-            </div>
+            @include('jeuVideo.form_Panier')
 
         </div>
-
-
-
-        @include('jeuVideo.form_Panier')
-
-    </div>
-  
-
-
-        
-
-    
      
     </div>
-
-
- 
-        
-  
-
-
-
-
-
-
-
 
 </div>

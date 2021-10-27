@@ -197,4 +197,12 @@ class Client extends Authenticatable
 		}
 		return false;
 	}
+
+	public function haveThisGameInfavorite(int $idGame): bool
+	{
+		foreach($this->jeuFavoris as $favori)
+			if($favori->id() == $idGame) return true;
+			
+		return false;
+	}
 }
