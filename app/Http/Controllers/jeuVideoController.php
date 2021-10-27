@@ -14,8 +14,6 @@ use Throwable;
 class jeuVideoController extends Controller
 {
 
-    public static $nb = 0;
-
     /**
      * Show the home page of the Fnac webSite
      *
