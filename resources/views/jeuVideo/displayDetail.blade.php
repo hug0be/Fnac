@@ -104,9 +104,11 @@
                         </div>
                         
                     </div>
-    
+
+                    
+
                     <div class="container_detail_game_content_price">
-    
+                        @include('jeuVideo/form_Favori')
                         <div class="detail_game_price">
                             <div class="detail_game_pricee_first_value">
                 

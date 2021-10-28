@@ -14,8 +14,6 @@ use Throwable;
 class jeuVideoController extends Controller
 {
 
-    public static $nb = 0;
-
     /**
      * Show the home page of the Fnac webSite
      *
@@ -141,6 +139,7 @@ class jeuVideoController extends Controller
             //Calculates stats for each game
             foreach($jeux as $jeu) {
                 $statsJeux[$jeu->id_jeu()] = array(
+                    'Description' => $jeu->description(),
                     'Image' => $jeu->photoList()->first()->url(),
                     'Nom' => $jeu->nom(),
                     "PrixTTC" => $jeu->prixTTC(),
@@ -155,7 +154,7 @@ class jeuVideoController extends Controller
             }
         }
         //List of stats that will be compared
-        $statsList = array("PrixTTC", "Disponibilité", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris", "Editeur");
+        $statsList = array("Description","PrixTTC", "Disponibilité", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris", "Editeur");
         return view("jeuVideo.comparateur", ['games'=>$statsJeux, 'stats'=>$statsList]);
     }
 }

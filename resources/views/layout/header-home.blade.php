@@ -37,7 +37,7 @@
 
 
     <!-- Login and register buttons -->
-    <div class="container_header_account" >
+    <div class="container_header_account">
         @auth
         <div class="header_container_aisle_search header_border_right">
             <div class="settings_container">
@@ -50,6 +50,9 @@
                     </a>
                     <a href="{{ route("panier") }}" class="settings_dropdown_item">
                         <i class="fas fa-shopping-bag"></i><span class="settings_text">Mon panier</span>
+                    </a>
+                    <a href="{{ route('myCommandes') }}" class="settings_dropdown_item">
+                        <span class="settings_text">Mes commandes</span>
                     </a>
                     <a href="{{route("logout");}}" class="settings_dropdown_item">
                         <i class="fas fa-sign-out-alt"></i><span class="settings_text">Se déconnecter</span>

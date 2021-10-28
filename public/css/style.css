@@ -498,6 +498,38 @@ body {
 
 
 
+
+
+
+/* --------------------------------------------------------- FAVORI ---------------------------------------------------------*/
+
+.form_favori button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.favori_icon {
+    font-size: 17px;
+
+}
+
+.favori_icon_active {
+    color: #f5b027;
+}
+
+.favori_icon_disactive {
+    color: #bdc3c7;
+}
+
+
+
+
+/* --------------------------------------------------------- FIN FAVORI ---------------------------------------------------------*/
+
+
+
+
 @media screen and (max-width: 768px) {
 
     .header_border_right {

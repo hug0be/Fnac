@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\FavoriController;
 use App\Http\Controllers\PanierController;
 use App\Http\Controllers\videoController;
 use Illuminate\Support\Facades\Route;
@@ -68,9 +69,10 @@ Route::post('/addToSession', [ SessionController::class, 'addToSession']);
 Route::post('/deleteFromSession', [ SessionController::class, 'deleteFromSession']);
 
 
-//Commande Veille
+//Commande 
 Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
- 
+Route::get('/mes-commandes', [ CommandeController::class, 'myCommandes'])->name('myCommandes');
+
 // Avis
 Route::get('/service-comm/avisAbusifs', [AvisController::class, 'avisAbusifs'])->name('avisAbusifs');
 Route::post('/service-comm/delete_avis', [AvisController::class, 'delete_avis'])->name('delete_avis');
@@ -80,5 +82,8 @@ Route::post('/add_avisUtile', [AvisController::class, 'add_avisUtile'])->name('a
 Route::post('/add_avisInutile', [AvisController::class, 'add_avisInutile'])->name('add_avisInutile');
 Route::post('/add_avisAbusif', [AvisController::class, 'add_avisAbusif'])->name('add_avisAbusif');
 
+//favori
+Route::post('/toggle_favori', [FavoriController::class, 'toggle_favori'])->name('toggle_favori');
+Route::get('/favoritesGames', [FavoriController::class, 'favoritesGames'])->name('favoritesGames');
 
  
