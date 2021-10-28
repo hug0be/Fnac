@@ -69,9 +69,10 @@ Route::post('/addToSession', [ SessionController::class, 'addToSession']);
 Route::post('/deleteFromSession', [ SessionController::class, 'deleteFromSession']);
 
 
-//Commande Veille
+//Commande 
 Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
- 
+Route::get('/mes-commandes', [ CommandeController::class, 'myCommandes'])->name('myCommandes');
+
 // Avis
 Route::get('/service-comm/avisAbusifs', [AvisController::class, 'avisAbusifs'])->name('avisAbusifs');
 Route::post('/service-comm/delete_avis', [AvisController::class, 'delete_avis'])->name('delete_avis');
