@@ -37,7 +37,7 @@
 
 
     <!-- Login and register buttons -->
-    <div class="container_header_account" >
+    <div class="container_header_account">
         @auth
         <div class="header_container_aisle_search header_border_right">
             <div class="settings_container">
