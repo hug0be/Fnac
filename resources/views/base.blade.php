@@ -42,6 +42,7 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ asset("js/session.js") }}"></script>
+    <script src="{{ asset("js/header/profil.js") }}"></script>
     @section('js') 
     @show
 
