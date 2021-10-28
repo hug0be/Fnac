@@ -45,6 +45,9 @@
 
         /* --------------------------------------------------------- FIN CONTAINER CONSOLE ---------------------------------------------------------*/
 
+.menu_nav_sidebar_title_favoris {
+    margin-bottom: 25px;
+}
 .menu_nav_sidebar_title {
     width: 100%;
     padding: 10px 0;
