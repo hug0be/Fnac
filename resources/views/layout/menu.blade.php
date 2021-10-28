@@ -7,12 +7,16 @@
                 <a href="{{ route('favoritesGames') }}">
                     JEUX FAVORIS
                 </a>
+<<<<<<< HEAD
             </h4>    
             <h4 class="menu_nav_sidebar_title menu_nav_sidebar_title_favoris">
                 <a href="{{ route('myCommandes') }}">
                     MES COMMANDES
                 </a>
             </h4> 
+=======
+            </h4>
+>>>>>>> mes_commandes
             @endauth
             <h4 class="menu_nav_sidebar_title">
                 
