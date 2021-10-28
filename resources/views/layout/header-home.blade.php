@@ -51,6 +51,9 @@
                     <a href="{{ route("panier") }}" class="settings_dropdown_item">
                         <i class="fas fa-shopping-bag"></i><span class="settings_text">Mon panier</span>
                     </a>
+                    <a href="{{ route('myCommandes') }}" class="settings_dropdown_item">
+                        <span class="settings_text">Mes commandes</span>
+                    </a>
                     <a href="{{route("logout");}}" class="settings_dropdown_item">
                         <i class="fas fa-sign-out-alt"></i><span class="settings_text">Se déconnecter</span>
                     </a>
