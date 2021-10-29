@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
     Route::get('/mes-commandes', [ CommandeController::class, 'myCommandes'])->name('myCommandes');
     Route::get('/passerCommande', [ CommandeController::class, 'passerCommande'])->name('passerCommande');
+    Route::post('/createCommande', [ CommandeController::class, 'createCommande'])->name('createCommande');
 });
 
 Route::get('/rayon{idRayon}', [jeuVideoController::class, 'searchByRayon'])->name('searchByRayon');

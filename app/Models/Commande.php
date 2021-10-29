@@ -79,7 +79,7 @@ class Commande extends Model
 	}
 
 	
-	public function id_commentaire()
+	public function id()
 	{
 		return $this->com_id;
 	}
@@ -163,7 +163,7 @@ class Commande extends Model
 		// foreach( $this->ligneCommandeList as $aLigneCommande ) {
 		// 	$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
 		// }
-		$cents = (explode(".",strval($priceTotal))[1]);
+		$cents = (explode(".",strval($priceTotal))[1]) ?? "00";
 
 		return floatval( strlen($cents)==1 ? $cents . "0" : $cents);
 

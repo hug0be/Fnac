@@ -25,9 +25,9 @@ class CommandeController extends Controller
         return view("serviceClient.commandesVeille", [ 'allCommande'=>$allCmd ]) ;
     }
 
-    public function myCommandes() {        
-       
-        return view("client.mesCommandes", [ ]);
+    public function myCommandes() {
+        $myCommandes = Commande::where('cli_id', Auth::user()->id())->get();
+        return view("client.mesCommandes", [ 'allCommande'=>$myCommandes, 'textEnCours'=>''  ]) ;
     }
     
     
@@ -41,37 +41,62 @@ class CommandeController extends Controller
         'magasinList' =>$magasinList ]) ;
     }
 
-    public function addCommande(Request $request)
+    public function createCommande(Request $request)
     {
-        $request->validate([
-            'rel_id' => 'required_without_all:mag_id,adr_id',
-            'mag_id' => 'required_without_all:rel_id,adr_id',
-            'adr_id' => 'required_without_all:mag_id,rel_id',
-          ],
-        [
-        ]);
-        dd("Form validé !");
         $commande= new Commande();
+        if($request->typeDelivery == 'adr'){
+            $request->validate([
+                'adr_id' => 'required',
+              ],[
+                'adr_id.required' => 'Il faut que vous choisissiez une adresse',
+            ]);
+            $commande->adr_id = $request->adr_id;
+        }
+        else if($request->typeDelivery == 'rel') {
+            $request->validate([
+                'rel_id' =>  'required'
+            ], [
+                'rel_id.required' => 'Il faut que vous choisissiez un relais',
+            ]);
+            $commande->rel_id = $request->rel_id;
+        }
+        else if($request->typeDelivery == 'mag') {
+            $request->validate([
+                'mag_id' =>  'required'
+            ], [
+                'mag_id.required' => 'Il faut que vous choisissiez un magasin',
+            ]);
+            $commande->mag_id = $request->mag_id;
+        } else
+        {
+            $request->validate([
+                'typeDelivery' =>  'required'
+            ], [
+                'typeDelivery.required' => 'Veuillez selectionner un type de livraison',
+            ]);
+        }
         $commande->cli_id = Auth::user()->cli_id;
         $commande->com_date = date('Y-m-d');
+
+        
+        
         $commande->save();
-        $this->panierToCommande(session('panier'), Auth::user()->cli_id);
+        $this->createLignesCommande(session('panier'), $commande->id());
+        session()->put("panier", []);
+        return redirect()->route('myCommandes')->withInput(["validation"=>"Commande Réussie"]);
     }
 
-    private function panierToCommande($panier, $cli_id)
+    private function createLignesCommande($panier, $com_id)
 	{
-		$commande = Commande::where('cli_id', $cli_id);
-		// dd($panier);
 		foreach($panier as $idGame => $qte)
         {
-            
 			$ligneCommande = new LigneCommande();
-            $ligneCommande->
-            $jeu->prixTTC() * $qte;
-            $jeuInPanier[] = ['jeu' => $jeu,'qte'=> $qte]; 
-
+            $ligneCommande->jeu_id = $idGame;
+            $ligneCommande->lec_quantite = $qte;
+            $ligneCommande->com_id = $com_id;
+            $ligneCommande->save();
         }
-		return $commande;
+		
 	}
 
 
