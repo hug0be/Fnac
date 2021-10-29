@@ -47,7 +47,7 @@ class Magasin extends Model
 		return $this->hasMany(Client::class, 'mag_id');
 	}
 	
-	public function id_magasin()
+	public function id()
 	{
 		return $this->mag_id;
 	}

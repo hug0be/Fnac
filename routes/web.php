@@ -35,6 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/account', [ClientController::class, 'detailAccount'])->name('detailAccount');
     //Déconnexion
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    
+    //Commande 
+    Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
+    Route::get('/mes-commandes', [ CommandeController::class, 'myCommandes'])->name('myCommandes');
+    Route::get('/passerCommande', [ CommandeController::class, 'passerCommande'])->name('passerCommande');
 });
 
 Route::get('/rayon{idRayon}', [jeuVideoController::class, 'searchByRayon'])->name('searchByRayon');
@@ -69,9 +74,6 @@ Route::post('/addToSession', [ SessionController::class, 'addToSession']);
 Route::post('/deleteFromSession', [ SessionController::class, 'deleteFromSession']);
 
 
-//Commande 
-Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
-Route::get('/mes-commandes', [ CommandeController::class, 'myCommandes'])->name('myCommandes');
 
 // Avis
 Route::get('/service-comm/avisAbusifs', [AvisController::class, 'avisAbusifs'])->name('avisAbusifs');

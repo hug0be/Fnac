@@ -1,5 +1,3 @@
-
-
 @extends('base')
 
 
@@ -150,7 +148,7 @@
             </div>
 
             <div class="container_btn_command">
-                <a href="#" class="btn_command">COMMANDER</a>
+                <a href="{{route("passerCommande")}}" class="btn_command">COMMANDER</a>
             </div>
 
         </div>

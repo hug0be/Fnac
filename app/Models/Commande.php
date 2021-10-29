@@ -167,6 +167,6 @@ class Commande extends Model
 
 		return floatval( strlen($cents)==1 ? $cents . "0" : $cents);
 
-	}
+	} 
 
 }

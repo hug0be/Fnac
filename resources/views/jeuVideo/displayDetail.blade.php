@@ -132,7 +132,7 @@
     
                         </div>
     
-                        @include('jeuVideo.form_Panier')
+                        @include('jeuVideo.form_AjoutPanier')
 
 
                         <div class="detail_game_comparator_container">

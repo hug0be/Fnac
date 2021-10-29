@@ -58,7 +58,7 @@ class Relais extends Model
 		return $this->belongsTo(Pays::class, 'pay_id');
 	}
 
-	public function commande()
+	public function commandeListe()
 	{
 		return $this->hasMany(Commande::class, 'rel_id');
 	}
@@ -78,7 +78,7 @@ class Relais extends Model
 	}
 
 	
-	public function id_relais()
+	public function id()
 	{
 		return $this->rel_id;
 	}
