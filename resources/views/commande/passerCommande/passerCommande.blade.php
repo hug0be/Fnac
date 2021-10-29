@@ -34,35 +34,41 @@
             <label for="mag">Magasin :</label>
             <input type="radio" id="mag" name="typeDelivery" value="mag" {{ old("typeDelivery")=="mag" ? "checked" : "" }}>
         </div>
+        <p>
+            <label for="adresse-select">choisissez une adresse :</label>
+            
+            <select name="adr_id" id="adresse-select">
+                <option value="">--Please choose an option--</option>
+                @foreach ($adresseList as $adresse)
+                <option value="{{ $adresse->id() }}" {{ old("adr_id")==$adresse->id() ? "selected" : "" }}>{{ $adresse->nom() }} ({{ $adresse->ville() }})</option>
+                @endforeach
+            </select>
 
-        <label for="adresse-select">Choose an adresse :</label>
-        
-        <select name="adr_id" id="adresse-select">
-            <option value="">--Please choose an option--</option>
-            @foreach ($adresseList as $adresse)
-            <option value="{{ $adresse->id() }}" {{ old("adr_id")==$adresse->id() ? "selected" : "" }}>{{ $adresse->nom() }} ({{ $adresse->ville() }})</option>
-            @endforeach
-        </select>
-        
-        
-        <label for="relai-select">Choose an adresse :</label>
-        <select name="rel_id" id="relai-select">
-            <option value="">--Please choose an option--</option>
-            @foreach ($relayList as $relay)
-            <option value="{{ $relay->id() }}" {{ old("rel_id")== $relay->id() ? "selected" : "" }}>{{ $relay->nom() }} ({{ $relay->ville() }})</option>
-            @endforeach
-        </select>
+            <a href="{{route('newAdresse')}}" class="btn_submit">Ajouter une adresse à votre compte</a>
 
-        <label for="relai-select">Choose an adresse :</label>
-        <select name="mag_id" id="relai-select">
-            <option value="">--Please choose an option--</option>
-            @foreach ($magasinList as $magasin)
+        </p>
+        
+        <p>
+            <label for="relai-select">Choose an adresse :</label>
+            <select name="rel_id" id="relai-select">
+                <option value="">--Please choose an option--</option>
+                @foreach ($relayList as $relay)
+                <option value="{{ $relay->id() }}" {{ old("rel_id")== $relay->id() ? "selected" : "" }}>{{ $relay->nom() }} ({{ $relay->ville() }})</option>
+                @endforeach
+            </select>
+        </p>
+        <p>
+            <label for="relai-select">Choose an adresse :</label>
+            <select name="mag_id" id="relai-select">
+                <option value="">--Please choose an option--</option>
+                @foreach ($magasinList as $magasin)
                 
-            <option value="{{ $magasin->id() }}" {{ old("mag_id")== $magasin->id() ? "selected" : "" }}>{{ $magasin->nom() }} ({{ $magasin->ville() }})</option>
-            @endforeach
-        </select>
-
-        <ul class="error">
+                <option value="{{ $magasin->id() }}" {{ old("mag_id")== $magasin->id() ? "selected" : "" }}>{{ $magasin->nom() }} ({{ $magasin->ville() }})</option>
+                @endforeach
+            </select>
+        </p>
+            
+            <ul class="error">
             @foreach($errors->all() as $error)
             <li>{{ $error }}</li>
             @endforeach

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Adresse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\Client;
-
+use App\Models\Pays;
 use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
@@ -56,5 +57,38 @@ class ClientController extends Controller
         $client->cli_motpasse = Hash::make($request->new_password);
         $client->save();
         return back();
+    }
+
+    public function newAdresse()
+    {
+        return view("client.adresse.newAdresse", ['compte'=>Auth::user(), 'paysList' => Pays::all()]);
+    }
+    
+    public function createAdresse(Request $request)
+    {
+        $validated = $request->validate([
+            'adr_nom' => 'required',
+            'adr_type' => 'required',
+            'adr_rue' => 'required',
+            'adr_cp' => 'required',
+            'adr_ville' => 'required',
+            'pay_id' => 'required',
+        ]);
+        Adresse::create([
+            'cli_id'=> Auth::guard('client')->user()->id(),
+            'adr_nom'=> $request->adr_nom,
+            'adr_type'=> $request->adr_type,
+            'adr_rue'=> $request->adr_rue,
+            'adr_cp'=> $request->adr_cp,
+            'adr_ville'=> $request->adr_ville,
+            'pay_id'=> $request->pay_id,
+            'adr_complementrue'=> $request->adr_complementrue,
+        ]);
+        return redirect()->route('profile');
+    }
+    
+    public function myAdresses()
+    {
+        return view("client.adresse.displayAll", ['adressList'=>Auth::user()->adresseList]);
     }
 }
