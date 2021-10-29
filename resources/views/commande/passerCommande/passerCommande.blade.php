@@ -63,6 +63,9 @@
             <option value="{{ $magasin->id() }}">{{ $magasin->nom() }} ({{ $magasin->ville() }})</option>
             @endforeach
         </select>
+
+
+        <button type="submit">Commander</button>
     </form>
 </div>
 
