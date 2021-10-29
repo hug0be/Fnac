@@ -78,7 +78,7 @@ class Adresse extends Model
 		return $this->hasMany(Commande::class, 'adr_id');
 	}
 
-	public function id_adresse()
+	public function id()
 	{
 		return $this->adr_id;
 	}

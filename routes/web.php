@@ -35,12 +35,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/account', [ClientController::class, 'detailAccount'])->name('detailAccount');
     //Déconnexion
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    
+    //Commande 
+    Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
+    Route::get('/mes-commandes', [ CommandeController::class, 'myCommandes'])->name('myCommandes');
+    Route::get('/mes-commandes-en-cours', [ CommandeController::class, 'myCommandesEnCours'])->name('myCommandesEnCours');
+    Route::get('/passerCommande', [ CommandeController::class, 'passerCommande'])->name('passerCommande');
+    Route::post('/createCommande', [ CommandeController::class, 'createCommande'])->name('createCommande');
 });
 
 Route::get('/rayon{idRayon}', [jeuVideoController::class, 'searchByRayon'])->name('searchByRayon');
 Route::post('/', [jeuVideoController::class, 'rechercheJeu'])->name('rechercheJeu');
 Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole'])->name('searchByConsole');
 Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
+Route::get('/videoGameDetailN/{idGame}', [jeuVideoController::class, 'detailVideoGameAvisNeg'])->name('detailVideoGameAvisNeg');
 
 //panier
 Route::get('/panier',[PanierController::class, 'panier'])->name('panier');
@@ -73,9 +81,6 @@ Route::post('/addToSession', [ SessionController::class, 'addToSession']);
 Route::post('/deleteFromSession', [ SessionController::class, 'deleteFromSession']);
 
 
-//Commande 
-Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
-Route::get('/mes-commandes', [ CommandeController::class, 'myCommandes'])->name('myCommandes');
 
 // Avis
 Route::get('/service-comm/avisAbusifs', [AvisController::class, 'avisAbusifs'])->name('avisAbusifs');
@@ -89,5 +94,3 @@ Route::post('/add_avisAbusif', [AvisController::class, 'add_avisAbusif'])->name(
 //favori
 Route::post('/toggle_favori', [FavoriController::class, 'toggle_favori'])->name('toggle_favori');
 Route::get('/favoritesGames', [FavoriController::class, 'favoritesGames'])->name('favoritesGames');
-
- 

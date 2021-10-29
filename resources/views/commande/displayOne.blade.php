@@ -1,8 +1,8 @@
 <div class="container_one_commande">
 
     <div class="one_commande_title_container">
-        <h2 class="one_commande_title">Commande N° {{ $aCommande->com_id }} </h2>
-        <span class="one_commande_date">{{ $aCommande->com_date->translatedFormat(' j M Y') }}</span>
+        <h2 class="one_commande_title">Commande du {{ $aCommande->com_date->translatedFormat(' j M Y') }}</h2>
+        <span class="one_commande_date"></span>
 
     </div>
 
@@ -32,7 +32,7 @@
 
                 <div class="infoComm_content_delivery">
                     <h5 class="infoComm_content_delivery_title">
-                        Livraison : {{ $aCommande->typeDelivery() }}
+                        Livraison : {{ $aCommande->typeDelivery() }} - {{ $aCommande->displayEtat() }}
                     </h5>
 
                    

@@ -71,7 +71,7 @@
             
 
 
-            @include('jeuVideo.form_Panier')
+            @include('jeuVideo.form_AjoutPanier')
 
         </div>
      

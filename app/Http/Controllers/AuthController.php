@@ -20,7 +20,7 @@ class AuthController extends Controller {
     }
     public function logout() {
         Auth::logout();
-        return redirect()->route("home");
+        return redirect()->back();
     }
     public function register() {
         return view("client.register");
@@ -78,7 +78,7 @@ class AuthController extends Controller {
         $credentials['cli_mel'] = $request->mail;
         if(Auth::guard('client')->attempt($credentials, $request->remember_me)) {
             $request->session()->regenerate();
-            return redirect()->route("home")->withInput(["validation"=>"Vous êtes authentifié !"]);
+            return back()->withInput(["validation"=>"Vous êtes authentifié !"]);
         }
         return back()->withErrors([
             'password'=>'Le mot de passe est incorrect.',

@@ -132,7 +132,7 @@
     
                         </div>
     
-                        @include('jeuVideo.form_Panier')
+                        @include('jeuVideo.form_AjoutPanier')
 
 
                         <div class="detail_game_comparator_container">
@@ -189,7 +189,12 @@
                     </div>
                 </div>
             </div>
-            @include('jeuVideo.avis.displayAll')
+            @if (isset($avisNeg))
+                @include('jeuVideo.avis.displayAllByAvisNeg')
+            @else
+                @include('jeuVideo.avis.displayAll')
+            @endif
+            
         </div>
 
 
