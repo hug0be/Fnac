@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mes-commandes', [ CommandeController::class, 'myCommandes'])->name('myCommandes');
     Route::get('/mes-commandes-en-cours', [ CommandeController::class, 'myCommandesEnCours'])->name('myCommandesEnCours');
     Route::get('/passerCommande', [ CommandeController::class, 'passerCommande'])->name('passerCommande');
+    Route::post('/createCommande', [ CommandeController::class, 'createCommande'])->name('createCommande');
 });
 
 Route::get('/rayon{idRayon}', [jeuVideoController::class, 'searchByRayon'])->name('searchByRayon');

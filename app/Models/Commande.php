@@ -81,7 +81,7 @@ class Commande extends Model
 		return $this->hasMany(LigneCommande::class, 'com_id');
 	}
 	
-	public function id_commentaire()
+	public function id()
 	{
 		return $this->com_id;
 	}
@@ -165,7 +165,7 @@ class Commande extends Model
 	public function totalOrderCentime() {
 
 		$priceTotal = $this->getTotalPrice();
-		$cents = (explode(".",strval($priceTotal))[1]);
+		$cents = (explode(".",strval($priceTotal))[1]) ?? "00";
 
 		return floatval( strlen($cents)==1 ? $cents . "0" : $cents);
 
