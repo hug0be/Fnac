@@ -20,13 +20,13 @@ class CommandeController extends Controller
         $date = date('Y-m-d',strtotime("-1 days"));
        
         
-        $allCmd = Commande::where('com_date', $date)->get();
+        $allCmd = Commande::where('com_date', $date)->orderBy('com_date', 'desc')->get();
        
         return view("serviceClient.commandesVeille", [ 'allCommande'=>$allCmd ]) ;
     }
 
     public function myCommandes() {
-        $myCommandes = Commande::where('cli_id', Auth::user()->id())->get();
+        $myCommandes = Commande::where('cli_id', Auth::user()->id())->orderBy('com_date', 'desc')->orderBy('com_id', 'desc')->get();
         return view("client.mesCommandes", [ 'allCommande'=>$myCommandes, 'textEnCours'=>''  ]) ;
     }
     
