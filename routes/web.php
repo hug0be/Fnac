@@ -41,6 +41,7 @@ Route::get('/rayon{idRayon}', [jeuVideoController::class, 'searchByRayon'])->nam
 Route::post('/', [jeuVideoController::class, 'rechercheJeu'])->name('rechercheJeu');
 Route::get('/console{idConsole}', [jeuVideoController::class, 'searchByConsole'])->name('searchByConsole');
 Route::get('/videoGameDetail/{idGame}', [jeuVideoController::class, 'detailVideoGame'])->name('detailVideoGame');
+Route::get('/videoGameDetailN/{idGame}', [jeuVideoController::class, 'detailVideoGameAvisNeg'])->name('detailVideoGameAvisNeg');
 
 //panier
 Route::get('/panier',[PanierController::class, 'panier'])->name('panier');
@@ -85,5 +86,3 @@ Route::post('/add_avisAbusif', [AvisController::class, 'add_avisAbusif'])->name(
 //favori
 Route::post('/toggle_favori', [FavoriController::class, 'toggle_favori'])->name('toggle_favori');
 Route::get('/favoritesGames', [FavoriController::class, 'favoritesGames'])->name('favoritesGames');
-
- 
