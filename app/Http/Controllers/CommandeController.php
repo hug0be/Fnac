@@ -25,11 +25,20 @@ class CommandeController extends Controller
         return view("serviceClient.commandesVeille", [ 'allCommande'=>$allCmd ]) ;
     }
 
-    public function myCommandes() {        
-       
-        return view("client.mesCommandes", [ ]);
+    public function myCommandes() {
+        $myCommandes = Commande::where('cli_id', Auth::user()->id())->get();
+        return view("client.mesCommandes", [ 'allCommande'=>$myCommandes, 'textEnCours'=>''  ]) ;
     }
-    
+
+    public function myCommandesEnCours() {
+        $myCommandes = Commande::where('cli_id', Auth::user()->id())->get();
+        foreach($myCommandes as $comKey => $comVal){
+            if(!$comVal->isEnCours()){
+                unset($myCommandes[$comKey]);
+            }
+        }
+        return view("client.mesCommandes", [ 'allCommande'=>$myCommandes, 'textEnCours'=>' en cours' ]) ;
+    }
     
     public function passerCommande() {
 
@@ -56,6 +65,7 @@ class CommandeController extends Controller
         $commande->com_date = date('Y-m-d');
         $commande->save();
         $this->panierToCommande(session('panier'), Auth::user()->cli_id);
+        
     }
 
     private function panierToCommande($panier, $cli_id)

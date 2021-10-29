@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $rel_id
  * @property int|null $adr_id
  * @property int|null $mag_id
+ * @property int $eta_num
  * @property Carbon $com_date
  * 
  * @property Client $t_e_client_cli
@@ -38,7 +39,8 @@ class Commande extends Model
 		'cli_id' => 'int',
 		'rel_id' => 'int',
 		'adr_id' => 'int',
-		'mag_id' => 'int'
+		'mag_id' => 'int',
+		'eta_num' => 'int'
 	];
 
 	protected $dates = [
@@ -50,7 +52,8 @@ class Commande extends Model
 		'rel_id',
 		'adr_id',
 		'mag_id',
-		'com_date'
+		'com_date',
+		'eta_num' => 'int'
 	];
 
 	public function client()
@@ -77,7 +80,6 @@ class Commande extends Model
 	{
 		return $this->hasMany(LigneCommande::class, 'com_id');
 	}
-
 	
 	public function id_commentaire()
 	{
@@ -102,6 +104,10 @@ class Commande extends Model
 	public function date()
 	{
 		return $this->com_date;
+	}
+	public function etat()
+	{
+		return $this->eta_num;
 	}
 
 
@@ -159,14 +165,23 @@ class Commande extends Model
 	public function totalOrderCentime() {
 
 		$priceTotal = $this->getTotalPrice();
-
-		// foreach( $this->ligneCommandeList as $aLigneCommande ) {
-		// 	$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
-		// }
 		$cents = (explode(".",strval($priceTotal))[1]);
 
 		return floatval( strlen($cents)==1 ? $cents . "0" : $cents);
 
 	} 
+
+	public function isEnCours(){
+		return $this->etat() == 0 || $this->etat() == 1;
+	}
+
+	public function displayEtat(){
+		if($this->etat() == 0)
+			return "En préparation";
+		if($this->etat() == 1)
+			return "En livraison";
+		if($this->etat() == 2)
+			return "Livré";
+	}
 
 }
