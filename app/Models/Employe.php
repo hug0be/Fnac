@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -16,6 +15,25 @@ class Employe extends Authenticatable
 	public $timestamps = false;
 	protected $primaryKey = 'emp_id';
 
+	protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+	
+	protected $casts = [
+		'emp_mel' => 'string',
+		'emp_motpasse' => 'string',
+		'email_verified_at',
+		'remember_token' => 'string'
+	];
+
+	protected $fillable = [
+		'emp_mel',
+		'emp_motpasse',
+	];
+	public function getAuthPassword() {
+		return $this->cli_motpasse;
+	}
     public function roles()
 	{
 		return $this->belongsToMany(

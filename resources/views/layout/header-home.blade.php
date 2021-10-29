@@ -66,6 +66,11 @@
                 <span class="login_txt log_txt">Se connecter</span> 
                 <span class="login_icon log_icon"> <i class="fas fa-sign-in-alt"></i> </span> 
             </a>
+            {{-- TO DO : Boutton visible juste pour m'admin --}}
+            <a href="{{route("emp.register")}}" class="header_link_login header_link">
+                <span class="login_txt log_txt">Employe : créer un compte</span> 
+                <span class="login_icon log_icon"> <i class="fas fa-sign-in-alt"></i> </span> 
+            </a>
         @endguest
     </div>
 </header>

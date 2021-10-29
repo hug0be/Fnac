@@ -53,6 +53,10 @@ Route::post('/login', [AuthController::class, 'authentificate'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'createAccount'])->name('register');
 
+Route::get('/employe/login', [AuthController::class, 'loginEmp'])->name('emp.login');
+Route::post('/employe/login', [AuthController::class, 'authentificateEmp'])->name('emp.login');
+Route::get('/employe/register', [AuthController::class, 'registerEmp'])->name('emp.register');
+Route::post('/employe/register', [AuthController::class, 'createAccountEmp'])->name('emp.register');
 
 //Upload Photo
 Route::get('/videoGameDetail/imageUpload', [ imageController::class, 'imageUpload' ])->name('image.upload');
