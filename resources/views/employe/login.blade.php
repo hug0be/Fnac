@@ -15,6 +15,7 @@
 
 <div class="container_main_login">
     <div class="container_login_form">
+        <x-input-error name="role"/>
         <x-validation-message/>
         <h2 class="title_login">Se connecter</h2>
         <form method="post" actions="/employe/login" class="form_login">

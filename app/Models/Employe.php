@@ -34,27 +34,26 @@ class Employe extends Authenticatable
 	public function getAuthPassword() {
 		return $this->emp_motpasse;
 	}
-    public function roles()
-	{
+    public function roles() {
 		return $this->belongsToMany(
 			Role::class,
 			't_j_employerole_emr',
 			'emp_id',
 			'rol_id');
 	}
+	public function hasRole($role) {
+		return $this->roles()->where('rol_nom','=',$role)->count();
+	}
 
-    public function id()
-	{
+    public function id() {
 		return $this->emp_id;
 	}
 
-	public function mail()
-	{
+	public function mail() {
 		return $this->emp_mel;
 	}
 
-	public function motDePasse()
-	{
+	public function motDePasse() {
 		return $this->emp_motpasse;
 	}
 }

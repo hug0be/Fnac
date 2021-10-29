@@ -42,12 +42,11 @@ class ClientController extends Controller
         $client->save();
         return back()->withInput(['validation'=>'Votre compte a bien été modifié !']);
     }
-
     public function password() {
         return view("client.password");
     }
     public function changePassword(Request $request) {
-        $validated = $request->validate([
+        $request->validate([
             'cli_id' => ['required', 'exists:t_e_client_cli,cli_id'],
             'current_password' => ['required', 'current_password'],
             'new_password' => ['required', 'min:8','confirmed'],

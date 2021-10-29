@@ -15,19 +15,15 @@ class AuthController extends Controller {
     public function login() {
         return view("client.login");
     }
-    public function loginEmp() {
-        return view("employe.login");
-    }
-    public function logout() {
+    public function logout(Request $request) {
         Auth::logout();
+        Auth::guard('employe')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect()->back();
     }
     public function register() {
         return view("client.register");
-    }
-    public function registerEmp() {
-        $roles = Role::all();
-        return view("employe.register", ['roles' => $roles]);
     }
     public function createAccount(Request $request) {
         $validated = $request->validate([
@@ -52,23 +48,6 @@ class AuthController extends Controller {
         ]);
         return redirect()->route('login')->withInput(['validation'=>'Votre compte à été créé. Veuillez vous identifier']);
     }
-    public function createAccountEmp(Request $request) {
-        //dd($request->request);
-        $request->validate([
-            'role'=>['required'],
-            'mail' => ['required','email','max:80','unique:t_e_employe_emp,emp_mel'],
-            'mdp' => ['required', 'min:8','confirmed'],
-        ]);
-        $employe = Employe::create([
-            'emp_mel'=> $request->mail,
-            'emp_motpasse' => Hash::make($request->mdp),
-        ]);
-        EmployeRole::create([
-            'emp_id' => $employe->id(),
-            'rol_id' => $request->role
-        ]);
-        return redirect()->route('emp.login')->withInput(['validation'=>'Votre compte à été créé. Veuillez vous identifier']);
-    }
     public function authentificate(Request $request) {
         $credentials = $request->validate([
             'mail'=>['required','email','max:80','exists:t_e_client_cli,cli_mel'],
@@ -77,6 +56,7 @@ class AuthController extends Controller {
         unset($credentials['mail']);
         $credentials['cli_mel'] = $request->mail;
         if(Auth::guard('client')->attempt($credentials, $request->remember_me)) {
+            Auth::guard('employe')->logout();
             $request->session()->regenerate();
             return back()->withInput(["validation"=>"Vous êtes authentifié !"]);
         }
@@ -84,21 +64,4 @@ class AuthController extends Controller {
             'password'=>'Le mot de passe est incorrect.',
         ])->withInput(['mail' => $request->mail]);
     }
-    public function authentificateEmp(Request $request) {
-        $credentials = $request->validate([
-            'mail'=>['required','email','max:80','exists:t_e_employe_emp,emp_mel'],
-            'password'=>['required']
-        ]);
-        unset($credentials['mail']);
-        $credentials['emp_mel'] = $request->mail;
-        //dd(Auth::guard('employee'));
-        if(Auth::guard('employee')->attempt($credentials, $request->remember_me)) {
-            $request->session()->regenerate();
-            return redirect()->route("home")->withInput(["validation"=>"Vous êtes authentifié !"]);
-        }
-        return back()->withErrors([
-            'password'=>'Le mot de passe est incorrect.',
-        ])->withInput(['mail' => $request->mail]);
-    }
-
 }

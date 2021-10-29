@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="container_all_game_line margin_top_content" >
-
+    
     @include('layout.menu')
     <div class="container_all_game_line_content">
         <x-validation-message/>
