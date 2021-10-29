@@ -72,6 +72,7 @@ Route::post('/deleteFromSession', [ SessionController::class, 'deleteFromSession
 //Commande 
 Route::get('/service-cli/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
 Route::get('/mes-commandes', [ CommandeController::class, 'myCommandes'])->name('myCommandes');
+Route::get('/mes-commandes-en-cours', [ CommandeController::class, 'myCommandesEnCours'])->name('myCommandesEnCours');
 
 // Avis
 Route::get('/service-comm/avisAbusifs', [AvisController::class, 'avisAbusifs'])->name('avisAbusifs');

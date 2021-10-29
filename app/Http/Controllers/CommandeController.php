@@ -25,7 +25,17 @@ class CommandeController extends Controller
     public function myCommandes() {        
         $myCommandes = Commande::where('cli_id', Auth::user()->id())->get();
        
-        return view("client.mesCommandes", [ 'allCommande'=>$myCommandes ]) ;
+        return view("client.mesCommandes", [ 'allCommande'=>$myCommandes, 'textEnCours'=>''  ]) ;
+    }
+
+    public function myCommandesEnCours() {        
+        $myCommandes = Commande::where('cli_id', Auth::user()->id())->get();
+        foreach($myCommandes as $comKey => $comVal){
+            if(!$comVal->isEnCours()){
+                unset($myCommandes[$comKey]);
+            }
+        }
+        return view("client.mesCommandes", [ 'allCommande'=>$myCommandes, 'textEnCours'=>' en cours' ]) ;
     }
 
 }
