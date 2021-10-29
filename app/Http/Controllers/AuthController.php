@@ -91,7 +91,7 @@ class AuthController extends Controller {
         ]);
         unset($credentials['mail']);
         $credentials['emp_mel'] = $request->mail;
-        dd(Auth::guard('employee'));
+        //dd(Auth::guard('employee'));
         if(Auth::guard('employee')->attempt($credentials, $request->remember_me)) {
             $request->session()->regenerate();
             return redirect()->route("home")->withInput(["validation"=>"Vous êtes authentifié !"]);
