@@ -67,6 +67,10 @@ class JeuVideo extends Model
 	{
 		return $this->hasMany(Avis::class, 'jeu_id')->orderBy('avi_date', 'desc');
 	}
+	public function avisListNeg()
+	{
+		return $this->hasMany(Avis::class, 'jeu_id')->orderBy('avi_note', 'asc');
+	}
 
 	public function motcleList()
 	{
@@ -228,4 +232,6 @@ class JeuVideo extends Model
 		return $jeuxTrouves;
 
 	}
+
+
 }
