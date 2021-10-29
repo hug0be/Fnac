@@ -32,7 +32,7 @@
 
                 <div class="infoComm_content_delivery">
                     <h5 class="infoComm_content_delivery_title">
-                        Livraison : {{ $aCommande->typeDelivery() }}
+                        Livraison : {{ $aCommande->typeDelivery() }} - {{ $aCommande->displayEtat() }}
                     </h5>
 
                    

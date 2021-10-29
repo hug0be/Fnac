@@ -99,6 +99,36 @@ class jeuVideoController extends Controller
         ]);
     }
 
+    /**
+     * Display the detail of a video game selected
+     *
+     *
+     * @return \Illuminate\View\View
+     */
+    public function detailVideoGameAvisNeg($idGame)
+    {
+        try {
+            $videoGameSelected = JeuVideo::findOrFail($idGame);
+        }
+        catch (Throwable $e) {
+            abort(404, "$e");
+        }
+        
+        $client = Auth::user();
+        $boughtThisGame = false;
+        if($client)
+        {
+            $boughtThisGame = $client->boughtThisGame($idGame);
+        }
+
+        return view ("jeuVideo.displayDetail", [
+            'videoGame'=> $videoGameSelected,
+            'client' => Auth::user(),
+            'boughtThisGame' => $boughtThisGame,
+            'avisNeg'=>true
+        ]);
+    }
+    
 
     /**
      * Method to display the result of a research
@@ -157,4 +187,5 @@ class jeuVideoController extends Controller
         $statsList = array("Description","PrixTTC", "Disponibilité", "Age légal", "Date de parution", "Note moyenne", "Nombre de ventes", "Nombre de favoris", "Editeur");
         return view("jeuVideo.comparateur", ['games'=>$statsJeux, 'stats'=>$statsList]);
     }
+
 }
