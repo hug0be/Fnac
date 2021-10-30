@@ -165,6 +165,10 @@ body {
     color: #dd1e35;
 }
 
+.Livré {
+    color: rgb(0, 255, 0);
+}
+
 
 
 .infoComm_content_customer_content, .infoComm_content_delivery_content {
