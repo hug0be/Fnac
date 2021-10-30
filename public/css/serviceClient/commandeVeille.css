@@ -161,6 +161,10 @@ body {
     margin-bottom: 12px;
 }
 
+.etat_livraison {
+    color: #dd1e35;
+}
+
 
 
 .infoComm_content_customer_content, .infoComm_content_delivery_content {
