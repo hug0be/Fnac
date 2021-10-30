@@ -67,7 +67,7 @@
                     <div class="order_input_box_select order_input_box_select_home" id="adr">
                         <label for="adresse-select">Adresse :</label>
                     
-                        <select name="adresse" id="adresse-select">
+                        <select name="adr_id" id="adresse-select">
                             <option value="">-- Adresse --</option>
                             @foreach ($adresseList as $adresse)
                             <option value="{{ $adresse->id() }}" {{ old("adr_id")==$adresse->id() ? "selected" : "" }}>{{ $adresse->nom() }} ({{ $adresse->ville() }})</option>
@@ -78,7 +78,7 @@
     
                     <div class="order_input_box_select order_input_box_select_relay" id="rel">
                         <label for="relai-select">Relais :</label>
-                        <select name="relai" id="relai-select">
+                        <select name="rel_id" id="relai-select">
                             <option value="">-- Relais --</option>
                             @foreach ($relayList as $relay)   
                             <option value="{{ $relay->id() }}" {{ old("rel_id")== $relay->id() ? "selected" : "" }}>{{ $relay->nom() }} ({{ $relay->ville() }})</option>
@@ -89,7 +89,7 @@
                     
                     <div class="order_input_box_select order_input_box_select_shop" id="mag">
                         <label for="relai-select">Magasin :</label>
-                        <select name="magasin" id="relai-select">
+                        <select name="mag_id" id="relai-select">
                             <option value="">-- Magasin --</option>
                             @foreach ($magasinList as $magasin)                               
                             <option value="{{ $magasin->id() }}" {{ old("mag_id")== $magasin->id() ? "selected" : "" }}>{{ $magasin->nom() }} ({{ $magasin->ville() }})</option>

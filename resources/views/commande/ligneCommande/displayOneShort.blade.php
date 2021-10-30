@@ -1,8 +1,11 @@
 <div class="contentComm_line_container">
-
-    <img src="{{asset("Photos/".$aLigneCommande->jeuvideo->photoList()->first()->url())}}" alt="" class="contentComm_line_img">
-     
-     <p class="contentComm_line_name" >{{ $aLigneCommande->jeuvideo->jeu_nom }}</p>
+    <a href="{{route("detailVideoGame", ['idGame' => $aLigneCommande->jeuvideo->id()])}}">
+        <img src="{{asset("Photos/".$aLigneCommande->jeuvideo->photoList()->first()->url())}}" alt="" class="contentComm_line_img">
+    </a>    
+    <a href="{{route("detailVideoGame", ['idGame' => $aLigneCommande->jeuvideo->id()])}}">
+        
+        <p class="contentComm_line_name" >{{ $aLigneCommande->jeuvideo->jeu_nom }}</p>
+    </a>
 
      <div class="contentComm_line_price">
          <div class="contentComm_line_price_first_value">

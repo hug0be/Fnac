@@ -76,7 +76,7 @@
             </div>
 
             <div class="contentComm_total">
-                <p>{{ $aCommande->totalOrderEuro() }}€{{ $aCommande->totalOrderCentime() }} </p>
+                 <p>Total : {{ $aCommande->totalOrderEuro() }}€{{ $aCommande->totalOrderCentime() }} </p>
             </div>
 
         </div>
