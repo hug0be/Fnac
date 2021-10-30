@@ -150,7 +150,7 @@ class Commande extends Model
 		$priceTotal = 0.00;
 
 		foreach( $this->ligneCommandeList as $aLigneCommande ) {
-			$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc ;
+			$priceTotal += $aLigneCommande->jeuvideo->jeu_prixttc * $aLigneCommande->quantite();
 		}
 
 		return $priceTotal;

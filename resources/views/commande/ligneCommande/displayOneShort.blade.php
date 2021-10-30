@@ -15,7 +15,7 @@
 
          <div class="contentComm_line_price_second_value">
              €{{ $aLigneCommande->jeuvideo->prixTTCcentime() }}
-             
          </div>
+         <div class="contentComm_line_price_first_value">  X {{$aLigneCommande->quantite()}}</div>
      </div>                        
  </div>
