@@ -32,7 +32,7 @@
 
                 <div class="infoComm_content_delivery">
                     <h5 class="infoComm_content_delivery_title">
-                        Livraison : {{ $aCommande->typeDelivery() }} - {{ $aCommande->displayEtat() }}
+                        Livraison : {{ $aCommande->typeDelivery() }} - <span class="etat_livraison {{ $aCommande->displayEtat() }}">{{ $aCommande->displayEtat() }}</span>
                     </h5>
 
                    
@@ -76,7 +76,7 @@
             </div>
 
             <div class="contentComm_total">
-                <p>{{ $aCommande->totalOrderEuro() }}€{{ $aCommande->totalOrderCentime() }} </p>
+                 <p>Total : {{ $aCommande->totalOrderEuro() }}€{{ $aCommande->totalOrderCentime() }} </p>
             </div>
 
         </div>

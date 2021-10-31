@@ -27,7 +27,7 @@ class Pays extends Model
 	protected $primaryKey = 'pay_id';
 
 	protected $casts = [
-		'pay_nom' => 'character varying'
+		'pay_nom' => 'string'
 	];
 
 	protected $fillable = [
@@ -44,7 +44,7 @@ class Pays extends Model
 		return $this->hasMany(Adresse::class, 'pay_id');
 	}
 	
-	public function id_pays()
+	public function id()
 	{
 		return $this->pay_id;
 	}

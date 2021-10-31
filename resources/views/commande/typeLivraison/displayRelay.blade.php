@@ -1,5 +1,5 @@
 <div class="infoComm_content_box">
-    <p class="infoComm_content_txt"> <span class="infoComm_content_txt_type">Nom :</span>  {{ $aCommande->relais->rel_nom }} </p>
+    <p class="infoComm_content_txt"> <span class="infoComm_content_txt_type">Nom du relai :</span>  {{ $aCommande->relais->rel_nom }} </p>
 </div>
 
 <div class="infoComm_content_box">

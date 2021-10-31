@@ -19,12 +19,12 @@
 
             <x-input-error name="email"/>
             <div class="input_box">
-                <label for="email" class="label_field label_real_field">Email *</label>
+                <label for="email" class="label_field label_real_field">Email</label>
                 <input type="text" name="email" value="{{$compte->mail()}}" class="input_field input_real_field"/>
             </div>
 
             <div class="input_box">
-                <label for="email" class="label_field label_real_field">Vos rôles</label>
+                <label for="email" class="label_field label_real_field">Rôles</label>
                 @foreach($compte->roles as $role)
                 <div class="etiquette">{{ $role->nom() }}</div>
                 @endforeach

@@ -50,12 +50,18 @@
                         <a href="{{route("profile");}}" class="settings_dropdown_item">
                             <i class="fas fa-user"></i><span class="settings_text">Mon profil</span>
                         </a>
-                        <a href="{{ route("panier") }}" class="settings_dropdown_item">
-                            <i class="fas fa-shopping-bag"></i><span class="settings_text">Mon panier</span>
-                        </a>
-                        <a href="{{ route('myCommandes') }}" class="settings_dropdown_item">
-                            <span class="settings_text">Mes commandes</span>
-                        </a>
+                        @if(Auth::guard('employe')->check())
+                            <a href="{{ route("admin") }}" class="settings_dropdown_item">
+                                <i class="fas fa-users-cog"></i></i><span class="settings_text">Administration</span>
+                            </a>
+                        @else
+                            <a href="{{ route("panier") }}" class="settings_dropdown_item">
+                                <i class="fas fa-shopping-bag"></i><span class="settings_text">Mon panier</span>
+                            </a>
+                            <a href="{{ route('myCommandes') }}" class="settings_dropdown_item">
+                                <span class="settings_text">Mes commandes</span>
+                            </a>
+                        @endif
                         <a href="{{route("logout");}}" class="settings_dropdown_item">
                             <i class="fas fa-sign-out-alt"></i><span class="settings_text">Se déconnecter</span>
                         </a>

@@ -1,0 +1,296 @@
+
+body {
+    background-color: #f2f2f2;
+}
+
+.error_form_order {
+    margin-top: 50px;
+}
+
+
+/* ---------------------------------------------------------  CONTAINER ORDER ---------------------------------------------------------*/
+
+.container_order {
+    /* background-color: red; */
+}
+
+.order_title {
+    font-size: 35px;
+    font-weight: 700;
+
+    padding: 10px 20px;
+
+    color: #232323;
+
+    margin-top: 80px;
+}
+
+
+
+
+
+    /* ---------------------------------------------------------  CONTAINER ORDER CONTENT ---------------------------------------------------------*/
+
+.container_order_content {
+    width: 95%;
+
+
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    padding: 20px 40px;
+    padding-bottom: 74px;
+
+    background-color: #ffffff;
+
+    -webkit-box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1); 
+    box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+        /* ---------------------------------------------------------  CONTAINER ORDER FORM ---------------------------------------------------------*/
+
+.container_form_order {
+    
+    width: 40%;
+
+    margin: 15px auto;
+
+    max-width: 700px;
+
+    /* background-color: bisque; */
+}
+
+.order_form_title {
+    font-size: 28px;
+}
+
+
+
+            /* ---------------------------------------------------------  CONTAINER ALL RADIO ---------------------------------------------------------*/
+
+
+.order_container_all_radio {
+    width: 100%;
+
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+
+    /* background-color: brown; */
+}
+
+.order_input_box_radio {
+    width: 25%;
+    height: 100px;
+
+    /* background-color: chartreuse; */
+}
+
+.order_input_box_radio label {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+
+    cursor: pointer;
+
+    border: 1px solid #bdc3c7;
+
+
+}
+
+
+
+.order_type_icon {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.order_input_box_radio input {
+    display: none;
+}
+
+.order_input_box_radio input:checked + label::before {
+    content: '';
+
+    width: 100%;
+    height: 3px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background-color: #000000;
+}
+
+
+
+
+
+            /* ---------------------------------------------------------  FIN CONTAINER ALL RADIO ---------------------------------------------------------*/
+
+
+
+
+
+
+            /* --------------------------------------------------------- CONTAINER ALL SELECT ---------------------------------------------------------*/
+.order_container_all_select {
+    width: 80%;
+
+    margin: 75px auto 0;
+    
+
+    /* background-color: palegreen; */
+}
+
+.order_input_box_select {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order_input_box_select label{
+    font-size: 18px;
+    font-weight: bold;
+
+
+
+    width: 30%;
+    /* background-color: red; */
+}
+
+.order_input_box_select select{
+    margin-left: 25px;
+
+    border: 1px solid #bdc3c7;
+    outline: none;
+
+    padding: 15px;
+
+    width: 70%;
+}
+
+
+            /* --------------------------------------------------------- FIN CONTAINER ALL SELECT ---------------------------------------------------------*/
+
+
+.container_btn_order {
+    width: 100%;
+
+    margin: 50px auto 0;
+
+    display: flex;
+    justify-content: center;
+
+    /* background-color: red; */
+}
+
+
+
+
+.btn_submit_order {
+    width: 30%;
+
+
+
+    padding: 10px 0;
+
+    border: none;
+    outline: none;
+
+    
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+
+    cursor: pointer;
+
+    background-color: #f5b027;
+
+}
+
+.btn_submit_order:hover {
+    background-color: #f8c153;
+}
+
+
+
+        /* ---------------------------------------------------------  FIN CONTAINER ORDER FORM ---------------------------------------------------------*/
+
+
+    /* ---------------------------------------------------------  FIN CONTAINER ORDER CONTENT ---------------------------------------------------------*/
+
+
+
+/* ---------------------------------------------------------  FIN CONTAINER ORDER ---------------------------------------------------------*/
+
+
+
+
+@media screen and (max-width: 965px) {
+    .container_form_order {
+        width: 80%;
+    }
+}
+
+
+@media screen and (max-width: 565px) {
+    .container_form_order {
+        width: 100%;
+    }
+
+    .order_container_all_radio {
+        flex-direction: column;
+    }
+
+    .order_input_box_radio {
+        width: 100%;
+        height: 75px;
+
+        margin-bottom: 8px;
+    }
+
+    .order_container_all_select {
+        width: 100%;
+    }
+    
+    .order_input_box_select {
+        flex-direction: column;
+
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    
+    .order_input_box_select label{
+        width: 100%;
+    }
+
+    .order_input_box_select select{
+        margin: 0;
+        margin-top: 10px;
+
+        width: 100%;
+    }
+
+
+
+    .btn_submit_order {
+        width: 50%;
+    }
+}

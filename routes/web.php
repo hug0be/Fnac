@@ -26,10 +26,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [jeuVideoController::class, 'home'])->name('home');
 
-//Il faut être authentifié pour accéder à ces routes
+//Il faut être authentifié en client pour accéder à ces routes
 Route::middleware('auth')->group(function () {
     //Compte client
     Route::get('/profile', [ClientController::class, 'profile'])->name('profile');
+    Route::get('/profile/adresses', [ClientController::class, 'myAdresses'])->name('myAdresses');
     Route::post('/profile', [ClientController::class, 'editAccount'])->name('profile');
     Route::get('/password', [ClientController::class, 'password'])->name('password');
     Route::post('/password', [ClientController::class, 'changePassword'])->name('password');
@@ -37,6 +38,13 @@ Route::middleware('auth')->group(function () {
 
     //Déconnexion
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    
+    //Adresses
+    Route::get('/ajouter-adresse', [ClientController::class, 'newAdresse'])->name('newAdresse');
+    Route::post('/createAdresse', [ClientController::class, 'createAdresse'])->name('createAdresse');
+    //favori
+    Route::post('/toggle_favori', [FavoriController::class, 'toggle_favori'])->name('toggle_favori');
+    Route::get('/favoritesGames', [FavoriController::class, 'favoritesGames'])->name('favoritesGames');
     
     //Commande 
     Route::get('/mes-commandes', [CommandeController::class, 'myCommandes'])->name('myCommandes');
@@ -47,10 +55,10 @@ Route::middleware('auth')->group(function () {
 
 //Il faut être authentifié en employé pour accéder à ces routes
 Route::middleware('employe')->group(function () {
-    Route::get('/profile', [EmployeController::class, 'profile'])->name('profile');
+    Route::get('/profile', [EmployeController::class, 'view_profile'])->name('profile');
     Route::post('/profile', [EmployeController::class, 'edit'])->name('edit');
-    Route::get('/password', [EmployeController::class, 'password'])->name('password');
-    Route::post('/password', [EmployeController::class, 'changePassword'])->name('password');
+    Route::get('/password', [EmployeController::class, 'view_password'])->name('password');
+    Route::post('/password', [EmployeController::class, 'change_password'])->name('password');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     
     Route::middleware(['role:service comm'])->group(function () {
@@ -61,8 +69,9 @@ Route::middleware('employe')->group(function () {
         Route::get('/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
     });
     Route::middleware(['role:admin'])->group(function () {
-        Route::get('/employe/register', [EmployeController::class, 'register'])->name('emp.register');
-        Route::post('/employe/register', [EmployeController::class, 'create'])->name('emp.register');
+        Route::get('/employe/administration', [EmployeController::class, 'view_manage'])->name('admin');
+        Route::post('/employe/administration/edit', [EmployeController::class, 'edit_admin'])->name('admin.edit');
+        Route::post('/employe/administration/add', [EmployeController::class, 'create'])->name('admin.add');
     });
 });
 
@@ -80,8 +89,8 @@ Route::post('/login', [AuthController::class, 'authentificate'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'createAccount'])->name('register');
 
-Route::get('/employe/login', [EmployeController::class, 'login'])->name('emp.login');
-Route::post('/employe/login', [EmployeController::class, 'authentificate'])->name('emp.login');
+Route::get('/employe/login', [EmployeController::class, 'view_login'])->name('emp.login');
+Route::post('/employe/login', [EmployeController::class, 'login'])->name('emp.login');
 
 //Panier
 Route::get('/panier',[PanierController::class, 'panier'])->name('panier');
@@ -109,7 +118,3 @@ Route::post('/avis/add', [AvisController::class, 'addAvis'])->name('add_avis');
 Route::post('/add_avisUtile', [AvisController::class, 'add_avisUtile'])->name('add_avisUtile');
 Route::post('/add_avisInutile', [AvisController::class, 'add_avisInutile'])->name('add_avisInutile');
 Route::post('/add_avisAbusif', [AvisController::class, 'add_avisAbusif'])->name('add_avisAbusif');
-
-//Favoris
-Route::post('/toggle_favori', [FavoriController::class, 'toggle_favori'])->name('toggle_favori');
-Route::get('/favoritesGames', [FavoriController::class, 'favoritesGames'])->name('favoritesGames');

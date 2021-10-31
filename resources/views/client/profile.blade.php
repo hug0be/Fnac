@@ -74,7 +74,8 @@
             </div>
             
             <input type="hidden" name="cli_id" value="{{$compte->id()}}">
-
+            @include('client.adresse.displayAll', ['adressList'=>$compte->adresseList])
+            <a href="{{route('newAdresse')}}" class="btn_submit">Ajouter une Adresse</a>
             <input type="submit" value="Modifier mon compte" class="btn_submit"/>
         </form>
         <a href="{{route("password")}}">

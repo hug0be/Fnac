@@ -42,7 +42,12 @@ class CommandeController extends Controller
     }
     
     public function passerCommande() {
-
+        if(empty(session('panier')))
+        {
+            return back()->withErrors([
+                'error'=>'Le panier est vide, impossible de passer une commande',
+            ]);
+        }
         $adresseList = Auth::user()->adresseList->where('adr_type', 'Livraison');
         $relayList = Relais::all();
 

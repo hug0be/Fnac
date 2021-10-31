@@ -115,7 +115,7 @@
                 </div>
             </div>  
             
-            <!-- EMPTY COMPARATOR BUTTON -->
+            <!-- 'EMPTY COMPARATOR' BUTTON -->
             <div class="button" onclick="deleteFromSession()">
                 <input type="hidden" name="key" value="comparateur" id="session_key">
                 <i class="fas fa-trash"></i>Vider le comparateur

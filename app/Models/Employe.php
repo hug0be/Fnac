@@ -8,8 +8,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Employe extends Authenticatable
-{
+class Employe extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
 	protected $table = 't_e_employe_emp';
 	public $timestamps = false;
@@ -40,6 +39,24 @@ class Employe extends Authenticatable
 			't_j_employerole_emr',
 			'emp_id',
 			'rol_id');
+	}
+	
+	public function update_roles($new_roles) {
+		foreach(Role::all() as $role) {
+            //Deleting roles
+            if($this->hasRole($role->nom()) && !in_array($role->id(),$new_roles)) {
+                EmployeRole::where('rol_id', $role->id())
+                ->where('emp_id',$this->id())
+                ->delete();
+            }
+            //Adding roles
+            elseif(!$this->hasRole($role->nom()) && in_array($role->id(),$new_roles)) {
+                EmployeRole::create([
+                    'emp_id' => $this->id(),
+                    'rol_id' => $role->id(),
+                ]);
+            }
+        }
 	}
 	public function hasRole($role) {
 		return $this->roles()->where('rol_nom','=',$role)->count();
