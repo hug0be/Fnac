@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Hash;
 class ClientController extends Controller
 {
 
-    public function detailAccount() {
-        return view("client.detailAccount", [ 'detailsAccount'=> Auth::user() ]);
-    }
+    // public function detailAccount() {
+    //     return view("client.detailAccount", [ 'detailsAccount'=> Auth::user() ]);
+    // }
 
     public function profile() {
         return view("client.profile", ['compte'=>Auth::user()]);
     }
 
     public function editAccount(Request $request) {
-        $validated = $request->validate([
+        $request->validate([
             'cli_id' => ['required', 'exists:t_e_client_cli,cli_id'],
             'civilité' =>  ['required', Rule::in(['M','Mme','Mlle'])],
             'email' => ['required','email','max:80',Rule::unique('t_e_client_cli','cli_mel')->ignore($request->cli_id, 'cli_id')],

@@ -2,13 +2,12 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\jeuVideoController;
 use App\Models\Console;
-use App\Models\JeuVideo;
 use App\Models\Rayon;
 use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -33,5 +32,21 @@ class AppServiceProvider extends ServiceProvider
         View::share('rayons', Rayon::all());
         View::share('consoles', Console::all());
         View::share('client', Auth::user() ? Auth::user() : null);
+
+        Blade::if('admin', function () {
+            return Auth::guard('employe')->check() && Auth::guard('employe')->user()->hasRole('admin');
+        });
+        Blade::if('employee', function () {
+            return Auth::guard('employe')->check();
+        });
+        Blade::if('role', function ($roles) {
+            if (!Auth::guard('employe')->check()) return false;
+            $emp = Auth::guard('employe')->user();
+            foreach($roles as $role) {
+                if($emp->hasRole($role)) return True;
+            }
+            return false;
+        });
+        
     }
 }

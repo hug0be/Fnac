@@ -25,8 +25,7 @@ class PanierController extends Controller
             $panier[$request->idJeu] = 1;
         }
         session()->put("panier", $panier);
-        
-        //dd(session("panier"));
+
         return redirect()->route('panier');
 
         

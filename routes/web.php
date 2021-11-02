@@ -27,22 +27,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [jeuVideoController::class, 'home'])->name('home');
 
 //Il faut être authentifié en client pour accéder à ces routes
-Route::middleware('auth')->group(function () {
+Route::middleware('client')->group(function () {
     //Compte client
     Route::get('/profile', [ClientController::class, 'profile'])->name('profile');
-    Route::get('/profile/adresses', [ClientController::class, 'myAdresses'])->name('myAdresses');
     Route::post('/profile', [ClientController::class, 'editAccount'])->name('profile');
+    Route::get('/profile/adresses', [ClientController::class, 'myAdresses'])->name('myAdresses');
     Route::get('/password', [ClientController::class, 'password'])->name('password');
     Route::post('/password', [ClientController::class, 'changePassword'])->name('password');
-    Route::get('/account', [ClientController::class, 'detailAccount'])->name('detailAccount');
-
-    //Déconnexion
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    // Route::get('/account', [ClientController::class, 'detailAccount'])->name('detailAccount');
     
     //Adresses
     Route::get('/ajouter-adresse', [ClientController::class, 'newAdresse'])->name('newAdresse');
     Route::post('/createAdresse', [ClientController::class, 'createAdresse'])->name('createAdresse');
-    //favori
+
+    //Favoris
     Route::post('/toggle_favori', [FavoriController::class, 'toggle_favori'])->name('toggle_favori');
     Route::get('/favoritesGames', [FavoriController::class, 'favoritesGames'])->name('favoritesGames');
     
@@ -59,15 +57,24 @@ Route::middleware('employe')->group(function () {
     Route::post('/profile', [EmployeController::class, 'edit'])->name('edit');
     Route::get('/password', [EmployeController::class, 'view_password'])->name('password');
     Route::post('/password', [EmployeController::class, 'change_password'])->name('password');
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     
     Route::middleware(['role:service comm'])->group(function () {
         Route::get('/avisAbusifs', [AvisController::class, 'avisAbusifs'])->name('avisAbusifs');
         Route::post('/delete_avis', [AvisController::class, 'delete_avis'])->name('delete_avis');
     });
+
+    Route::middleware(['role:service vente'])->group(function () {
+        Route::get('/videoGameDetail/imageUpload', [ imageController::class, 'imageUpload' ])->name('image.upload');
+        Route::post('image-upload', [ imageController::class, 'imageUploadPost' ])->name('image.upload.post');
+
+        Route::get('/videoGameDetail/videoUpload', [ videoController::class, 'videoUpload' ])->name('video.upload');
+        Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name('video.upload.post');
+    });
+
     Route::middleware(['role:service client'])->group(function () {
         Route::get('/commandeVeille', [ CommandeController::class, 'commandeVeille'])->name('commandeVeille');
     });
+
     Route::middleware(['role:admin'])->group(function () {
         Route::get('/employe/administration', [EmployeController::class, 'view_manage'])->name('admin');
         Route::post('/employe/administration/edit', [EmployeController::class, 'edit_admin'])->name('admin.edit');
@@ -92,18 +99,13 @@ Route::post('/register', [AuthController::class, 'createAccount'])->name('regist
 Route::get('/employe/login', [EmployeController::class, 'view_login'])->name('emp.login');
 Route::post('/employe/login', [EmployeController::class, 'login'])->name('emp.login');
 
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 //Panier
 Route::get('/panier',[PanierController::class, 'panier'])->name('panier');
 Route::post('/addPanier',[PanierController::class, 'addPanier'])->name('addPanier');
 Route::post('/decrement_qte_panier',[PanierController::class, 'decrement_qte_panier'])->name('decrement_qte_panier');
-
-//Upload Photo
-Route::get('/videoGameDetail/imageUpload', [ imageController::class, 'imageUpload' ])->name('image.upload');
-Route::post('image-upload', [ imageController::class, 'imageUploadPost' ])->name('image.upload.post');
-
-//Upload video
-Route::get('/videoGameDetail/videoUpload', [ videoController::class, 'videoUpload' ])->name('video.upload');
-Route::post('video-upload', [ videoController::class, 'videoUploadPost' ])->name('video.upload.post');
 
 //Comparateur
 Route::get('/comparateur', [ jeuVideoController::class, 'comparateur'])->name('comparateur');

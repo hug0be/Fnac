@@ -85,10 +85,11 @@
                             @endforeach 
 
 
-                                                
+                            @role(['service vente'])
                             @include('jeuVideo/form_Photos')
                             @include('jeuVideo/form_Video')
-      
+                            @endrole   
+                            
     
                         </div>
     

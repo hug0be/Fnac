@@ -23,7 +23,7 @@
 
   
 
-            <h1 class="avis_abusif_title_serv_comm">Service COMM</h1>
+            <h1 class="avis_abusif_title_serv_comm">Service communication</h1>
 
             <div class="container_all_avis_abusif_content">
                 

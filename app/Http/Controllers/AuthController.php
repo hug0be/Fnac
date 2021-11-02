@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
-use App\Models\Employe;
-use App\Models\EmployeRole;
-use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,11 +13,11 @@ class AuthController extends Controller {
         return view("client.login");
     }
     public function logout(Request $request) {
-        Auth::logout();
-        Auth::guard('employe')->logout();
+        if(Auth::guard('client')->check()) Auth::guard('client')->logout();
+        if(Auth::guard('employe')->check()) Auth::guard('employe')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->back();
+        return redirect()->route('home');
     }
     public function register() {
         return view("client.register");
@@ -56,9 +53,9 @@ class AuthController extends Controller {
         unset($credentials['mail']);
         $credentials['cli_mel'] = $request->mail;
         if(Auth::guard('client')->attempt($credentials, $request->remember_me)) {
-            Auth::guard('employe')->logout();
+            if(Auth::guard('employe')->check()) Auth::guard('employe')->logout();
             $request->session()->regenerate();
-            return back()->withInput(["validation"=>"Vous êtes authentifié !"]);
+            return redirect()->route('home')->withInput(["validation"=>"Vous êtes authentifié !"]);
         }
         return back()->withErrors([
             'password'=>'Le mot de passe est incorrect.',

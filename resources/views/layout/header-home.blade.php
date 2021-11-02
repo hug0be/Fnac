@@ -50,18 +50,29 @@
                         <a href="{{route("profile");}}" class="settings_dropdown_item">
                             <i class="fas fa-user"></i><span class="settings_text">Mon profil</span>
                         </a>
-                        @if(Auth::guard('employe')->check())
+                        @admin
                             <a href="{{ route("admin") }}" class="settings_dropdown_item">
                                 <i class="fas fa-users-cog"></i></i><span class="settings_text">Administration</span>
                             </a>
-                        @else
+                        @endadmin
+                        @role(['service comm'])
+                            <a href="{{ route("avisAbusifs") }}" class="settings_dropdown_item">
+                                <i class="fas fa-exclamation-triangle"></i><span class="settings_text">Avis signalés</span>
+                            </a>
+                        @endrole
+                        @role(['service client'])
+                            <a href="{{ route("commandeVeille") }}" class="settings_dropdown_item">
+                                <i class="fas fa-business-time"></i><span class="settings_text">Commande de la veille</span>
+                            </a>
+                        @endrole
+                        @auth
                             <a href="{{ route("panier") }}" class="settings_dropdown_item">
                                 <i class="fas fa-shopping-bag"></i><span class="settings_text">Mon panier</span>
                             </a>
                             <a href="{{ route('myCommandes') }}" class="settings_dropdown_item">
                                 <span class="settings_text">Mes commandes</span>
                             </a>
-                        @endif
+                        @endauth
                         <a href="{{route("logout");}}" class="settings_dropdown_item">
                             <i class="fas fa-sign-out-alt"></i><span class="settings_text">Se déconnecter</span>
                         </a>
