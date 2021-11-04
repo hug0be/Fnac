@@ -62,7 +62,7 @@
 
         </form> --}}
 
-        <a href="{{route("profile")}}" class="btn_edit_account">
+        <a href="{{route("cli.profile")}}" class="btn_edit_account">
             Modifier
         </a>
 

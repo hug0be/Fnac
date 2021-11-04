@@ -31,8 +31,6 @@
                 <label for="new_password_confirmation" class="label_field" >Confirmer le mot de passe</label>
                 <input type="password" name="new_password_confirmation" class="input_field input_real_field"/>
             </div>
-            
-            <input type="hidden" name="cli_id" value="{{Auth::id()}}">
 
             <input type="submit" value="Modifier" class="btn_submit"/>
         </form>

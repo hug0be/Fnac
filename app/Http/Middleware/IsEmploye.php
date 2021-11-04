@@ -11,6 +11,6 @@ class IsEmploye {
         if($user) {
             return $next($request);
         }
-        return route('emp.login');
+        return redirect()->route('emp.login');
     }
 }

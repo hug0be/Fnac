@@ -27,13 +27,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [jeuVideoController::class, 'home'])->name('home');
 
 //Il faut être authentifié en client pour accéder à ces routes
-Route::middleware('client')->group(function () {
+Route::middleware('auth')->group(function () {
     //Compte client
-    Route::get('/profile', [ClientController::class, 'profile'])->name('profile');
-    Route::post('/profile', [ClientController::class, 'editAccount'])->name('profile');
+    Route::get('/profile', [ClientController::class, 'profile'])->name('cli.profile');
+    Route::post('/profile', [ClientController::class, 'editAccount'])->name('cli.edit');
     Route::get('/profile/adresses', [ClientController::class, 'myAdresses'])->name('myAdresses');
-    Route::get('/password', [ClientController::class, 'password'])->name('password');
-    Route::post('/password', [ClientController::class, 'changePassword'])->name('password');
+    Route::get('/password', [ClientController::class, 'password'])->name('cli.password');
+    Route::post('/password', [ClientController::class, 'changePassword'])->name('cli.password');
     // Route::get('/account', [ClientController::class, 'detailAccount'])->name('detailAccount');
     
     //Adresses
@@ -53,10 +53,10 @@ Route::middleware('client')->group(function () {
 
 //Il faut être authentifié en employé pour accéder à ces routes
 Route::middleware('employe')->group(function () {
-    Route::get('/profile', [EmployeController::class, 'view_profile'])->name('profile');
-    Route::post('/profile', [EmployeController::class, 'edit'])->name('edit');
-    Route::get('/password', [EmployeController::class, 'view_password'])->name('password');
-    Route::post('/password', [EmployeController::class, 'change_password'])->name('password');
+    Route::get('/employe/profile', [EmployeController::class, 'view_profile'])->name('emp.profile');
+    Route::post('/employe/profile', [EmployeController::class, 'edit'])->name('emp.edit');
+    Route::get('/employe/password', [EmployeController::class, 'view_password'])->name('emp.password');
+    Route::post('/employe/password', [EmployeController::class, 'change_password'])->name('emp.password');
     
     Route::middleware(['role:service comm'])->group(function () {
         Route::get('/avisAbusifs', [AvisController::class, 'avisAbusifs'])->name('avisAbusifs');

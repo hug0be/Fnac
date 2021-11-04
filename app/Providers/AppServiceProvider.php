@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('admin', function () {
             return Auth::guard('employe')->check() && Auth::guard('employe')->user()->hasRole('admin');
         });
-        Blade::if('employee', function () {
+        Blade::if('employe', function () {
             return Auth::guard('employe')->check();
         });
         Blade::if('role', function ($roles) {

@@ -72,13 +72,12 @@
                 <label for="fixe" class="label_field" >Fixe *</label>
                 <input type="text" name="fixe" value="{{$compte->telFixe()}}" class="input_field input_real_field"/>
             </div>
-            
-            <input type="hidden" name="cli_id" value="{{$compte->id()}}">
+
             @include('client.adresse.displayAll', ['adressList'=>$compte->adresseList])
             <a href="{{route('newAdresse')}}" class="btn_submit">Ajouter une Adresse</a>
             <input type="submit" value="Modifier mon compte" class="btn_submit"/>
         </form>
-        <a href="{{route("password")}}">
+        <a href="{{route("cli.password")}}">
             Changer de mot de passe
         </a>
     </div>

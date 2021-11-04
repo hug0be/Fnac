@@ -32,7 +32,7 @@
             <input type="submit" value="Modifier mon compte" class="btn_submit"/>
             
         </form>
-        <a href="{{route("password")}}">
+        <a href="{{route("emp.password")}}">
             Changer de mot de passe
         </a>
     </div>  

@@ -7,10 +7,9 @@ use Illuminate\Support\Facades\Auth;
 
 class IsClient {
     public function handle($request, Closure $next) {
-        $user = Auth::guard('client')->user();
-        if($user) {
+        if(Auth::check()) {
             return $next($request);
         }
-        return route('login');
+        return redirect()->route('login');
     }
 }

@@ -62,10 +62,9 @@ class EmployeController extends Controller {
     //Route post for employee to change his email
     public function edit(Request $request) {
         $request->validate([
-            'id' => ['required', 'exists:t_e_employe_emp,emp_id'],
-            'email' => ['required', 'email','max:80', Rule::unique('t_e_employe_emp','emp_mel')->ignore($request->emp_id,'emp_id')],
+            'email' => ['required', 'email','max:80', Rule::unique('t_e_employe_emp','emp_mel')->ignore(Auth::guard('employe')->id(),'emp_id')],
         ]);
-        $employe = Employe::find($request->id);
+        $employe = Employe::find(Auth::guard('employe')->id());
         $employe->emp_mel = $request->email;
         $employe->save();
         return back()->withInput(['validation'=>'Votre compte a bien été modifié !']);
@@ -74,12 +73,11 @@ class EmployeController extends Controller {
     //Route post for admin to add/delete roles and change mail of an employee
     public function edit_admin(Request $request) {
         $request->validate([
-            'id' => ['required', 'exists:t_e_employe_emp,emp_id'],
-            'mail' => ['required','email','max:80', Rule::unique('t_e_employe_emp','emp_mel')->ignore($request->id,'emp_id')],
+            'mail' => ['required','email','max:80', Rule::unique('t_e_employe_emp','emp_mel')->ignore(Auth::guard('employe')->id(),'emp_id')],
             'roles.*' => ['exists:t_r_role_rol,rol_id'],
         ]);
 
-        $emp = Employe::find($request->id);
+        $emp = Employe::find(Auth::guard('employe')->id());
         $emp->emp_mel = $request->mail;
         $emp->save();
 
@@ -90,13 +88,12 @@ class EmployeController extends Controller {
     }
 
     public function view_password() {
-        return view("employe.password", ['id'=>Auth::guard('employe')->id()]);
+        return view("employe.password");
     }
 
     //Route post for employee to change his password
     public function change_password(Request $request) {
         $request->validate([
-            'emp_id' => ['required', 'exists:t_e_employe_emp,emp_id'],
             'current_password' => ['required', 
                 function ($attribute, $value, $fail) {
                     if (!Hash::check($value, Auth::guard('employe')->user()->getAuthPassword())) {
@@ -106,7 +103,7 @@ class EmployeController extends Controller {
             ],
             'new_password' => ['required', 'min:8','confirmed'],
         ]);
-        $employe = Employe::find($request->emp_id);
+        $employe = Employe::find(Auth::guard('employe')->id());
         $employe->emp_motpasse = Hash::make($request->new_password);
         $employe->save();
         return back()->withInput(['validation'=>'Votre mot de passe à bien été modifié.']);
