@@ -29,10 +29,10 @@
         <x-input-error name="roles"/>
         @foreach ($employes as $emp)
         <div style="padding-left: 10%;">
-            <div style="display: flex;  cursor: pointer;" class="dropdown">
+            <div style="display: flex;  cursor: pointer;" class="dropdown_btn">
                 <p style="width: 25%">{{$emp->mail()}}</p><i class="fas fa-chevron-down"></i>
             </div>
-            <form class="visibility_hidden" action="{{route("admin.edit")}}" method="post">
+            <form style="padding-bottom: 10px" class="dropdown" action="{{route("admin.edit")}}" method="post">
                 @csrf 
                 <input type="hidden" name="id" value={{$emp->id()}}>
                 

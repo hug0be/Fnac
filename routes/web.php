@@ -29,11 +29,11 @@ Route::get('/', [jeuVideoController::class, 'home'])->name('home');
 //Il faut être authentifié en client pour accéder à ces routes
 Route::middleware('auth')->group(function () {
     //Compte client
-    Route::get('/profile', [ClientController::class, 'profile'])->name('cli.profile');
-    Route::post('/profile', [ClientController::class, 'editAccount'])->name('cli.edit');
+    Route::get('/profile', [ClientController::class, 'view_profile'])->name('cli.profile');
+    Route::post('/profile', [ClientController::class, 'edit'])->name('cli.edit');
     Route::get('/profile/adresses', [ClientController::class, 'myAdresses'])->name('myAdresses');
-    Route::get('/password', [ClientController::class, 'password'])->name('cli.password');
-    Route::post('/password', [ClientController::class, 'changePassword'])->name('cli.password');
+    Route::get('/password', [ClientController::class, 'view_password'])->name('cli.password');
+    Route::post('/password', [ClientController::class, 'edit_password'])->name('cli.password');
     // Route::get('/account', [ClientController::class, 'detailAccount'])->name('detailAccount');
     
     //Adresses

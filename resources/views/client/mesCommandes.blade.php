@@ -16,14 +16,16 @@
     @include('layout.menu')
 
     <div class="container_all_commande margin_top_content">
-
+        
         <h1 class="">Mes commandes{{$textEnCours}} :</h1>
+        
         @if ($textEnCours =="")
             <a href="/mes-commandes-en-cours" class="access_commands_link">Accéder aux commandes en cours</a>
         @else
             <a href="/mes-commandes" class="access_commands_link">Accéder à toutes vos commandes</a>
         @endif
         <div class="container_all_commande_content">
+            <x-validation-message/>
             @include('commande.displayAll')
         </div>
     </div>

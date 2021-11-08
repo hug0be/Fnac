@@ -776,14 +776,14 @@ body {
 
 
 /* --------------------------------------------------------- ANIM ---------------------------------------------------------*/
-
-
-.visibility_visible {
-    visibility: visible; 
+.dropdown {
+    height: 0;
+    visibility: hidden;
 }
 
-.visibility_hidden {
-    visibility: hidden;
+.visibility_visible {
+    height: unset;
+    visibility: visible;
 }
 
 

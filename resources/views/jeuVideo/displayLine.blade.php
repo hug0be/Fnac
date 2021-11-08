@@ -19,14 +19,10 @@
             <div class="game_line_infos_tab_mid_container">
     
                 <div class="game_line_infos_tab_mid_left">
-                    <p class="game_line_info_console" >{{$videoGame->console->con_nom}} -</p>
-                    <p>Jeu - </p>
+                    <p class="game_line_info_console" >{{$videoGame->console->con_nom}} - </p>
                     <p>{{$videoGame->editeur->edi_nom}} - </p>
                     <p>{{$videoGame->jeu_publiclegal}} - </p>
-
                     <p>
-
-
                         {{ $videoGame->jeu_dateparution->translatedFormat('F Y ') }}
                     </p>
 

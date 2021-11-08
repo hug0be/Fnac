@@ -26,7 +26,7 @@
         <div class="container_all_line_cart_payment">
             
             <div class="container_all_line_cart">
-                
+                <x-input-error name="panier"/>
                 <h1 class="cart_title">Mon panier  </h1>
                 
                 @foreach ($jeuInPanier as $aLignePanier)

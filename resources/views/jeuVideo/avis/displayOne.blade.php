@@ -14,12 +14,13 @@
         </p>
     </div>
 
-    <p class="notice_card_date">Avis posté le {{ $aNotice->avi_date->translatedFormat('l jS F Y à H\hi') }}</p>
+    <p class="notice_card_date">Avis posté le {{ $aNotice->avi_date->translatedFormat('l jS F Y') }}</p>
     <p class="notice_card_title"> {{ $aNotice->avi_titre }} </p>
     <p class="notice_card_descr"> {{ $aNotice->avi_detail }} </p>
 
 
     @auth
+        @if($aNotice->cli_id != Auth::id())
         <div class="container_notice_useful">
 
             <p class="notice_useful_txt">Cet avis vous a été utile ?</p>
@@ -46,6 +47,7 @@
                 <input type="submit" value="Signaler" class="notice_card_signal_submit">
             </form>
         </div>
+        @endif
     @endauth
     
 

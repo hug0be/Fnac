@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Adresse;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 use App\Models\Commande;
 use App\Models\LigneCommande;
 use App\Models\Magasin;
 use App\Models\Relais;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class CommandeController extends Controller
 {
@@ -26,13 +23,12 @@ class CommandeController extends Controller
     }
 
     public function myCommandes() {
-
-        $myCommandes = Commande::where('cli_id', Auth::user()->id())->orderBy('com_date', 'desc')->orderBy('com_id', 'desc')->get();
+        $myCommandes = Commande::where('cli_id', Auth::id())->orderBy('com_date', 'desc')->orderBy('com_id', 'desc')->get();
         return view("client.mesCommandes", [ 'allCommande'=>$myCommandes, 'textEnCours'=>''  ]) ;
     }
 
     public function myCommandesEnCours() {
-        $myCommandes = Commande::where('cli_id', Auth::user()->id())->get();
+        $myCommandes = Commande::where('cli_id', Auth::id())->get();
         foreach($myCommandes as $comKey => $comVal){
             if(!$comVal->isEnCours()){
                 unset($myCommandes[$comKey]);
@@ -45,7 +41,7 @@ class CommandeController extends Controller
         if(empty(session('panier')))
         {
             return back()->withErrors([
-                'error'=>'Le panier est vide, impossible de passer une commande',
+                'panier'=>'Le panier est vide, impossible de passer une commande',
             ]);
         }
         $adresseList = Auth::user()->adresseList->where('adr_type', 'Livraison');
@@ -63,7 +59,7 @@ class CommandeController extends Controller
             $request->validate([
                 'adr_id' => 'required',
               ],[
-                'adr_id.required' => 'Il faut que vous choisissiez une adresse',
+                'adr_id.required' => 'Veuillez choisir une adresse',
             ]);
             $commande->adr_id = $request->adr_id;
         }
@@ -71,7 +67,7 @@ class CommandeController extends Controller
             $request->validate([
                 'rel_id' =>  'required'
             ], [
-                'rel_id.required' => 'Il faut que vous choisissiez un relais',
+                'rel_id.required' => 'Veuillez choisir un relais',
             ]);
             $commande->rel_id = $request->rel_id;
         }
@@ -79,11 +75,10 @@ class CommandeController extends Controller
             $request->validate([
                 'mag_id' =>  'required'
             ], [
-                'mag_id.required' => 'Il faut que vous choisissiez un magasin',
+                'mag_id.required' => 'Veuillez choisir un magasin',
             ]);
             $commande->mag_id = $request->mag_id;
-        } else
-        {
+        } else {
             $request->validate([
                 'typeDelivery' =>  'required'
             ], [

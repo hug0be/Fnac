@@ -2,7 +2,7 @@
 @section('css')
     <style>
         .comparator_container {
-            font-size: 20px;
+            font-size: 15px;
             text-align: center;
             display: flex;
             flex-direction: column;

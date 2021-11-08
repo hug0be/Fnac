@@ -39,6 +39,9 @@
             <div class="container_create_account">
                 <a href="{{route("register")}}" class="link_create_account">Créer mon compte </a>
             </div>
+            <div class="container_create_account">
+                <a href="{{route("emp.login")}}" class="link_create_account">Me connecter en tant qu'employé </a>
+            </div>
             <input type="submit" value="Se connecter" class="btn_submit"/>
         </form>
     </div>

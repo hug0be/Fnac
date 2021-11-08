@@ -10,18 +10,12 @@ use App\Models\Client;
 use App\Models\Pays;
 use Illuminate\Support\Facades\Hash;
 
-class ClientController extends Controller
-{
-
-    // public function detailAccount() {
-    //     return view("client.detailAccount", [ 'detailsAccount'=> Auth::user() ]);
-    // }
-
-    public function profile() {
+class ClientController extends Controller {
+    public function view_profile() {
         return view("client.profile", ['compte'=>Auth::user()]);
     }
 
-    public function editAccount(Request $request) {
+    public function edit(Request $request) {
         $request->validate([
             'civilité' =>  ['required', Rule::in(['M','Mme','Mlle'])],
             'email' => ['required','email','max:80',Rule::unique('t_e_client_cli','cli_mel')->ignore(Auth::id(), 'cli_id')],
@@ -42,10 +36,10 @@ class ClientController extends Controller
         $client->save();
         return back()->withInput(['validation'=>'Votre compte a bien été modifié !']);
     }
-    public function password() {
+    public function view_password() {
         return view("client.password");
     }
-    public function changePassword(Request $request) {
+    public function edit_password(Request $request) {
         $request->validate([
             'current_password' => ['required', 'current_password'],
             'new_password' => ['required', 'min:8','confirmed'],
@@ -53,15 +47,14 @@ class ClientController extends Controller
         $client = Client::find(Auth::id());
         $client->cli_motpasse = Hash::make($request->new_password);
         $client->save();
-        return back();
+        return back()->withInput(['validation'=>'Votre mot de passe à été modifié.']);
     }
 
     public function newAdresse() {
         return view("client.adresse.newAdresse", ['compte'=>Auth::user(), 'paysList' => Pays::all()]);
     }
     
-    public function createAdresse(Request $request)
-    {
+    public function createAdresse(Request $request) {
         $validated = $request->validate([
             'adr_nom' => 'required',
             'adr_type' => 'required',

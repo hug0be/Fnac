@@ -12,6 +12,7 @@
         <h1 class="title_create_account">Modifier votre mot de passe</h1>
     </div>
     <div>
+        <x-validation-message/>
         <form method="post" action= "/password">
             @csrf
             <x-input-error name="current_password"/>

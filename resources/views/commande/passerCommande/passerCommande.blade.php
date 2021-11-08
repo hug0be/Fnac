@@ -32,9 +32,10 @@
 
         <div class="container_form_order">
             <form action="{{route("createCommande")}}" method="post" class="">
-
+                
                 @csrf
-
+                
+                <x-input-error name="typeDelivery"/>
                 <h3 class="order_form_title">Mode de livraison</h3>
 
                 <div class="order_container_all_radio">
@@ -63,10 +64,10 @@
 
 
                 <div class="order_container_all_select">
-
+                    
+                    <x-input-error name="adr_id"/>
                     <div class="order_input_box_select order_input_box_select_home" id="adr">
                         <label for="adresse-select">Adresse :</label>
-                    
                         <select name="adr_id" id="adresse-select">
                             <option value="">-- Adresse --</option>
                             @foreach ($adresseList as $adresse)
@@ -75,7 +76,8 @@
                         </select>
                     </div>
                     
-    
+                    
+                    <x-input-error name="rel_id"/>
                     <div class="order_input_box_select order_input_box_select_relay" id="rel">
                         <label for="relai-select">Relais :</label>
                         <select name="rel_id" id="relai-select">
@@ -87,6 +89,7 @@
                     </div>
                     
                     
+                    <x-input-error name="mag_id"/>
                     <div class="order_input_box_select order_input_box_select_shop" id="mag">
                         <label for="relai-select">Magasin :</label>
                         <select name="mag_id" id="relai-select">
@@ -98,12 +101,7 @@
                     </div>
                 </div>
         
-           
-                <ul class="error error_form_order">
-                    @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+                <x-input-error name="error"/>
               
         
               
